@@ -90,25 +90,26 @@ class Home extends Component {
 						</div>
 					)}
 					{currentGames.map((game) => {
-						return (
-							<a href={game.url}>
-								<div className='game'>
-									{game.top && (
-										<div className='top-tag'>#1</div>
-									)}
-									<div className='game-info'>
-										<img
-											className='game-image'
-											src={game.image}
-											alt={game.title}
-										/>
-										<h3>{game.title}</h3>
-										<span>{game.description}</span>
-									</div>
-
-									<Button label='Play' />
+						const game = (
+							<div className='game'>
+								{game.top && <div className='top-tag'>#1</div>}
+								<div className='game-info'>
+									<img
+										className='game-image'
+										src={game.image}
+										alt={game.title}
+									/>
+									<h3>{game.title}</h3>
+									<span>{game.description}</span>
 								</div>
-							</a>
+
+								<Button label='Play' />
+							</div>
+						);
+						return game.url.startsWith('http') ? (
+							<a href={game.url}>{gameDiv}</a>
+						) : (
+							<Link to={game.url}>{gameDiv}</Link>
 						);
 					})}
 				</div>
