@@ -1,0 +1,27 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.button {
+	border: 1px solid $primary;
+	border-radius: 5px;
+
+	padding: 10px 20px;
+
+	cursor: pointer;
+
+	background: $light;
+
+	transition: $transition;
+}
+
+.button:hover {
+	background: rgba($light, 0.8);
+	color: $dark;
+}
+
+.button:active {
+	background: $primary;
+	color: $light;
+
+	border-color: $dark;
+}

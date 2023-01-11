@@ -1,0 +1,81 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.toggle {
+	display: flex;
+	flex-direction: row;
+
+	gap: 10px;
+
+	align-items: center;
+
+	border: 1px solid $light-background;
+	border-radius: 5px;
+
+	padding: 10px;
+
+	height: 35px;
+
+	position: relative;
+
+	cursor: pointer;
+
+	.toggle-label {
+		color: $medium;
+	}
+
+	.toggle-label-enabled {
+		color: $light;
+	}
+
+	.toggle-track {
+		padding: 10px;
+
+		transition: $transition;
+
+		width: 50px;
+
+		display: flex;
+		flex-direction: row;
+
+		align-items: center;
+
+		border: 1px solid $light-background;
+		border-radius: 5px;
+
+		.toggle-icon {
+			transition: $transition;
+
+			color: $light;
+
+			z-index: 1;
+		}
+
+		.toggle-icon-enabled {
+			color: $dark;
+		}
+
+		.toggle-thumb {
+			position: absolute;
+
+			background: $light;
+
+			width: 25px;
+			height: 25px;
+
+			border-radius: 5px;
+
+			background: $medium;
+
+			transition: $transition;
+
+			transform: translateX(100%);
+		}
+
+		.toggle-thumb-enabled {
+			background: $primary;
+
+			transform: translateX(-10%);
+		}
+	}
+}

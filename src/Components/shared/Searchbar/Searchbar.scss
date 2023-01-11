@@ -1,0 +1,46 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.searchbar {
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+
+	gap: 10px;
+
+	border-radius: 10px;
+	border: 1px solid $light-background;
+
+	padding: 10px;
+
+	width: 300px;
+
+	transition: $transition;
+
+	.search-icon {
+		color: $light-background;
+
+		transition: $transition;
+	}
+
+	input {
+		background: transparent;
+
+		border: none;
+		outline: none;
+
+		width: 100%;
+		height: 100%;
+
+		color: $light;
+	}
+}
+
+.searchbar:hover {
+	border-color: $light;
+
+	.search-icon {
+		color: $light;
+	}
+}
