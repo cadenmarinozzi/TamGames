@@ -1,5 +1,5 @@
 import Navbar from './Components/containers/Navbar';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from 'Components/pages/Home';
 import ClusterRush from 'Games/ClusterRush';
 import './App.scss';
@@ -8,7 +8,7 @@ import Slope from 'Games/Slope/Slope';
 
 function App() {
 	return (
-		<BrowserRouter>
+		<HashRouter>
 			<Navbar />
 			<Routes>
 				<Route path='/' element={<Home />} />
@@ -16,7 +16,7 @@ function App() {
 				<Route path='/motoX3M' element={<MotoX3M />} />
 				<Route path='/slope' element={<Slope />} />
 			</Routes>
-		</BrowserRouter>
+		</HashRouter>
 	);
 }
 
