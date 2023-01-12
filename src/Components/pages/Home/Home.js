@@ -6,6 +6,7 @@ import Slope from 'assets/images/slope.jpeg';
 import Searchbar from 'Components/shared/Searchbar';
 import { Component } from 'react';
 import './Home.scss';
+import { Link } from 'react-router-dom';
 
 const games = [
 	{
@@ -90,7 +91,7 @@ class Home extends Component {
 						</div>
 					)}
 					{currentGames.map((game) => {
-						const game = (
+						const gameDiv = (
 							<div className='game'>
 								{game.top && <div className='top-tag'>#1</div>}
 								<div className='game-info'>
@@ -102,7 +103,6 @@ class Home extends Component {
 									<h3>{game.title}</h3>
 									<span>{game.description}</span>
 								</div>
-
 								<Button label='Play' />
 							</div>
 						);
