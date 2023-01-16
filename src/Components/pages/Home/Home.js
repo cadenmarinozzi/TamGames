@@ -90,9 +90,9 @@ class Home extends Component {
 							No games found! Try changing your search query.
 						</div>
 					)}
-					{currentGames.map((game) => {
+					{currentGames.map((game, index) => {
 						const gameDiv = (
-							<div className='game'>
+							<div className='game' key={index}>
 								{game.top && <div className='top-tag'>#1</div>}
 								<div className='game-info'>
 									<img
