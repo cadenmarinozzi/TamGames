@@ -3,7 +3,10 @@ import './Slope.scss';
 
 function Slope() {
 	return (
-		<Game title='Slope' url='http://tamgames.ueuo.com/Slope/slope.html' />
+		<Game
+			title='Slope'
+			url='https://tamgames.nekumelon.repl.co/Games/Slope/slope.html'
+		/>
 	);
 }
 
