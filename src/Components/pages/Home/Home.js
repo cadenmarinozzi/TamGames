@@ -7,6 +7,7 @@ import Searchbar from 'Components/shared/Searchbar';
 import { Component } from 'react';
 import './Home.scss';
 import { Link } from 'react-router-dom';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 
 const games = [
 	{
@@ -92,7 +93,7 @@ class Home extends Component {
 					)}
 					{currentGames.map((game, index) => {
 						const gameDiv = (
-							<div className='game' key={index}>
+							<div className='game'>
 								{game.top && <div className='top-tag'>#1</div>}
 								<div className='game-info'>
 									<img
@@ -103,13 +104,18 @@ class Home extends Component {
 									<h3>{game.title}</h3>
 									<span>{game.description}</span>
 								</div>
-								<Button label='Play' />
+								<Button label='Play' icon={faPlay} />
 							</div>
 						);
+
 						return game.url.startsWith('http') ? (
-							<a href={game.url}>{gameDiv}</a>
+							<a key={index} href={game.url}>
+								{gameDiv}
+							</a>
 						) : (
-							<Link to={game.url}>{gameDiv}</Link>
+							<Link key={index} to={game.url}>
+								{gameDiv}
+							</Link>
 						);
 					})}
 				</div>

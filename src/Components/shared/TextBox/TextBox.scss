@@ -1,0 +1,16 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.text-area {
+	background: $dark;
+
+	padding: 10px;
+
+	width: 400px;
+	height: 150px;
+
+	outline: none;
+	border: 1px solid $light-background;
+
+	color: $light;
+}

@@ -14,26 +14,35 @@
 
 	justify-content: space-between;
 
-	.navbar-title {
+	.navbar-section {
 		display: flex;
 		flex-direction: row;
 
-		gap: 10px;
+		gap: 20px;
 
 		align-items: center;
 
-		cursor: pointer;
+		.navbar-title {
+			display: flex;
+			flex-direction: row;
 
-		.logo {
-			height: 20pt;
+			gap: 10px;
+
+			align-items: center;
+
+			cursor: pointer;
+
+			.logo {
+				height: 20pt;
+			}
+
+			.title-primary {
+				color: $primary;
+			}
 		}
 
-		.title-primary {
-			color: $primary;
+		.navbar-button {
+			cursor: pointer;
 		}
-	}
-
-	.navbar-button {
-		cursor: pointer;
 	}
 }

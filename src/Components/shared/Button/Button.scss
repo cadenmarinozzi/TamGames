@@ -14,6 +14,30 @@
 	transition: $transition;
 }
 
+.button-cta {
+	background: $cta;
+	color: $light;
+
+	border-color: $dark;
+}
+
+.button-icon {
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 10px;
+}
+
+.button-transparent {
+	background: transparent;
+	color: $light;
+
+	border-color: $light;
+}
+
 .button:hover {
 	background: rgba($light, 0.8);
 	color: $dark;

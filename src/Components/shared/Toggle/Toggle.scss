@@ -20,8 +20,12 @@
 
 	cursor: pointer;
 
+	transition: $transition;
+
 	.toggle-label {
 		color: $medium;
+
+		transition: $transition;
 	}
 
 	.toggle-label-enabled {
