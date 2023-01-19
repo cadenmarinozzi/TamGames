@@ -1,8 +1,15 @@
 {
-  "short_name": "TamGames",
-  "name": "TamGames",
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+	"short_name": "TamGames",
+	"name": "TamGames",
+	"start_url": ".",
+	"display": "standalone",
+	"theme_color": "#000000",
+	"background_color": "#ffffff",
+	"icons": [
+		{
+			"src": "./assets/images/logoSmall.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		}
+	]
 }

@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/TamGames/static/css/main.0e350380.css",
-    "main.js": "/TamGames/static/js/main.2f3a870f.js",
+    "main.css": "/TamGames/static/css/main.7787cb50.css",
+    "main.js": "/TamGames/static/js/main.e73cde8a.js",
     "static/media/motoX3M.png": "/TamGames/static/media/motoX3M.b4fdc0a3f01503fe906a.png",
     "static/media/clusterRush.jpeg": "/TamGames/static/media/clusterRush.81069f12cf272b8c6d70.jpeg",
     "static/media/GetTam.png": "/TamGames/static/media/GetTam.d52c64bbbedd59d1d4c8.png",
     "static/media/slope.jpeg": "/TamGames/static/media/slope.a683c414853e418fa0d2.jpeg",
     "index.html": "/TamGames/index.html",
-    "main.0e350380.css.map": "/TamGames/static/css/main.0e350380.css.map",
-    "main.2f3a870f.js.map": "/TamGames/static/js/main.2f3a870f.js.map"
+    "main.7787cb50.css.map": "/TamGames/static/css/main.7787cb50.css.map",
+    "main.e73cde8a.js.map": "/TamGames/static/js/main.e73cde8a.js.map"
   },
   "entrypoints": [
-    "static/css/main.0e350380.css",
-    "static/js/main.2f3a870f.js"
+    "static/css/main.7787cb50.css",
+    "static/js/main.e73cde8a.js"
   ]
 }
