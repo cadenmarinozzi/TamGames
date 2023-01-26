@@ -216,7 +216,6 @@ function LoadCompressedFile(e, t, n) {
 	CompressionState.current == CompressionState.Uninitialized &&
 		(CompressionState.current = CompressionState.Pending);
 	var o = new XMLHttpRequest();
-	console.log(e);
 	o.open('GET', e, !0),
 		(o.responseType = 'arraybuffer'),
 		(o.onprogress = function (e) {
