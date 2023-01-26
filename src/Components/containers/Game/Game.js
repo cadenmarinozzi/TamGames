@@ -1,13 +1,15 @@
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { addGamePlay } from 'modules/web';
 import { Component } from 'react';
 import './Game.scss';
 
 class Game extends Component {
-	constructor() {
+	constructor(props) {
 		super();
 
 		this.state = {};
+		addGamePlay(props.title);
 	}
 
 	enableFullscreen() {
