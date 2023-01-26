@@ -9,6 +9,7 @@ import { addSiteView } from 'modules/web';
 import { Component } from 'react';
 import Button from 'Components/shared/Button';
 import { getCookie } from 'modules/cookies';
+import Superhot from 'Games/Superhot';
 
 class App extends Component {
 	constructor() {
@@ -69,6 +70,7 @@ class App extends Component {
 					<Route path='/clusterRush' element={<ClusterRush />} />
 					<Route path='/motoX3M' element={<MotoX3M />} />
 					<Route path='/slope' element={<Slope />} />
+					<Route path='/superhot' element={<Superhot />} />
 				</Routes>
 			</HashRouter>
 		);
