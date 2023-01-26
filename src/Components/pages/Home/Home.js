@@ -3,6 +3,7 @@ import GetTam from 'assets/images/GetTam.png';
 import Button from 'Components/shared/Button';
 import MotoX3M from 'assets/images/motoX3M.png';
 import Slope from 'assets/images/slope.jpeg';
+import Superhot from 'assets/images/superhot.jpeg';
 import Searchbar from 'Components/shared/Searchbar';
 import { Component } from 'react';
 import './Home.scss';
@@ -37,6 +38,12 @@ const games = [
 		description: `Slope is a ball runner game where you roll to the end.`,
 		image: Slope,
 		url: '/slope',
+	},
+	{
+		title: 'Superhot',
+		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
+		image: Superhot,
+		url: '/superhot',
 	},
 ];
 
