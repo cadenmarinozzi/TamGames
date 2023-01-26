@@ -3,7 +3,7 @@ import GetTam from 'assets/images/GetTam.png';
 import Button from 'Components/shared/Button';
 import MotoX3M from 'assets/images/motoX3M.png';
 import Slope from 'assets/images/slope.jpeg';
-import Superhot from 'assets/images/superhot.jpeg';
+import Superhot from 'assets/images/superhot.jpg';
 import Searchbar from 'Components/shared/Searchbar';
 import { Component } from 'react';
 import './Home.scss';
