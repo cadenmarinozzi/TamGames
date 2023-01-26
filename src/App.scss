@@ -37,3 +37,23 @@
 		cursor: pointer;
 	}
 }
+
+.cloak-screen {
+	position: absolute;
+
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	border: none;
+	outline: none;
+}
+
+.uncloak-button {
+	position: absolute;
+
+	bottom: 10px;
+	left: 10px;
+}

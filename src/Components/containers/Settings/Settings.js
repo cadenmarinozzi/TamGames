@@ -64,6 +64,11 @@ class Settings extends Component {
 						disabledIcon={faEyeSlash}
 						onChange={this.toggleTabCloaker.bind(this)}
 					/>
+					<span>
+						With the tab cloaker on, switching tabs or changing
+						windows will cloak the tab as Google Drive. To go back,
+						click the "Back" button in the bottom left.
+					</span>
 					<Button
 						onClick={this.props.closeSettings}
 						label='Close'
