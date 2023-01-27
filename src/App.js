@@ -11,6 +11,7 @@ import Button from 'Components/shared/Button';
 import { getCookie } from 'modules/cookies';
 import Superhot from 'Games/Superhot';
 import Stack from 'Games/Stack';
+import RollingForests from 'Games/RollingForests';
 
 class App extends Component {
 	constructor() {
@@ -74,6 +75,10 @@ class App extends Component {
 					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/stack' element={<Stack />} />
+					<Route
+						path='/rollingForests'
+						element={<RollingForests />}
+					/>
 				</Routes>
 			</HashRouter>
 		);

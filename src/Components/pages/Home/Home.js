@@ -5,7 +5,9 @@ import MotoX3M from 'assets/images/motoX3M.png';
 import Slope from 'assets/images/slope.jpeg';
 import Superhot from 'assets/images/superhot.jpg';
 import Searchbar from 'Components/shared/Searchbar';
-import Stack from 'assets/images/Stack';
+import Stack from 'assets/images/Stack.jpg';
+import RollingForests from 'assets/images/rollingForests.png';
+
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -48,9 +50,15 @@ const games = [
 	},
 	{
 		title: 'Stack',
-		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
+		description: `Stack is a simple stacking game where you stack blocks to get to the top.`,
 		image: Stack,
-		url: '/stac',
+		url: '/stack',
+	},
+	{
+		title: 'RollingForests',
+		description: `RollingForests is a infinie runner game where you dodge the forest to get a high score.`,
+		image: RollingForests,
+		url: '/rollingForests',
 	},
 ];
 
