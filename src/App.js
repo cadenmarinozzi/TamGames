@@ -10,6 +10,7 @@ import { Component } from 'react';
 import Button from 'Components/shared/Button';
 import { getCookie } from 'modules/cookies';
 import Superhot from 'Games/Superhot';
+import Stack from 'Games/Stack';
 
 class App extends Component {
 	constructor() {
@@ -71,6 +72,8 @@ class App extends Component {
 					<Route path='/motoX3M' element={<MotoX3M />} />
 					<Route path='/slope' element={<Slope />} />
 					<Route path='/superhot' element={<Superhot />} />
+					<Route path='/superhot' element={<Superhot />} />
+					<Route path='/stack' element={<Stack />} />
 				</Routes>
 			</HashRouter>
 		);

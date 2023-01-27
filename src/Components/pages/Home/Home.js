@@ -5,10 +5,11 @@ import MotoX3M from 'assets/images/motoX3M.png';
 import Slope from 'assets/images/slope.jpeg';
 import Superhot from 'assets/images/superhot.jpg';
 import Searchbar from 'Components/shared/Searchbar';
+import Stack from 'assets/images/Stack';
 import { Component } from 'react';
-import './Home.scss';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import './Home.scss';
 
 const games = [
 	{
@@ -44,6 +45,12 @@ const games = [
 		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
 		image: Superhot,
 		url: '/superhot',
+	},
+	{
+		title: 'Stack',
+		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
+		image: Stack,
+		url: '/stac',
 	},
 ];
 
