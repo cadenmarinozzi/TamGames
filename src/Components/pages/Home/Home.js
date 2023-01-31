@@ -7,7 +7,7 @@ import Superhot from 'assets/images/superhot.jpg';
 import Searchbar from 'Components/shared/Searchbar';
 import Stack from 'assets/images/Stack.jpg';
 import RollingForests from 'assets/images/rollingForests.png';
-
+import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -55,10 +55,16 @@ const games = [
 		url: '/stack',
 	},
 	{
-		title: 'RollingForests',
-		description: `RollingForests is a infinie runner game where you dodge the forest to get a high score.`,
+		title: 'Rolling Forests',
+		description: `Rolling Forests is a infinite runner game where you dodge the forest to get a high score.`,
 		image: RollingForests,
 		url: '/rollingForests',
+	},
+	{
+		title: 'Subway Surfers',
+		description: `Subway Surfers is a endless runner game where you dodge trains and collect coins.`,
+		image: SubwaySurfers,
+		url: '/subwaySurfers',
 	},
 ];
 

@@ -12,6 +12,7 @@ import { getCookie } from 'modules/cookies';
 import Superhot from 'Games/Superhot';
 import Stack from 'Games/Stack';
 import RollingForests from 'Games/RollingForests';
+import SubwaySurfers from './Games/SubwaySurfers';
 
 class App extends Component {
 	constructor() {
@@ -79,6 +80,7 @@ class App extends Component {
 						path='/rollingForests'
 						element={<RollingForests />}
 					/>
+					<Route path='/subwaySurfers' element={<SubwaySurfers />} />
 				</Routes>
 			</HashRouter>
 		);
