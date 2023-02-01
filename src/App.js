@@ -4,7 +4,6 @@ import Home from 'Components/pages/Home';
 import ClusterRush from 'Games/ClusterRush';
 import MotoX3M from 'Games/MotoX3M';
 import Slope from 'Games/Slope/Slope';
-import './App.scss';
 import { addSiteView } from 'modules/web';
 import { Component } from 'react';
 import Button from 'Components/shared/Button';
@@ -13,6 +12,8 @@ import Superhot from 'Games/Superhot';
 import Stack from 'Games/Stack';
 import RollingForests from 'Games/RollingForests';
 import SubwaySurfers from './Games/SubwaySurfers';
+import RetroBowl from './Games/RetroBowl';
+import './App.scss';
 
 class App extends Component {
 	constructor() {
@@ -76,6 +77,7 @@ class App extends Component {
 					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/stack' element={<Stack />} />
+					<Route path='/retroBowl' element={<RetroBowl />} />
 					<Route
 						path='/rollingForests'
 						element={<RollingForests />}

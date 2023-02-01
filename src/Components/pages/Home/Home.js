@@ -8,6 +8,7 @@ import Searchbar from 'Components/shared/Searchbar';
 import Stack from 'assets/images/Stack.jpg';
 import RollingForests from 'assets/images/rollingForests.png';
 import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
+import RetroBowl from 'assets/images/retroBowl.jpeg';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -65,6 +66,12 @@ const games = [
 		description: `Subway Surfers is a endless runner game where you dodge trains and collect coins.`,
 		image: SubwaySurfers,
 		url: '/subwaySurfers',
+	},
+	{
+		title: 'Retro Bowl',
+		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
+		image: RetroBowl,
+		url: '/retroBowl',
 	},
 ];
 
