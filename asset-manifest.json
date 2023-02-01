@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/TamGames/static/css/main.97f886cf.css",
-    "main.js": "/TamGames/static/js/main.2f11d33b.js",
+    "main.js": "/TamGames/static/js/main.73b93252.js",
     "static/media/subwaySurfers.jpg": "/TamGames/static/media/subwaySurfers.164ab1f8d544a6b7dcb7.jpg",
     "static/media/motoX3M.png": "/TamGames/static/media/motoX3M.b4fdc0a3f01503fe906a.png",
+    "static/media/scrapMetal.png": "/TamGames/static/media/scrapMetal.9fde743187bc5cae2e9a.png",
     "static/media/superhot.jpg": "/TamGames/static/media/superhot.263a720956e924c0a297.jpg",
     "static/media/clusterRush.jpeg": "/TamGames/static/media/clusterRush.81069f12cf272b8c6d70.jpeg",
     "static/media/rollingForests.png": "/TamGames/static/media/rollingForests.a60899b89cb9af04466c.png",
@@ -13,10 +14,10 @@
     "static/media/slope.jpeg": "/TamGames/static/media/slope.a683c414853e418fa0d2.jpeg",
     "index.html": "/TamGames/index.html",
     "main.97f886cf.css.map": "/TamGames/static/css/main.97f886cf.css.map",
-    "main.2f11d33b.js.map": "/TamGames/static/js/main.2f11d33b.js.map"
+    "main.73b93252.js.map": "/TamGames/static/js/main.73b93252.js.map"
   },
   "entrypoints": [
     "static/css/main.97f886cf.css",
-    "static/js/main.2f11d33b.js"
+    "static/js/main.73b93252.js"
   ]
 }
