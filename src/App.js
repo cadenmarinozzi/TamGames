@@ -13,6 +13,7 @@ import Stack from 'Games/Stack';
 import RollingForests from 'Games/RollingForests';
 import SubwaySurfers from './Games/SubwaySurfers';
 import RetroBowl from './Games/RetroBowl';
+import ScrapMetal from './Games/ScrapMetal';
 import './App.scss';
 
 class App extends Component {
@@ -83,6 +84,7 @@ class App extends Component {
 						element={<RollingForests />}
 					/>
 					<Route path='/subwaySurfers' element={<SubwaySurfers />} />
+					<Route path='/scrapMetal' element={<ScrapMetal />} />
 				</Routes>
 			</HashRouter>
 		);

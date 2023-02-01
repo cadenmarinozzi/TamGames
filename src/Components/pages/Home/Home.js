@@ -9,6 +9,7 @@ import Stack from 'assets/images/Stack.jpg';
 import RollingForests from 'assets/images/rollingForests.png';
 import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
+import ScrapMetal from 'assets/images/scrapMetal.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -72,6 +73,12 @@ const games = [
 		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
 		image: RetroBowl,
 		url: '/retroBowl',
+	},
+	{
+		title: 'Scrap Metal',
+		description: `Drive around in a selection of cars in this 3D driving game!`,
+		image: ScrapMetal,
+		url: '/scrapMetal',
 	},
 ];
 
