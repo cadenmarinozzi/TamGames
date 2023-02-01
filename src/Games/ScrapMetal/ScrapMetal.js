@@ -1,7 +1,7 @@
 import Game from 'Components/containers/Game';
 import './ScrapMetal.scss';
 
-function ClusterRush() {
+function ScrapMetal() {
 	return (
 		<Game
 			title='ScrapMetal'
@@ -10,4 +10,4 @@ function ClusterRush() {
 	);
 }
 
-export default ClusterRush;
+export default ScrapMetal;
