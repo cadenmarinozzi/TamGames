@@ -1,1 +1,1 @@
-export { default } from './MetroBowl';
+export { default } from './RetroBowl';
