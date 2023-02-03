@@ -5,7 +5,7 @@ import MotoX3M from 'assets/images/motoX3M.png';
 import Slope from 'assets/images/slope.jpeg';
 import Superhot from 'assets/images/superhot.jpg';
 import Searchbar from 'Components/shared/Searchbar';
-import Stack from 'assets/images/Stack.jpg';
+import Stack from 'assets/images/stack.jpg';
 import RollingForests from 'assets/images/rollingForests.png';
 import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';

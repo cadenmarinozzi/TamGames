@@ -11,9 +11,9 @@ import { getCookie } from 'modules/cookies';
 import Superhot from 'Games/Superhot';
 import Stack from 'Games/Stack';
 import RollingForests from 'Games/RollingForests';
-import SubwaySurfers from './Games/SubwaySurfers';
-import RetroBowl from './Games/RetroBowl';
-import ScrapMetal from './Games/ScrapMetal';
+import SubwaySurfers from 'Games/SubwaySurfers';
+import RetroBowl from 'Games/RetroBowl';
+import ScrapMetal from 'Games/ScrapMetal';
 import './App.scss';
 
 class App extends Component {
@@ -75,7 +75,6 @@ class App extends Component {
 					<Route path='/clusterRush' element={<ClusterRush />} />
 					<Route path='/motoX3M' element={<MotoX3M />} />
 					<Route path='/slope' element={<Slope />} />
-					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/superhot' element={<Superhot />} />
 					<Route path='/stack' element={<Stack />} />
 					<Route path='/retroBowl' element={<RetroBowl />} />

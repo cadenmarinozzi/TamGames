@@ -2,7 +2,6 @@
 	"name": "tam-games",
 	"version": "0.1.0",
 	"private": true,
-	"homepage": "https://nekumelon.github.io/TamGames",
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.2.1",
 		"@fortawesome/free-solid-svg-icons": "^6.2.1",
@@ -19,7 +18,7 @@
 	},
 	"scripts": {
 		"predeploy": "npm run build",
-		"deploy": "gh-pages -d build",
+		"deploy": "npm run predeploy && firebase deploy",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
