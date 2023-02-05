@@ -5,7 +5,7 @@ function ScrapMetal() {
 	return (
 		<Game
 			title='ScrapMetal'
-			url='https://tamgames.nekumelon.repl.co/Games/ScrapMetal/scrapMetal.html'
+			url='https://tamgames.net/Games/ScrapMetal/scrapMetal.html'
 		/>
 	);
 }

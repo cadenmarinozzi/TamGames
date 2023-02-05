@@ -5,7 +5,7 @@ function ClusterRush() {
 	return (
 		<Game
 			title='ClusterRush'
-			url='https://tamgames.nekumelon.repl.co/Games/ClusterRush/clusterRush.html'
+			url='https://tamgames.net/Games/ClusterRush/clusterRush.html'
 		/>
 	);
 }

@@ -3,10 +3,7 @@ import './Stack.scss';
 
 function Stack() {
 	return (
-		<Game
-			title='Stack'
-			url='https://tamgames.nekumelon.repl.co/Games/Stack/stack.html'
-		/>
+		<Game title='Stack' url='https://tamgames.net/Games/Stack/stack.html' />
 	);
 }
 

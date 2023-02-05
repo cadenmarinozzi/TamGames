@@ -5,7 +5,7 @@ function JustFall() {
 	return (
 		<Game
 			title='JustFall'
-			url='https://tamgames.nekumelon.repl.co/Games/JustFall/justFall.html'
+			url='https://tamgames.net/Games/JustFall/justFall.html'
 		/>
 	);
 }

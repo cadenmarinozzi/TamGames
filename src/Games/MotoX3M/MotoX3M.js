@@ -5,7 +5,7 @@ function MotoX3M() {
 	return (
 		<Game
 			title='MotoX3M'
-			url='https://tamgames.nekumelon.repl.co/Games/MotoX3M/motoX3M.html'
+			url='https://tamgames.net/Games/MotoX3M/motoX3M.html'
 		/>
 	);
 }

@@ -5,7 +5,7 @@ function Minecraft() {
 	return (
 		<Game
 			title='Minecraft'
-			url='https://tamgames.nekumelon.repl.co/Games/Minecraft/minecraft.html'
+			url='https://tamgames.net/Games/Minecraft/minecraft.html'
 		/>
 	);
 }

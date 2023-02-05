@@ -5,7 +5,7 @@ function Superhot() {
 	return (
 		<Game
 			title='Superhot'
-			url='https://tamgames.nekumelon.repl.co/Games/Superhot/superhot.html'
+			url='https://tamgames.net/Games/Superhot/superhot.html'
 		/>
 	);
 }

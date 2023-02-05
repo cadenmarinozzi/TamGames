@@ -5,7 +5,7 @@ function SubwaySurfers() {
 	return (
 		<Game
 			title='SubwaySurfers'
-			url='https://tamgames.nekumelon.repl.co/Games/SubwaySurfers/subwaySurfers.html'
+			url='https://tamgames.net/Games/SubwaySurfers/subwaySurfers.html'
 		/>
 	);
 }

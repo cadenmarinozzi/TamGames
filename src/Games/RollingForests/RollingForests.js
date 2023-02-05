@@ -5,7 +5,7 @@ function RollingForests() {
 	return (
 		<Game
 			title='RollingForests'
-			url='https://tamgames.nekumelon.repl.co/Games/RollingForests/rollingForests.html'
+			url='https://tamgames.net/Games/RollingForests/rollingForests.html'
 		/>
 	);
 }
