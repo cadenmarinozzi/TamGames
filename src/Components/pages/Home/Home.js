@@ -11,6 +11,7 @@ import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
+import Minecraft from 'assets/images/minecraft.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -82,10 +83,16 @@ const games = [
 		url: '/scrapMetal',
 	},
 	{
-		title: 'JustFall',
+		title: 'Just Fall',
 		description: `Basically just fall guys...`,
 		image: JustFall,
 		url: '/justFall',
+	},
+	{
+		title: 'Minecraft',
+		description: `Online Minecraft in your browser!`,
+		image: Minecraft,
+		url: '/minecraft',
 	},
 ];
 
