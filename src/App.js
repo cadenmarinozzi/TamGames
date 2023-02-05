@@ -16,6 +16,7 @@ import RetroBowl from 'Games/RetroBowl';
 import ScrapMetal from 'Games/ScrapMetal';
 import JustFall from 'Games/JustFall';
 import Minecraft from 'Games/Minecraft';
+import DriftHunters from 'Games/DriftHunters';
 import './App.scss';
 
 class App extends Component {
@@ -88,6 +89,7 @@ class App extends Component {
 					<Route path='/scrapMetal' element={<ScrapMetal />} />
 					<Route path='/justFall' element={<JustFall />} />
 					<Route path='/minecraft' element={<Minecraft />} />
+					<Route path='/driftHunters' element={<DriftHunters />} />
 				</Routes>
 			</BrowserRouter>
 		);

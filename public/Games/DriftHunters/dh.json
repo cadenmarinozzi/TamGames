@@ -1,0 +1,10 @@
+{
+	"TOTAL_MEMORY": 1073741824,
+	"dataUrl": "https://ubg100.bitbucket.io/games/dh/dh.data.unityweb",
+	"asmCodeUrl": "https://cdn.jsdelivr.net/gh/nekumelon/TamGames/public/Games/DriftHunters/dh.asm.code.unityweb",
+	"asmMemoryUrl": "https://cdn.jsdelivr.net/gh/nekumelon/TamGames/public/Games/DriftHunters/dh.asm.memory.unityweb",
+	"asmFrameworkUrl": "https://cdn.jsdelivr.net/gh/nekumelon/TamGames/public/Games/DriftHunters/dh.asm.framework.unityweb",
+	"backgroundUrl": "",
+	"splashScreenStyle": "Dark",
+	"backgroundColor": "#111111"
+}

@@ -12,6 +12,7 @@ import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
 import Minecraft from 'assets/images/minecraft.png';
+import DriftHunters from 'assets/images/driftHunters.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -93,6 +94,12 @@ const games = [
 		description: `Online Minecraft in your browser!`,
 		image: Minecraft,
 		url: '/minecraft',
+	},
+	{
+		title: 'Drift Hunters',
+		description: `Drift through corners in this realistic 3D drifting game!`,
+		image: DriftHunters,
+		url: '/driftHunters',
 	},
 ];
 
