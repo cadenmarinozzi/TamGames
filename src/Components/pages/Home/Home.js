@@ -10,6 +10,7 @@ import RollingForests from 'assets/images/rollingForests.png';
 import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
+import JustFall from 'assets/images/justFall.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay } from '@fortawesome/free-solid-svg-icons';
@@ -79,6 +80,12 @@ const games = [
 		description: `Drive around in a selection of cars in this 3D driving game!`,
 		image: ScrapMetal,
 		url: '/scrapMetal',
+	},
+	{
+		title: 'JustFall',
+		description: `Basically just fall guys...`,
+		image: JustFall,
+		url: '/justFall',
 	},
 ];
 
