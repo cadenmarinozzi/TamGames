@@ -18,7 +18,7 @@
 	},
 	"scripts": {
 		"predeploy": "npm run build",
-		"deploy": "npm run predeploy && firebase deploy",
+		"deploy": "firebase deploy",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",

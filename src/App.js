@@ -1,5 +1,5 @@
 import Navbar from './Components/containers/Navbar';
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import Home from 'Components/pages/Home';
 import ClusterRush from 'Games/ClusterRush';
 import MotoX3M from 'Games/MotoX3M';
@@ -68,7 +68,7 @@ class App extends Component {
 				/>
 			</>
 		) : (
-			<HashRouter>
+			<BrowserRouter>
 				<Navbar />
 				<Routes>
 					<Route path='/' element={<Home />} />
@@ -85,7 +85,7 @@ class App extends Component {
 					<Route path='/subwaySurfers' element={<SubwaySurfers />} />
 					<Route path='/scrapMetal' element={<ScrapMetal />} />
 				</Routes>
-			</HashRouter>
+			</BrowserRouter>
 		);
 	}
 }
