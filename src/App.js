@@ -17,9 +17,9 @@ import ScrapMetal from 'Games/ScrapMetal';
 import JustFall from 'Games/JustFall';
 import Minecraft from 'Games/Minecraft';
 import DriftHunters from 'Games/DriftHunters';
-import './App.scss';
 import Footer from 'Components/containers/Footer';
 import JetpackJoyriders from 'Games/JetpackJoyriders';
+import './App.scss';
 
 class App extends Component {
 	constructor() {

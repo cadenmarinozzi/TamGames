@@ -296,14 +296,13 @@ class Home extends Component {
 										<span>{game.description}</span>
 									</div>
 									<div className='game-buttons'>
-										<Button
-											label='Play'
-											cta
-											icon={faPlay}
-											onClick={() => {
-												window.location.href = game.url;
-											}}
-										/>
+										<Link to={game.url}>
+											<Button
+												label='Play'
+												cta
+												icon={faPlay}
+											/>
+										</Link>
 										<Button
 											label='Rate'
 											icon={faStar}
