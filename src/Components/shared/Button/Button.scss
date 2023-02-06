@@ -49,3 +49,18 @@
 
 	border-color: $dark;
 }
+
+.button-danger {
+	background: $primary;
+	color: $light;
+}
+
+.button-danger:hover {
+	background: $light;
+	color: $dark;
+}
+
+.button-danger:active {
+	background: rgba($primary, 0.6);
+	color: $light;
+}

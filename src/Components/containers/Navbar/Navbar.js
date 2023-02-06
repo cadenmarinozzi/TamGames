@@ -1,12 +1,18 @@
 import TamLogo from 'assets/images/logoSmall.png';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faGamepad } from '@fortawesome/free-solid-svg-icons';
+import {
+	faCog,
+	faGamepad,
+	faInfo,
+	faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import Settings from '../Settings';
 import { Component, createRef } from 'react';
 import Button from 'Components/shared/Button';
-import './Navbar.scss';
 import GameRequest from '../GameRequest';
+import Info from '../Info';
+import './Navbar.scss';
 
 class Navbar extends Component {
 	constructor() {
@@ -22,6 +28,12 @@ class Navbar extends Component {
 		});
 	}
 
+	closeInfo() {
+		this.setState({
+			infoOpen: false,
+		});
+	}
+
 	closeGameRequest() {
 		this.setState({
 			gameRequestOpen: false,
@@ -31,6 +43,12 @@ class Navbar extends Component {
 	openSettings() {
 		this.setState({
 			settingsOpen: true,
+		});
+	}
+
+	openInfo() {
+		this.setState({
+			infoOpen: true,
 		});
 	}
 
@@ -83,6 +101,11 @@ class Navbar extends Component {
 							onClick={this.openSettings.bind(this)}
 							className='navbar-button'
 						/>
+						<FontAwesomeIcon
+							icon={faInfoCircle}
+							onClick={this.openInfo.bind(this)}
+							className='navbar-button'
+						/>
 					</div>
 				</div>
 				{this.state.settingsOpen && (
@@ -92,6 +115,9 @@ class Navbar extends Component {
 					<GameRequest
 						closeGameRequest={this.closeGameRequest.bind(this)}
 					/>
+				)}
+				{this.state.infoOpen && (
+					<Info closeInfo={this.closeInfo.bind(this)} />
 				)}
 			</>
 		);

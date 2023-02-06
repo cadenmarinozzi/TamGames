@@ -16,7 +16,7 @@ import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getGamePlays, getGameRatings, rateGame } from 'modules/web';
@@ -272,6 +272,17 @@ class Home extends Component {
 										onChange={async (rating) => {
 											await rateGame(gameTitle, rating);
 
+											this.setState({
+												currentlyRating: null,
+											});
+										}}
+									/>
+									<Button
+										className='cancel-button'
+										danger
+										label='Cancel'
+										icon={faCancel}
+										onClick={() => {
 											this.setState({
 												currentlyRating: null,
 											});
