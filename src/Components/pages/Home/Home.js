@@ -15,8 +15,12 @@ import Minecraft from 'assets/images/minecraft.png';
 import DriftHunters from 'assets/images/driftHunters.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { faPlay } from '@fortawesome/free-solid-svg-icons';
+import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { getGamePlays, getGameRatings, rateGame } from 'modules/web';
 import './Home.scss';
+import StarSelector from 'Components/shared/StarSelector';
 
 const games = [
 	{
@@ -25,7 +29,6 @@ const games = [
 			'GetTam is a 2048 inspired tile game where you combine tiles to get tam.',
 		image: GetTam,
 		url: 'https://lankmann.github.io/GetTam/',
-		top: true,
 	},
 	{
 		title: 'Cluster Rush',
@@ -35,11 +38,41 @@ const games = [
 		url: '/clusterRush',
 	},
 	{
+		title: 'Just Fall',
+		description: `Basically just fall guys...`,
+		image: JustFall,
+		url: '/justFall',
+	},
+	{
+		title: 'Minecraft',
+		description: `Online Minecraft in your browser!`,
+		image: Minecraft,
+		url: '/minecraft',
+	},
+	{
+		title: 'Drift Hunters',
+		description: `Drift through corners in this realistic 3D drifting game!`,
+		image: DriftHunters,
+		url: '/driftHunters',
+	},
+	{
 		title: 'Moto X3M',
 		description: `Play Moto X3M, a level based moto game where
 		you dodge obstacles to get to the end!`,
 		image: MotoX3M,
 		url: '/motoX3M',
+	},
+	{
+		title: 'Subway Surfers',
+		description: `Subway Surfers is a endless runner game where you dodge trains and collect coins.`,
+		image: SubwaySurfers,
+		url: '/subwaySurfers',
+	},
+	{
+		title: 'Retro Bowl',
+		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
+		image: RetroBowl,
+		url: '/retroBowl',
 	},
 	{
 		title: 'Slope',
@@ -66,40 +99,10 @@ const games = [
 		url: '/rollingForests',
 	},
 	{
-		title: 'Subway Surfers',
-		description: `Subway Surfers is a endless runner game where you dodge trains and collect coins.`,
-		image: SubwaySurfers,
-		url: '/subwaySurfers',
-	},
-	{
-		title: 'Retro Bowl',
-		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
-		image: RetroBowl,
-		url: '/retroBowl',
-	},
-	{
 		title: 'Scrap Metal',
 		description: `Drive around in a selection of cars in this 3D driving game!`,
 		image: ScrapMetal,
 		url: '/scrapMetal',
-	},
-	{
-		title: 'Just Fall',
-		description: `Basically just fall guys...`,
-		image: JustFall,
-		url: '/justFall',
-	},
-	{
-		title: 'Minecraft',
-		description: `Online Minecraft in your browser!`,
-		image: Minecraft,
-		url: '/minecraft',
-	},
-	{
-		title: 'Drift Hunters',
-		description: `Drift through corners in this realistic 3D drifting game!`,
-		image: DriftHunters,
-		url: '/driftHunters',
 	},
 ];
 
@@ -112,6 +115,15 @@ class Home extends Component {
 		};
 	}
 
+	async componentDidMount() {
+		const gamePlays = await getGamePlays();
+		const gameRatings = await getGameRatings();
+		this.setState({
+			gamePlays,
+			gameRatings,
+		});
+	}
+
 	handleSearchChange(value) {
 		this.setState({
 			search: value,
@@ -119,7 +131,7 @@ class Home extends Component {
 	}
 
 	render() {
-		const currentGames = games.filter((value) => {
+		let currentGames = games.filter((value) => {
 			if (this.state.search === '') {
 				return value;
 			} else if (
@@ -129,6 +141,46 @@ class Home extends Component {
 			) {
 				return value;
 			}
+		});
+
+		if (!this.state.gamePlays)
+			return <span className='loading-games'>Loading games...</span>;
+
+		currentGames = currentGames.sort((a, b) => {
+			const gameTitle = a.title.replace(' ', '');
+			const gameTitle2 = b.title.replace(' ', '');
+
+			const gameRatings = this.state.gameRatings?.[gameTitle] ?? {};
+			let averageRating = 0;
+
+			const nPeople = Object.values(gameRatings).reduce(
+				(a, b) => a + b,
+				0
+			);
+
+			for (const [rating, n] of Object.entries(gameRatings)) {
+				averageRating += rating * n;
+			}
+
+			averageRating /= nPeople;
+			averageRating = Math.round(averageRating);
+
+			const gameRatings2 = this.state.gameRatings?.[gameTitle2] ?? {};
+			let averageRating2 = 0;
+
+			const nPeople2 = Object.values(gameRatings2).reduce(
+				(a, b) => a + b,
+				0
+			);
+
+			for (const [rating, n] of Object.entries(gameRatings2)) {
+				averageRating2 += rating * n;
+			}
+
+			averageRating2 /= nPeople2;
+			averageRating2 = Math.round(averageRating2);
+
+			return averageRating2 - averageRating;
 		});
 
 		return (
@@ -155,31 +207,109 @@ class Home extends Component {
 						</div>
 					)}
 					{currentGames.map((game, index) => {
-						const gameDiv = (
-							<div className='game'>
-								{game.top && <div className='top-tag'>#1</div>}
-								<div className='game-info'>
-									<img
-										className='game-image'
-										src={game.image}
-										alt={game.title}
-									/>
-									<h3>{game.title}</h3>
-									<span>{game.description}</span>
-								</div>
-								<Button label='Play' icon={faPlay} />
-							</div>
+						const top = index === 0;
+
+						const gameStars = [];
+						const gameTitle = game.title.replace(' ', '');
+						const gamePlays = this.state.gamePlays[gameTitle] ?? 0;
+						const gameRatings =
+							this.state.gameRatings?.[gameTitle] ?? {};
+						let averageRating = 0;
+
+						const nPeople = Object.values(gameRatings).reduce(
+							(a, b) => a + b,
+							0
 						);
 
-						return game.url.startsWith('http') ? (
-							<a key={index} href={game.url}>
-								{gameDiv}
-							</a>
-						) : (
-							<Link key={index} to={game.url}>
-								{gameDiv}
-							</Link>
-						);
+						for (const [rating, n] of Object.entries(gameRatings)) {
+							averageRating += rating * n;
+						}
+
+						averageRating /= nPeople;
+						averageRating = Math.round(averageRating);
+
+						for (let i = 0; i < averageRating; i++) {
+							gameStars.push(
+								<FontAwesomeIcon
+									key={i}
+									className={
+										averageRating === 5
+											? 'star-gold'
+											: 'star-solid'
+									}
+									icon={faStar}
+								/>
+							);
+						}
+
+						if (averageRating < 5) {
+							for (let i = 0; i < 5 - averageRating; i++) {
+								gameStars.push(
+									<FontAwesomeIcon
+										key={i + 5}
+										icon={faStarRegular}
+										className='star-regular'
+									/>
+								);
+							}
+						}
+
+						const gameDiv =
+							this.state.currentlyRating === gameTitle ? (
+								<div className='rate-game'>
+									<h3>{game.title}</h3>
+									<StarSelector
+										className='rating-selector'
+										label='Rating'
+										onChange={async (rating) => {
+											await rateGame(gameTitle, rating);
+
+											this.setState({
+												currentlyRating: null,
+											});
+										}}
+									/>
+								</div>
+							) : (
+								<div className='game'>
+									{top && <div className='top-tag'>#1</div>}
+									<div className='game-info'>
+										<img
+											className='game-image'
+											src={game.image}
+											alt={game.title}
+										/>
+										<div className='game-title-container'>
+											<h3>{game.title}</h3>{' '}
+											<div className='game-stars'>
+												{gameStars}
+											</div>
+										</div>
+										<span>{game.description}</span>
+									</div>
+									<div className='game-buttons'>
+										<Button
+											label='Play'
+											cta
+											icon={faPlay}
+											onClick={() => {
+												window.location.href = game.url;
+											}}
+										/>
+										<Button
+											label='Rate'
+											icon={faStar}
+											onClick={() => {
+												this.setState({
+													currentlyRating: gameTitle,
+												});
+											}}
+										/>
+									</div>
+								</div>
+							);
+
+						return gameDiv;
 					})}
 				</div>
 			</div>

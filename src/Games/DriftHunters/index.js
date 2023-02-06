@@ -1,1 +1,1 @@
-export { default } from './DriftHunters';
+export { default } from './DriftHunters.js';

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faGamepad } from '@fortawesome/free-solid-svg-icons';
 import Settings from '../Settings';
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import Button from 'Components/shared/Button';
 import './Navbar.scss';
 import GameRequest from '../GameRequest';
@@ -13,6 +13,7 @@ class Navbar extends Component {
 		super();
 
 		this.state = {};
+		this.navbarRef = createRef();
 	}
 
 	closeSettings() {
@@ -39,10 +40,22 @@ class Navbar extends Component {
 		});
 	}
 
+	componentDidMount() {
+		document.addEventListener('scroll', (event) => {
+			const scroll = window.scrollY;
+
+			if (!this.navbarRef.current) return;
+
+			this.navbarRef.current.style.borderBottom = `1px solid rgba(63, 63, 78, ${
+				scroll / 100
+			})`;
+		});
+	}
+
 	render() {
 		return (
 			<>
-				<div className='navbar'>
+				<div className='navbar' ref={this.navbarRef}>
 					<div className='navbar-section'>
 						<Link to='/'>
 							<div className='navbar-title'>

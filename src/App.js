@@ -18,6 +18,7 @@ import JustFall from 'Games/JustFall';
 import Minecraft from 'Games/Minecraft';
 import DriftHunters from 'Games/DriftHunters';
 import './App.scss';
+import Footer from 'Components/containers/Footer';
 
 class App extends Component {
 	constructor() {
@@ -73,24 +74,33 @@ class App extends Component {
 		) : (
 			<BrowserRouter>
 				<Navbar />
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/clusterRush' element={<ClusterRush />} />
-					<Route path='/motoX3M' element={<MotoX3M />} />
-					<Route path='/slope' element={<Slope />} />
-					<Route path='/superhot' element={<Superhot />} />
-					<Route path='/stack' element={<Stack />} />
-					<Route path='/retroBowl' element={<RetroBowl />} />
-					<Route
-						path='/rollingForests'
-						element={<RollingForests />}
-					/>
-					<Route path='/subwaySurfers' element={<SubwaySurfers />} />
-					<Route path='/scrapMetal' element={<ScrapMetal />} />
-					<Route path='/justFall' element={<JustFall />} />
-					<Route path='/minecraft' element={<Minecraft />} />
-					<Route path='/driftHunters' element={<DriftHunters />} />
-				</Routes>
+				<div className='content'>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/clusterRush' element={<ClusterRush />} />
+						<Route path='/motoX3M' element={<MotoX3M />} />
+						<Route path='/slope' element={<Slope />} />
+						<Route path='/superhot' element={<Superhot />} />
+						<Route path='/stack' element={<Stack />} />
+						<Route path='/retroBowl' element={<RetroBowl />} />
+						<Route
+							path='/rollingForests'
+							element={<RollingForests />}
+						/>
+						<Route
+							path='/subwaySurfers'
+							element={<SubwaySurfers />}
+						/>
+						<Route path='/scrapMetal' element={<ScrapMetal />} />
+						<Route path='/justFall' element={<JustFall />} />
+						<Route path='/minecraft' element={<Minecraft />} />
+						<Route
+							path='/driftHunters'
+							element={<DriftHunters />}
+						/>
+					</Routes>
+				</div>
+				<Footer />
 			</BrowserRouter>
 		);
 	}

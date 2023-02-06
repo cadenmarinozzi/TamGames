@@ -1,1 +1,1 @@
-export { default } from './JustFall';
+export { default } from './JustFall.js';

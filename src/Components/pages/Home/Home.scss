@@ -1,6 +1,14 @@
 @use 'colors.scss' as *;
 @use 'vars.scss' as *;
 
+.loading-games {
+	position: absolute;
+
+	left: 50%;
+	top: 50%;
+
+	transform: translate(-50%, -50%);
+}
 .home {
 	display: flex;
 	flex-direction: column;
@@ -51,6 +59,37 @@
 		padding-inline: 10%;
 
 		.empty-games {
+		}
+
+		.rate-game {
+			border-radius: 10px;
+			background: $background;
+
+			padding: 20px;
+
+			max-width: 300px;
+
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+
+			gap: 20px;
+
+			border: 1px solid $light-background;
+
+			transition: $transition;
+
+			position: relative;
+
+			.rating-selector {
+				position: absolute;
+
+				left: 50%;
+				top: 50%;
+
+				transform: translate(-50%, -50%);
+			}
 		}
 
 		.game {
@@ -118,6 +157,34 @@
 				z-index: -1;
 			}
 
+			.game-title-container {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+
+				gap: 10px;
+
+				.game-stars {
+					display: flex;
+					flex-direction: row;
+
+					align-items: center;
+
+					.star-solid {
+						color: $primary;
+					}
+
+					.star-gold {
+						color: $gold;
+					}
+
+					.star-regular {
+						color: $light-background;
+					}
+				}
+			}
+
 			.game-image {
 				width: 100%;
 				height: 300px;
@@ -133,9 +200,30 @@
 
 				gap: 10px;
 
+				margin-bottom: 50px;
+
 				span {
 					color: $medium;
 					font-weight: lighter;
+				}
+			}
+
+			.game-buttons {
+				display: flex;
+				flex-direction: row;
+
+				gap: 10px;
+
+				bottom: 0;
+
+				width: calc(100% - 20px);
+
+				position: absolute;
+
+				padding-block: 10px;
+
+				button {
+					width: 100%;
 				}
 			}
 		}

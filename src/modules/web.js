@@ -16,6 +16,7 @@ const database = getDatabase(app);
 const gamePlaysRef = ref(database, 'gamePlays');
 const siteViewsRef = ref(database, 'siteViews');
 const gameRequestsRef = ref(database, 'gameRequests');
+const gameRatingsRef = ref(database, 'gameRatings');
 
 // This is so insecure lol
 async function submitGameRequest(gameRequest) {
@@ -70,4 +71,55 @@ async function addGamePlay(gameName) {
 	});
 }
 
-export { submitGameRequest, addSiteView, addGamePlay };
+async function getGamePlays() {
+	const currentGamePlays = await get(gamePlaysRef);
+
+	return currentGamePlays.val();
+}
+
+async function rateGame(gameName, rating) {
+	const currentGameRatings = await get(gameRatingsRef);
+
+	if (!currentGameRatings.val()[gameName]) {
+		update(gameRatingsRef, {
+			[gameName]: {
+				[rating]: 1,
+			},
+		});
+
+		return;
+	}
+
+	if (!currentGameRatings.val()[gameName][rating]) {
+		update(gameRatingsRef, {
+			[gameName]: {
+				...currentGameRatings.val()[gameName],
+				[rating]: 1,
+			},
+		});
+
+		return;
+	}
+
+	update(gameRatingsRef, {
+		[gameName]: {
+			...currentGameRatings.val()[gameName],
+			[rating]: currentGameRatings.val()[gameName][rating] + 1,
+		},
+	});
+}
+
+async function getGameRatings() {
+	const currentGameRatings = await get(gameRatingsRef);
+
+	return currentGameRatings.val();
+}
+
+export {
+	submitGameRequest,
+	addSiteView,
+	addGamePlay,
+	getGamePlays,
+	rateGame,
+	getGameRatings,
+};

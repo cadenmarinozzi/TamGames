@@ -1,1 +1,1 @@
-export { default } from './Minecraft';
+export { default } from './Minecraft.js';
