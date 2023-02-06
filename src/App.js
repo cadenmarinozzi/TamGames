@@ -19,6 +19,7 @@ import Minecraft from 'Games/Minecraft';
 import DriftHunters from 'Games/DriftHunters';
 import './App.scss';
 import Footer from 'Components/containers/Footer';
+import JetpackJoyriders from 'Games/JetpackJoyriders';
 
 class App extends Component {
 	constructor() {
@@ -97,6 +98,10 @@ class App extends Component {
 						<Route
 							path='/driftHunters'
 							element={<DriftHunters />}
+						/>
+						<Route
+							path='/jetpackJoyriders'
+							element={<JetpackJoyriders />}
 						/>
 					</Routes>
 				</div>

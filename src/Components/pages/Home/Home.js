@@ -13,14 +13,15 @@ import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
 import Minecraft from 'assets/images/minecraft.png';
 import DriftHunters from 'assets/images/driftHunters.png';
+import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getGamePlays, getGameRatings, rateGame } from 'modules/web';
-import './Home.scss';
 import StarSelector from 'Components/shared/StarSelector';
+import './Home.scss';
 
 const games = [
 	{
@@ -36,6 +37,13 @@ const games = [
 			'Cluster Rush is a fast-paced truck jumping game with loads of levels!',
 		image: ClusterRush,
 		url: '/clusterRush',
+	},
+	{
+		title: 'Jetpack Joyriders',
+		description:
+			'Jetpack Joyriders is a fast-paced jetpack game where you dodge obstacles and collect coins!',
+		image: JetpackJoyriders,
+		url: '/jetpackJoyriders',
 	},
 	{
 		title: 'Just Fall',

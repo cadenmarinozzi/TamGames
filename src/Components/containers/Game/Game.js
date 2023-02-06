@@ -1,5 +1,6 @@
 import { faUpRightAndDownLeftFromCenter } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from 'Components/shared/Button';
 import { addGamePlay } from 'modules/web';
 import { Component } from 'react';
 import './Game.scss';
