@@ -1,0 +1,85 @@
+.game-container {
+	width: 100%;
+	height: calc(100vh - 200px);
+
+	.game-frame {
+		position: absolute;
+
+		left: 50%;
+
+		transform: translateX(-50%);
+
+		width: 80%;
+		height: calc(100% - 70px);
+
+		border: none;
+		outline: none;
+	}
+
+	.bars {
+		width: 45px;
+		aspect-ratio: 1;
+	}
+
+	.loader {
+		width: 50px;
+		aspect-ratio: 1;
+
+		--c: no-repeat linear-gradient(white 0 0);
+
+		background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
+		background-size: 20% 100%;
+
+		animation: load 1s infinite linear;
+
+		position: absolute;
+
+		top: 50%;
+		left: 50%;
+
+		transform: translate(-50%, -50%);
+	}
+
+	@keyframes load {
+		0% {
+			background-size: 20% 100%, 20% 100%, 20% 100%;
+		}
+
+		33% {
+			background-size: 20% 10%, 20% 100%, 20% 100%;
+		}
+
+		50% {
+			background-size: 20% 100%, 20% 10%, 20% 100%;
+		}
+
+		66% {
+			background-size: 20% 100%, 20% 100%, 20% 10%;
+		}
+
+		100% {
+			background-size: 20% 100%, 20% 100%, 20% 100%;
+		}
+	}
+
+	.game-frame-fullscreen {
+		width: 100%;
+		height: 100%;
+
+		position: static;
+	}
+
+	.fullscreen-icon {
+		position: absolute;
+
+		left: 10%;
+
+		transform: translate(50%, 50%);
+
+		margin: 10px;
+
+		z-index: 1;
+
+		cursor: pointer;
+	}
+}

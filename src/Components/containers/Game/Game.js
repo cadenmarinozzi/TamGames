@@ -31,20 +31,24 @@ class Game extends Component {
 
 	render() {
 		return (
-			<div className='game-container'>
-				<iframe
-					src={this.props.url}
-					className={`game-frame ${
-						this.state.fullscreen && 'game-frame-fullscreen'
-					}`}
-					title={this.props.title}
-				/>
-				<FontAwesomeIcon
-					className='fullscreen-icon'
-					icon={faUpRightAndDownLeftFromCenter}
-					onClick={this.enableFullscreen.bind(this)}
-				/>
-			</div>
+			<>
+				<div className='game-container'>
+					<div className='loader' />
+					<iframe
+						src={this.props.url}
+						className={`game-frame ${
+							this.state.fullscreen && 'game-frame-fullscreen'
+						}`}
+						title={this.props.title}>
+						{/* Games may take a while to load. Please be patient. */}
+					</iframe>
+					<FontAwesomeIcon
+						className='fullscreen-icon'
+						icon={faUpRightAndDownLeftFromCenter}
+						onClick={this.enableFullscreen.bind(this)}
+					/>
+				</div>
+			</>
 		);
 	}
 }
