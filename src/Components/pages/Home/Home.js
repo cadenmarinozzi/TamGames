@@ -30,6 +30,7 @@ const games = [
 			'GetTam is a 2048 inspired tile game where you combine tiles to get tam.',
 		image: GetTam,
 		url: 'https://lankmann.github.io/GetTam/',
+		redirect: true,
 	},
 	{
 		title: 'Cluster Rush',
@@ -307,14 +308,17 @@ class Home extends Component {
 										<span>{game.description}</span>
 									</div>
 									<div className='game-buttons'>
-										{game.url.includes('http') ? (
-											<a href={game.url}>
-												<Button
-													label='Play'
-													cta
-													icon={faPlay}
-												/>
-											</a>
+										{game.redirect ? (
+											<Button
+												label='Play'
+												cta
+												icon={faPlay}
+												onClick={() => {
+													window.location.replace(
+														game.url
+													);
+												}}
+											/>
 										) : (
 											<Link to={game.url}>
 												<Button
