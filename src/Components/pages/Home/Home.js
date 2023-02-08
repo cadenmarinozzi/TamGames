@@ -307,13 +307,23 @@ class Home extends Component {
 										<span>{game.description}</span>
 									</div>
 									<div className='game-buttons'>
-										<Link to={game.url}>
-											<Button
-												label='Play'
-												cta
-												icon={faPlay}
-											/>
-										</Link>
+										{game.url.includes('http') ? (
+											<a href={game.url}>
+												<Button
+													label='Play'
+													cta
+													icon={faPlay}
+												/>
+											</a>
+										) : (
+											<Link to={game.url}>
+												<Button
+													label='Play'
+													cta
+													icon={faPlay}
+												/>
+											</Link>
+										)}
 										<Button
 											label='Rate'
 											icon={faStar}
