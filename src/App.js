@@ -1,28 +1,28 @@
 import Navbar from './Components/containers/Navbar';
 import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
 import Home from 'Components/pages/Home';
-import ClusterRush from 'Games/ClusterRush';
-import MotoX3M from 'Games/MotoX3M';
-import Slope from 'Games/Slope/Slope';
+import ClusterRush from 'Components/pages/Games/ClusterRush';
+import MotoX3M from 'Components/pages/Games/MotoX3M';
+import Slope from 'Components/pages/Games/Slope/Slope';
 import { addSiteView } from 'modules/web';
 import { Component } from 'react';
 import Button from 'Components/shared/Button';
 import { getCookie } from 'modules/cookies';
-import Superhot from 'Games/Superhot';
-import Stack from 'Games/Stack';
-import RollingForests from 'Games/RollingForests';
-import SubwaySurfers from 'Games/SubwaySurfers';
-import RetroBowl from 'Games/RetroBowl';
-import ScrapMetal from 'Games/ScrapMetal';
-import JustFall from 'Games/JustFall';
-import Minecraft from 'Games/Minecraft';
-import DriftHunters from 'Games/DriftHunters';
+import Superhot from 'Components/pages/Games/Superhot';
+import Stack from 'Components/pages/Games/Stack';
+import RollingForests from 'Components/pages/Games/RollingForests';
+import SubwaySurfers from 'Components/pages/Games/SubwaySurfers';
+import RetroBowl from 'Components/pages/Games/RetroBowl';
+import ScrapMetal from 'Components/pages/Games/ScrapMetal';
+import JustFall from 'Components/pages/Games/JustFall';
+import Minecraft from 'Components/pages/Games/Minecraft';
+import DriftHunters from 'Components/pages/Games/DriftHunters';
 import Footer from 'Components/containers/Footer';
-import JetpackJoyriders from 'Games/JetpackJoyriders';
-import IvILOL from 'Games/1v1LOL';
-import GreyBox from 'Games/GreyBox';
+import JetpackJoyriders from 'Components/pages/Games/JetpackJoyriders';
+import IvILOL from 'Components/pages/Games/1v1LOL';
+import GreyBox from 'Components/pages/Games/GreyBox';
+import AmongUs from 'Components/pages/Games/AmongUs';
 import './App.scss';
-import AmongUs from 'Games/AmongUs';
 
 class App extends Component {
 	constructor() {
