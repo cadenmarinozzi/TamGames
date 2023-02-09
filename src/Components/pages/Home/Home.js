@@ -89,6 +89,7 @@ const games = [
 		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
 		image: IvILOL,
 		url: '/1v1LOL',
+		newest: true,
 	},
 	{
 		title: 'Slope',
@@ -198,6 +199,8 @@ class Home extends Component {
 
 			return averageRating2 - averageRating;
 		});
+
+		const newestGame = currentGames.find((value) => value.newest);
 
 		return (
 			<div className='home'>
