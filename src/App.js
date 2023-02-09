@@ -22,6 +22,7 @@ import JetpackJoyriders from 'Components/pages/Games/JetpackJoyriders';
 import IvILOL from 'Components/pages/Games/1v1LOL';
 import GreyBox from 'Components/pages/Games/GreyBox';
 import AmongUs from 'Components/pages/Games/AmongUs';
+import WorldsHardestGame from 'Components/pages/Games/WorldsHardestGame';
 import './App.scss';
 
 class App extends Component {
@@ -109,6 +110,10 @@ class App extends Component {
 						<Route path='/1v1LOL' element={<IvILOL />} />
 						<Route path='/greyBox' element={<GreyBox />} />
 						<Route path='/amongUs' element={<AmongUs />} />
+						<Route
+							path='/worldsHardestGame'
+							element={<WorldsHardestGame />}
+						/>
 					</Routes>
 				</div>
 				<Footer />

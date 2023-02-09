@@ -14,6 +14,7 @@ import JustFall from 'assets/images/justFall.png';
 import Minecraft from 'assets/images/minecraft.png';
 import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
+import WorldsHardestGame from 'assets/images/worldsHardestGame.jpg';
 import IvILOL from 'assets/images/1v1LOL.png';
 import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
@@ -97,6 +98,12 @@ const games = [
 		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
 		image: IvILOL,
 		url: '/1v1LOL',
+	},
+	{
+		title: 'Worlds Hardest Game',
+		description: `The hardest game in the world!`,
+		image: WorldsHardestGame,
+		url: '/worldsHardestGame',
 	},
 	{
 		title: 'Slope',
