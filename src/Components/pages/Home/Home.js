@@ -19,6 +19,7 @@ import IvILOL from 'assets/images/1v1LOL.png';
 import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
+import Mario from 'assets/images/mario.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -99,6 +100,12 @@ const games = [
 		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
 		image: IvILOL,
 		url: '/1v1LOL',
+	},
+	{
+		title: 'Mario',
+		description: `Play Mario in your browser!`,
+		image: Mario,
+		url: '/mario',
 	},
 	{
 		title: 'Worlds Hardest Game',

@@ -25,6 +25,7 @@ import AmongUs from 'Components/pages/Games/AmongUs';
 import WorldsHardestGame from 'Components/pages/Games/WorldsHardestGame';
 import PaperIO from 'Components/pages/Games/PaperIO';
 import './App.scss';
+import Mario from 'Components/pages/Games/Mario';
 
 class App extends Component {
 	constructor() {
@@ -116,6 +117,7 @@ class App extends Component {
 							element={<WorldsHardestGame />}
 						/>
 						<Route path='/paperIO' element={<PaperIO />} />
+						<Route path='/mario' element={<Mario />} />
 					</Routes>
 				</div>
 				<Footer />
