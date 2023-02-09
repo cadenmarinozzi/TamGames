@@ -22,6 +22,7 @@ import JetpackJoyriders from 'Games/JetpackJoyriders';
 import IvILOL from 'Games/1v1LOL';
 import GreyBox from 'Games/GreyBox';
 import './App.scss';
+import AmongUs from 'Games/AmongUs';
 
 class App extends Component {
 	constructor() {
@@ -107,6 +108,7 @@ class App extends Component {
 						/>
 						<Route path='/1v1LOL' element={<IvILOL />} />
 						<Route path='/greyBox' element={<GreyBox />} />
+						<Route path='/amongUs' element={<AmongUs />} />
 					</Routes>
 				</div>
 				<Footer />

@@ -16,7 +16,7 @@ import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import IvILOL from 'assets/images/1v1LOL.png';
 import GreyBox from 'assets/images/greyBox.png';
-
+import AmongUs from 'assets/images/amongUs.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -54,6 +54,12 @@ const games = [
 		description: `Basically just fall guys...`,
 		image: JustFall,
 		url: '/justFall',
+	},
+	{
+		title: 'Among Us',
+		description: `Play Among Us in your browser!`,
+		image: AmongUs,
+		url: '/amongUs',
 	},
 	{
 		title: 'Minecraft',
