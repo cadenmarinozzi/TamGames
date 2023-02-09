@@ -12,6 +12,7 @@ import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
 import Minecraft from 'assets/images/minecraft.png';
+import CrossyRoad from 'assets/images/crossyRoad.png';
 import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import WorldsHardestGame from 'assets/images/worldsHardestGame.jpg';
@@ -94,6 +95,12 @@ const games = [
 		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
 		image: RetroBowl,
 		url: '/retroBowl',
+	},
+	{
+		title: 'Crossy Road',
+		description: `Dodge traffic and cross the road!`,
+		image: CrossyRoad,
+		url: '/crossyRoad',
 	},
 	{
 		title: '1v1LOL',

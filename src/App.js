@@ -24,8 +24,9 @@ import GreyBox from 'Components/pages/Games/GreyBox';
 import AmongUs from 'Components/pages/Games/AmongUs';
 import WorldsHardestGame from 'Components/pages/Games/WorldsHardestGame';
 import PaperIO from 'Components/pages/Games/PaperIO';
-import './App.scss';
 import Mario from 'Components/pages/Games/Mario';
+import CrossyRoad from 'Components/pages/Games/CrossyRoad';
+import './App.scss';
 
 class App extends Component {
 	constructor() {
@@ -118,6 +119,7 @@ class App extends Component {
 						/>
 						<Route path='/paperIO' element={<PaperIO />} />
 						<Route path='/mario' element={<Mario />} />
+						<Route path='/crossyRoad' element={<CrossyRoad />} />
 					</Routes>
 				</div>
 				<Footer />
