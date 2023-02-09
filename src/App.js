@@ -20,6 +20,7 @@ import DriftHunters from 'Games/DriftHunters';
 import Footer from 'Components/containers/Footer';
 import JetpackJoyriders from 'Games/JetpackJoyriders';
 import IvILOL from 'Games/1v1LOL';
+import GreyBox from 'Games/GreyBox';
 import './App.scss';
 
 class App extends Component {
@@ -105,6 +106,7 @@ class App extends Component {
 							element={<JetpackJoyriders />}
 						/>
 						<Route path='/1v1LOL' element={<IvILOL />} />
+						<Route path='/greyBox' element={<GreyBox />} />
 					</Routes>
 				</div>
 				<Footer />

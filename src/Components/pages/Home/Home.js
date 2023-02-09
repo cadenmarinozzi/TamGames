@@ -15,6 +15,8 @@ import Minecraft from 'assets/images/minecraft.png';
 import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import IvILOL from 'assets/images/1v1LOL.png';
+import GreyBox from 'assets/images/greyBox.png';
+
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -85,11 +87,10 @@ const games = [
 		url: '/retroBowl',
 	},
 	{
-		title: '1v1.LOL',
+		title: '1v1LOL',
 		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
 		image: IvILOL,
 		url: '/1v1LOL',
-		newest: true,
 	},
 	{
 		title: 'Slope',
@@ -102,6 +103,13 @@ const games = [
 		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
 		image: Superhot,
 		url: '/superhot',
+	},
+	{
+		title: 'Grey Box',
+		description: `Grey Box is a 3D puzzle game where you move blocks and experiment with bugs.`,
+		image: GreyBox,
+		url: '/greyBox',
+		newest: true,
 	},
 	{
 		title: 'Stack',
