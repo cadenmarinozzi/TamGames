@@ -14,6 +14,7 @@ import JustFall from 'assets/images/justFall.png';
 import Minecraft from 'assets/images/minecraft.png';
 import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
+import IvILOL from 'assets/images/1v1LOL.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -82,6 +83,12 @@ const games = [
 		description: `Retro Bowl is a retro pixel football game where you move characters and score touchdowns!`,
 		image: RetroBowl,
 		url: '/retroBowl',
+	},
+	{
+		title: '1v1.LOL',
+		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
+		image: IvILOL,
+		url: '/1v1LOL',
 	},
 	{
 		title: 'Slope',
