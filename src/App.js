@@ -23,6 +23,7 @@ import IvILOL from 'Components/pages/Games/1v1LOL';
 import GreyBox from 'Components/pages/Games/GreyBox';
 import AmongUs from 'Components/pages/Games/AmongUs';
 import WorldsHardestGame from 'Components/pages/Games/WorldsHardestGame';
+import PaperIO from 'Components/pages/Games/PaperIO';
 import './App.scss';
 
 class App extends Component {
@@ -114,6 +115,7 @@ class App extends Component {
 							path='/worldsHardestGame'
 							element={<WorldsHardestGame />}
 						/>
+						<Route path='/paperIO' element={<PaperIO />} />
 					</Routes>
 				</div>
 				<Footer />

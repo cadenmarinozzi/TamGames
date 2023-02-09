@@ -18,6 +18,7 @@ import WorldsHardestGame from 'assets/images/worldsHardestGame.jpg';
 import IvILOL from 'assets/images/1v1LOL.png';
 import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
+import PaperIO from 'assets/images/paperIO.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -104,6 +105,12 @@ const games = [
 		description: `The hardest game in the world!`,
 		image: WorldsHardestGame,
 		url: '/worldsHardestGame',
+	},
+	{
+		title: 'PaperIO',
+		description: `Eat up the map in this fast paced io game!`,
+		image: PaperIO,
+		url: '/paperIO',
 	},
 	{
 		title: 'Slope',

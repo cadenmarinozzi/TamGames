@@ -1,1 +1,15 @@
-body{padding:0;margin:0;overflow:hidden;background-color:#000}canvas{background-color:#000}
+body {
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background-color: #000;
+
+	width: 100vh;
+	height: 100vh;
+}
+canvas {
+	background-color: #000;
+
+	width: 100%;
+	height: 100%;
+}
