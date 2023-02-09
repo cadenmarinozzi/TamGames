@@ -1,5 +1,7 @@
 # TamGames
 
+You can view the site [here](https://tamgames.net).
+
 # TODO
 
 View the [TODO](TODO.md) file for a list of things that are planned to be done.
