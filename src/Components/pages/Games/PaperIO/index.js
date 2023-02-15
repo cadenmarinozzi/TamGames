@@ -1,1 +1,1 @@
-export { default } from './PaperIO';
+export { default } from './PaperIO.js';

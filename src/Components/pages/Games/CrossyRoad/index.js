@@ -1,1 +1,1 @@
-export { default } from './CrossyRoad';
+export { default } from './CrossyRoad.js';
