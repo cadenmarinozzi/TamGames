@@ -27,6 +27,8 @@ import PaperIO from 'Components/pages/Games/PaperIO';
 import Mario from 'Components/pages/Games/Mario';
 import CrossyRoad from 'Components/pages/Games/CrossyRoad';
 import './App.scss';
+import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
+import TermsAndConditions from 'Components/pages/TermsAndConditions/TermsAndConditions';
 
 class App extends Component {
 	constructor() {
@@ -120,6 +122,14 @@ class App extends Component {
 						<Route path='/paperIO' element={<PaperIO />} />
 						<Route path='/mario' element={<Mario />} />
 						<Route path='/crossyRoad' element={<CrossyRoad />} />
+						<Route
+							path='/privacyPolicy'
+							element={<PrivacyPolicy />}
+						/>
+						<Route
+							path='/termsOfService'
+							element={<TermsAndConditions />}
+						/>
 					</Routes>
 				</div>
 				<Footer />
