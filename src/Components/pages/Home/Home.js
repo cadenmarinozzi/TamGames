@@ -20,6 +20,7 @@ import IvILOL from 'assets/images/1v1LOL.png';
 import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
+import UltimateWheelie from 'assets/images/ultimateWheelie.png';
 import Mario from 'assets/images/mario.png';
 import { Component } from 'react';
 import { Link } from 'react-router-dom';
@@ -115,8 +116,14 @@ const games = [
 		url: '/mario',
 	},
 	{
+		title: 'UltimateWheelie',
+		description: `How long can you wheelie for?`,
+		image: UltimateWheelie,
+		url: '/ultimateWheelie',
+	},
+	{
 		title: 'Worlds Hardest Game',
-		description: `The hardest game in the world!`,
+		description: `The hardest game in the world! (Really, it is.)`,
 		image: WorldsHardestGame,
 		url: '/worldsHardestGame',
 	},

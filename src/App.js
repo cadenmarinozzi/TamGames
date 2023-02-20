@@ -26,9 +26,10 @@ import WorldsHardestGame from 'Components/pages/Games/WorldsHardestGame';
 import PaperIO from 'Components/pages/Games/PaperIO';
 import Mario from 'Components/pages/Games/Mario';
 import CrossyRoad from 'Components/pages/Games/CrossyRoad';
-import './App.scss';
+import UltimateWheelie from 'Components/pages/Games/UltimateWheelie';
 import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
 import TermsAndConditions from 'Components/pages/TermsAndConditions/TermsAndConditions';
+import './App.scss';
 
 class App extends Component {
 	constructor() {
@@ -82,7 +83,7 @@ class App extends Component {
 				/>
 			</>
 		) : (
-			<BrowserRouter>
+			<HashRouter>
 				<Navbar />
 				<div className='content'>
 					<Routes>
@@ -130,10 +131,14 @@ class App extends Component {
 							path='/termsOfService'
 							element={<TermsAndConditions />}
 						/>
+						<Route
+							path='/ultimateWheelie'
+							element={<UltimateWheelie />}
+						/>
 					</Routes>
 				</div>
 				<Footer />
-			</BrowserRouter>
+			</HashRouter>
 		);
 	}
 }

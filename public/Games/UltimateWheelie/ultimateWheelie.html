@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<link rel="manifest" href="appmanifest.json" />
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			html,
+			body {
+				background: #000;
+				color: #fff;
+				overflow: hidden;
+				touch-action: none;
+				-ms-touch-action: none;
+			}
+			canvas {
+				touch-action-delay: none;
+				touch-action: none;
+				-ms-touch-action: none;
+			}
+		</style>
+		<script type="text/javascript" src="js/api.js"></script>
+	</head>
+	<body>
+		<script src="js/orientationLandscape.js"></script>
+		<div class="turnDeviceNotificationLandscape"></div>
+		<div id="fb-root"></div>
+		<div id="c2canvasdiv">
+			<canvas id="c2canvas" width="1024" height="640"> </canvas>
+		</div>
+		<script src="jquery-2.1.1.min.js"></script>
+		<script src="c2runtime.js"></script>
+		<script>
+			jQuery(document).ready(function () {
+				cr_createRuntime('c2canvas');
+			});
+
+			function onVisibilityChanged() {
+				if (
+					document.hidden ||
+					document.mozHidden ||
+					document.webkitHidden ||
+					document.msHidden
+				)
+					cr_setSuspended(true);
+				else cr_setSuspended(false);
+			}
+
+			document.addEventListener(
+				'visibilitychange',
+				onVisibilityChanged,
+				false
+			);
+			document.addEventListener(
+				'mozvisibilitychange',
+				onVisibilityChanged,
+				false
+			);
+			document.addEventListener(
+				'webkitvisibilitychange',
+				onVisibilityChanged,
+				false
+			);
+			document.addEventListener(
+				'msvisibilitychange',
+				onVisibilityChanged,
+				false
+			);
+
+			function OnRegisterSWError(e) {
+				console.warn('Failed to register service worker: ', e);
+			}
+
+			// Runtime calls this global method when ready to start caching (i.e. after startup).
+			// This registers the service worker which caches resources for offline support.
+			window.C2_RegisterSW = function C2_RegisterSW() {
+				if (!navigator.serviceWorker) return; // no SW support, ignore call
+
+				try {
+					navigator.serviceWorker
+						.register('sw.js', { scope: './' })
+						.then(function (reg) {
+							console.log(
+								'Registered service worker on ' + reg.scope
+							);
+						})
+						.catch(OnRegisterSWError);
+				} catch (e) {
+					OnRegisterSWError(e);
+				}
+			};
+		</script>
+	</body>
+</html>
