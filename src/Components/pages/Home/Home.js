@@ -117,7 +117,7 @@ const games = [
 	},
 	{
 		title: 'UltimateWheelie',
-		description: `How long can you wheelie for?`,
+		description: `How long can you wheelie for? TamGames is one of the only sites with this game!`,
 		image: UltimateWheelie,
 		url: '/ultimateWheelie',
 	},
