@@ -22,7 +22,7 @@ import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
 import UltimateWheelie from 'assets/images/ultimateWheelie.png';
 import Mario from 'assets/images/mario.png';
-import { Component } from 'react';
+import { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
 import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
@@ -30,6 +30,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getGamePlays, getGameRatings, rateGame } from 'modules/web';
 import StarSelector from 'Components/shared/StarSelector';
 import './Home.scss';
+import { scrollToComponent } from 'modules/utils';
+
+const changelog = {
+	log: 'Added Terms of Service and Privacy Policy pages',
+	newestGame: 'UltimateWheelie',
+};
 
 const games = [
 	{
@@ -179,6 +185,7 @@ class Home extends Component {
 		this.state = {
 			search: '',
 		};
+		this.newestGameRef = createRef();
 	}
 
 	async componentDidMount() {
@@ -259,6 +266,19 @@ class Home extends Component {
 						<h1 className='title-primary'>Games</h1>
 					</div>
 					<h4>The #1 unblocked games site</h4>
+				</div>
+				<div className='changelog-container'>
+					<span>Changelog: {changelog.log}</span>
+					<span>
+						Newest Game:{' '}
+						<span
+							className='newest-game-title'
+							onClick={() =>
+								scrollToComponent(this.newestGameRef)
+							}>
+							{changelog.newestGame}
+						</span>
+					</span>
 				</div>
 				<div className='seperator-line' />
 				<Searchbar
@@ -350,7 +370,12 @@ class Home extends Component {
 									/>
 								</div>
 							) : (
-								<div className='game'>
+								<div
+									className='game'
+									ref={
+										game.title === changelog.newestGame &&
+										this.newestGameRef
+									}>
 									{top && <div className='top-tag'>#1</div>}
 									<div className='game-info'>
 										<img

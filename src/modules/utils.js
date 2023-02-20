@@ -19,4 +19,8 @@ function lerpColor(a, b, amount) {
 	return 'rgb(' + nr + ',' + ng + ',' + nb + ')';
 }
 
-export { formatFirebasePath, lerpColor };
+function scrollToComponent(ref) {
+	window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth' });
+}
+
+export { formatFirebasePath, lerpColor, scrollToComponent };

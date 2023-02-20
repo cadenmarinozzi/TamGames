@@ -43,6 +43,25 @@
 		}
 	}
 
+	.changelog-container {
+		display: flex;
+		flex-direction: column;
+
+		align-items: center;
+
+		gap: 10px;
+
+		.newest-game-title {
+			color: $medium;
+			cursor: pointer;
+		}
+
+		span {
+			color: $light-background;
+			font-weight: lighter;
+		}
+	}
+
 	.seperator-line {
 		height: 1px;
 		width: 60%;
