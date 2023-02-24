@@ -21,6 +21,7 @@ import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
 import UltimateWheelie from 'assets/images/ultimateWheelie.png';
+import HelixJump from 'assets/images/helixJump.png';
 import Mario from 'assets/images/mario.png';
 import { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
@@ -34,7 +35,7 @@ import { scrollToComponent } from 'modules/utils';
 
 const changelog = {
 	log: 'Added Terms of Service and Privacy Policy pages',
-	newestGame: 'UltimateWheelie',
+	newestGame: 'Helix Jump',
 };
 
 const games = [
@@ -163,6 +164,12 @@ const games = [
 		description: `Stack is a simple stacking game where you stack blocks to get to the top.`,
 		image: Stack,
 		url: '/stack',
+	},
+	{
+		title: 'Helix Jump',
+		description: `How far can you jump before you die?`,
+		image: HelixJump,
+		url: '/helixJump',
 	},
 	{
 		title: 'Rolling Forests',
