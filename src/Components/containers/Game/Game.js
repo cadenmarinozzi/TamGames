@@ -37,11 +37,8 @@ class Game extends Component {
 		this.loaderRef.current.style.display = 'none';
 
 		setTimeout(() => {
-			for (let i = 0; i < 1; i += 0.001) {
-				setTimeout(() => {
-					this.loaderLabelRef.current.style.opacity = 1 - i;
-				}, 50);
-			}
+			this.loaderLabelRef.current.style.opacity = 0;
+			this.loaderLabelRef.current.style.display = 'none';
 		}, 2000);
 	}
 
@@ -53,6 +50,9 @@ class Game extends Component {
 					<div className='loader-label' ref={this.loaderLabelRef}>
 						Games may take a while to load. Please be patient.
 					</div>
+					{this.props.credit && (
+						<div className='credit-label'>{this.props.credit}</div>
+					)}
 					<iframe
 						src={this.props.url}
 						className={`game-frame ${

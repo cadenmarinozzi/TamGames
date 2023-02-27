@@ -1,6 +1,8 @@
+@use 'colors.scss' as *;
+
 .game-container {
 	width: 100%;
-	height: calc(100vh - 200px);
+	height: calc(100vh - 263px);
 
 	margin-bottom: 140px;
 
@@ -26,6 +28,22 @@
 		padding: 20px;
 
 		opacity: 1;
+
+		z-index: 5;
+
+		display: block;
+	}
+
+	.credit-label {
+		text-align: center;
+
+		width: 100%;
+
+		padding: 20px;
+
+		opacity: 1;
+
+		color: $medium;
 
 		z-index: 5;
 	}

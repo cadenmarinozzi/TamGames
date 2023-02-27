@@ -22,7 +22,9 @@ import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
 import UltimateWheelie from 'assets/images/ultimateWheelie.png';
 import HelixJump from 'assets/images/helixJump.png';
+import SnakeIO from 'assets/images/snakeIO.jpg';
 import Mario from 'assets/images/mario.png';
+import HappyWheels from 'assets/images/happyWheels.png';
 import { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -35,7 +37,7 @@ import { scrollToComponent } from 'modules/utils';
 
 const changelog = {
 	log: 'Added Terms of Service and Privacy Policy pages',
-	newestGame: 'Helix Jump',
+	newestGame: 'Happy Wheels',
 };
 
 const games = [
@@ -117,6 +119,12 @@ const games = [
 		url: '/1v1LOL',
 	},
 	{
+		title: 'Happy Wheels',
+		description: `Gruesome, gorey, and fun! Happy Wheels is a physics based game where you control a character and try to get to the end of the level!`,
+		image: HappyWheels,
+		url: '/happyWheels',
+	},
+	{
 		title: 'Mario',
 		description: `Play Mario in your browser!`,
 		image: Mario,
@@ -139,6 +147,12 @@ const games = [
 		description: `Eat up the map in this fast paced io game!`,
 		image: PaperIO,
 		url: '/paperIO',
+	},
+	{
+		title: 'SnakeIO',
+		description: `Dominate the map while eating up other snakes!`,
+		image: SnakeIO,
+		url: '/snakeIO',
 	},
 	{
 		title: 'Slope',

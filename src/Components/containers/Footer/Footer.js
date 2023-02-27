@@ -33,7 +33,7 @@ class Footer extends Component {
 					Brought to you by Caden Marinozzi
 				</span>
 				<Link to='termsOfService' className='footer-text footer-button'>
-					Terms Of Service
+					Terms of Service
 				</Link>
 				<Link to='privacyPolicy' className='footer-text footer-button'>
 					Privacy Policy
