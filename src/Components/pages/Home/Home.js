@@ -36,7 +36,7 @@ import './Home.scss';
 import { scrollToComponent } from 'modules/utils';
 
 const changelog = {
-	log: 'Added Terms of Service and Privacy Policy pages',
+	log: 'Fixed Happy Wheels maps not loading',
 	newestGame: 'Happy Wheels',
 };
 

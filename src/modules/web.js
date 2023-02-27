@@ -80,6 +80,16 @@ async function getGamePlays() {
 async function rateGame(gameName, rating) {
 	const currentGameRatings = await get(gameRatingsRef);
 
+	if (!currentGameRatings.exists()) {
+		update(gameRatingsRef, {
+			[gameName]: {
+				[rating]: 1,
+			},
+		});
+
+		return;
+	}
+
 	if (!currentGameRatings.val()[gameName]) {
 		update(gameRatingsRef, {
 			[gameName]: {
