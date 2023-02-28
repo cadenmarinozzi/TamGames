@@ -28,6 +28,7 @@ import HelixJump from 'Components/pages/Games/HelixJump';
 import Mario from 'Components/pages/Games/Mario';
 import CrossyRoad from 'Components/pages/Games/CrossyRoad';
 import SnakeIO from 'Components/pages/Games/SnakeIO';
+import AngryBirds from 'Components/pages/Games/AngryBirds';
 import HappyWheels from 'Components/pages/Games/HappyWheels';
 import UltimateWheelie from 'Components/pages/Games/UltimateWheelie';
 import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
@@ -141,6 +142,7 @@ class App extends Component {
 						<Route path='/helixJump' element={<HelixJump />} />
 						<Route path='/snakeIO' element={<SnakeIO />} />
 						<Route path='/happyWheels' element={<HappyWheels />} />
+						<Route path='/angryBirds' element={<AngryBirds />} />
 					</Routes>
 				</div>
 				<Footer />

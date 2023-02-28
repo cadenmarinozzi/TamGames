@@ -25,6 +25,7 @@ import HelixJump from 'assets/images/helixJump.png';
 import SnakeIO from 'assets/images/snakeIO.jpg';
 import Mario from 'assets/images/mario.png';
 import HappyWheels from 'assets/images/happyWheels.png';
+import AngryBirds from 'assets/images/angryBirds.png';
 import { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -32,12 +33,12 @@ import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { getGamePlays, getGameRatings, rateGame } from 'modules/web';
 import StarSelector from 'Components/shared/StarSelector';
-import './Home.scss';
 import { scrollToComponent } from 'modules/utils';
+import './Home.scss';
 
 const changelog = {
 	log: 'Added blank tab cloaker',
-	newestGame: 'Happy Wheels',
+	newestGame: 'Angry Birds',
 };
 
 const games = [
@@ -62,6 +63,13 @@ const games = [
 			'Jetpack Joyriders is a fast-paced jetpack game where you dodge obstacles and collect coins!',
 		image: JetpackJoyriders,
 		url: '/jetpackJoyriders',
+	},
+	{
+		title: 'Angry Birds',
+		description:
+			'Launch birds at pigs to destroy their structures and bring them down!',
+		image: AngryBirds,
+		url: '/angryBirds',
 	},
 	{
 		title: 'Just Fall',
