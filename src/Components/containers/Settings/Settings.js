@@ -53,6 +53,38 @@ class Settings extends Component {
 		setCookie('tabCloaker', !this.state.tabCloaker);
 	}
 
+	openBlankTab() {
+		const urlParts = window.location.href.split('http://');
+		const url = `http://${urlParts[urlParts.length - 1]}`;
+
+		const win = window.open();
+		const winBody = win.document.body;
+		let winStyle = winBody.style;
+
+		winStyle.margin = 0;
+		winStyle.padding = 0;
+
+		winStyle.height = '100vh';
+
+		let iframe = win.document.createElement('iframe');
+		let iframeStyle = iframe.style;
+
+		iframeStyle.border = 'none';
+
+		iframeStyle.width = '100%';
+		iframeStyle.height = '100%';
+
+		iframeStyle.margin = 0;
+		iframeStyle.padding = 0;
+
+		iframe.referrerpolicy = 'no-referrer';
+
+		iframe.allow = 'fullscreen';
+		iframe.src = url;
+
+		winBody.appendChild(iframe);
+	}
+
 	render() {
 		return (
 			<div className='settings-container'>
@@ -63,6 +95,12 @@ class Settings extends Component {
 						enabledIcon={faEye}
 						disabledIcon={faEyeSlash}
 						onChange={this.toggleTabCloaker.bind(this)}
+					/>
+					<Button
+						onClick={this.openBlankTab.bind(this)}
+						label='Open Blank Tab'
+						icon={faEyeSlash}
+						cta
 					/>
 					<span>
 						With the tab cloaker on, switching tabs or changing

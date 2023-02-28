@@ -36,7 +36,7 @@ import './Home.scss';
 import { scrollToComponent } from 'modules/utils';
 
 const changelog = {
-	log: 'Fixed Happy Wheels maps not loading',
+	log: 'Added blank tab cloaker',
 	newestGame: 'Happy Wheels',
 };
 
