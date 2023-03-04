@@ -37,7 +37,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Added blank tab cloaker',
+	log: 'Fixed Ultimate Wheelie not loading',
 	newestGame: 'Angry Birds',
 };
 
