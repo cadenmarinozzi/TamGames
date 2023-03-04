@@ -33,6 +33,7 @@ import HappyWheels from 'Components/pages/Games/HappyWheels';
 import UltimateWheelie from 'Components/pages/Games/UltimateWheelie';
 import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
 import TermsAndConditions from 'Components/pages/TermsAndConditions/TermsAndConditions';
+import LearnToFly from 'Components/pages/Games/LearnToFly';
 import './App.scss';
 
 class App extends Component {
@@ -97,6 +98,7 @@ class App extends Component {
 						<Route path='/slope' element={<Slope />} />
 						<Route path='/superhot' element={<Superhot />} />
 						<Route path='/stack' element={<Stack />} />
+						<Route path='/learnToFly' element={<LearnToFly />} />
 						<Route path='/retroBowl' element={<RetroBowl />} />
 						<Route
 							path='/rollingForests'

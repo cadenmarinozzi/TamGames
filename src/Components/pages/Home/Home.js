@@ -23,6 +23,7 @@ import PaperIO from 'assets/images/paperIO.png';
 import UltimateWheelie from 'assets/images/ultimateWheelie.png';
 import HelixJump from 'assets/images/helixJump.png';
 import SnakeIO from 'assets/images/snakeIO.jpg';
+import LearnToFly from 'assets/images/learnToFly.png';
 import Mario from 'assets/images/mario.png';
 import HappyWheels from 'assets/images/happyWheels.png';
 import AngryBirds from 'assets/images/angryBirds.png';
@@ -38,7 +39,7 @@ import './Home.scss';
 
 const changelog = {
 	log: 'Fixed Ultimate Wheelie not loading',
-	newestGame: 'Angry Birds',
+	newestGame: 'Learn To Fly',
 };
 
 const games = [
@@ -125,6 +126,12 @@ const games = [
 		description: `1v1.LOL is a battle royale game where you fight to be the last one standing!`,
 		image: IvILOL,
 		url: '/1v1LOL',
+	},
+	{
+		title: 'Learn To Fly',
+		description: `How fast can you teach your penguin to fly?`,
+		image: LearnToFly,
+		url: '/learnToFly',
 	},
 	{
 		title: 'Happy Wheels',
