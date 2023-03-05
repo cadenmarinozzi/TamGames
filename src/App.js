@@ -35,6 +35,7 @@ import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
 import TermsAndConditions from 'Components/pages/TermsAndConditions/TermsAndConditions';
 import LearnToFly from 'Components/pages/Games/LearnToFly';
 import './App.scss';
+import ClashRoyale from 'Components/pages/Games/ClashRoyale';
 
 class App extends Component {
 	constructor() {
@@ -100,6 +101,8 @@ class App extends Component {
 						<Route path='/stack' element={<Stack />} />
 						<Route path='/learnToFly' element={<LearnToFly />} />
 						<Route path='/retroBowl' element={<RetroBowl />} />
+						<Route path='/clashRoyale' element={<ClashRoyale />} />
+
 						<Route
 							path='/rollingForests'
 							element={<RollingForests />}

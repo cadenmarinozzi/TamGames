@@ -54,8 +54,8 @@ class Settings extends Component {
 	}
 
 	openBlankTab() {
-		const urlParts = window.location.href.split('http://');
-		const url = `http://${urlParts[urlParts.length - 1]}`;
+		const urlParts = window.location.href.split('https://');
+		const url = `https://${urlParts[urlParts.length - 1]}`;
 
 		const win = window.open();
 		const winBody = win.document.body;

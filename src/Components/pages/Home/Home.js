@@ -11,6 +11,7 @@ import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
+import ClashRoyale from 'assets/images/clashRoyale.png';
 import Minecraft from 'assets/images/minecraft.png';
 import CrossyRoad from 'assets/images/crossyRoad.png';
 import DriftHunters from 'assets/images/driftHunters.png';
@@ -38,8 +39,8 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed Ultimate Wheelie not loading',
-	newestGame: 'Learn To Fly',
+	log: 'Fixed blank tab opener',
+	newestGame: 'Clash Royale',
 };
 
 const games = [
@@ -102,6 +103,12 @@ const games = [
 		you dodge obstacles to get to the end!`,
 		image: MotoX3M,
 		url: '/motoX3M',
+	},
+	{
+		title: 'Clash Royale',
+		description: `Not the real Clash Royale, but still a fun clone!`,
+		image: ClashRoyale,
+		url: '/clashRoyale',
 	},
 	{
 		title: 'Subway Surfers',

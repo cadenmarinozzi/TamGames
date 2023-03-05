@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Clash Of Clans by GamessSumo.com</title>
+		<link rel="icon" type="image/x-icon" href="favicon.ico.html" />
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+		<!-- Use this metatag when Apple fixes their IOS 9
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+	-->
+
+		<meta
+			name="viewport"
+			content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no, minimal-ui" />
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+
+		<link rel="stylesheet" type="text/css" href="game.css" />
+		<link rel="shortcut icon" href="media/graphics/favicon.ico" />
+		<script type="text/javascript" src="game.js"></script>
+		<meta name="author" content="GamesSumo.com" />
+		<style>
+			.container-popup {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				background: rgba(0, 0, 0, 0.8);
+				z-index: 95;
+				display: none;
+			}
+
+			.popup {
+				width: 300px;
+				height: 250px;
+				background: #fff;
+				position: absolute !important;
+				top: 10% !important;
+				left: 50% !important;
+				margin-top: 150px !important;
+				margin-left: -125px !important;
+				z-index: 99;
+				display: none;
+			}
+
+			#close {
+				left: -17px;
+				position: absolute;
+				top: -20px;
+				cursor: pointer;
+				z-index: 1999;
+			}
+		</style>
+
+		<link href="./comAPI.css" rel="stylesheet" />
+		<script src="./ima3.js"></script>
+		<script src="./jquery-2.1.1.min.js"></script>
+		<script src="./comAPI.js"></script>
+	</head>
+
+	<div class="gamecenter-activator"></div>
+
+	<body onload="setTimeout(function(){window.scrollTo(0,1)},1);">
+		<!--body-->
+		<div id="ajaxbar">
+			<div id="game"><canvas id="canvas"></canvas></div>
+
+			<div id="orientate">
+				<img src="media/graphics/orientate/landscape.jpg" />
+			</div>
+			<div id="play" class="play" onclick="">
+				<img src="media/graphics/splash/mobile/cover-start.jpg" />
+			</div>
+		</div>
+
+		<div class="container-popup"></div>
+		<div class="popup">
+			<img
+				id="close"
+				src="https://www.vpswave.com/games/adclose.png"
+				width="38"
+				height="38" />
+
+			<a href="http://www.myfreegames.net/" target="_blank">
+				<img
+					src="https://www.vpswave.com/games/ads.gif"
+					border="0"
+					width="300"
+					height="250" />
+			</a>
+		</div>
+
+		<script type="text/javascript">
+			setTimeout(function () {
+				$('.popup').fadeIn(500);
+				$('.container-popup').fadeIn(500);
+			}, 2000);
+
+			$('#close').click(function () {
+				$('.popup').remove();
+				$('.container-popup').remove();
+			});
+		</script>
+
+		<div
+			id="adsbox"
+			style="
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				z-index: 999;
+			"></div>
+
+		<script type="text/javascript">
+			$('#adsbox').show();
+			$('#adsbox').click(function () {
+				ShowAds();
+				$('#adsbox').remove();
+			});
+
+			window.setInterval(function () {
+				$('#adsbox').show();
+			}, 60000);
+		</script>
+
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=UA-81855592-1"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'UA-81855592-1');
+		</script>
+
+		<script>
+			(function (a, b, c) {
+				var d = a.getElementsByTagName(b)[0];
+				a.getElementById(c) ||
+					((a = a.createElement(b)),
+					(a.id = c),
+					(a.src =
+						'https://api.gamemonetize.com/sdk_mobile.js?v=' +
+						Date.now()),
+					d.parentNode.insertBefore(a, d));
+			})(document, 'script', 'gamemonetize-mobile-api');
+		</script>
+	</body>
+</html>
