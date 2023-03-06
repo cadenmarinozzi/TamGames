@@ -1,0 +1,13 @@
+Sitemap: https://www.mathplayground.com/sitemap_main.xml
+
+User-agent: Mediapartners-Google
+Disallow: 
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: *
+Disallow: /scratch
+Disallow: /classroom
+Disallow: /account
+Disallow: /internal

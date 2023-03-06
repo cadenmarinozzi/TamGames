@@ -39,7 +39,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed blank tab opener',
+	log: 'Fixed Ultimate Wheelie',
 	newestGame: 'Clash Royale',
 };
 

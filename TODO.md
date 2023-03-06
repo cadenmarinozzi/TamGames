@@ -21,4 +21,8 @@
 -   Geometry Dash
 -   Funny Shooter
 -   Time shooter
--   Drift King
+-   Drift Boss
+-   Temple Run 2
+-   Funny Shooter
+-   Time Shooter
+-   Cut The Rope
