@@ -6,6 +6,7 @@
 -   Add a dashboard
 -   Add an analytics page
 -   Require login to rate games (username login)
+-   Allow people to create accounts that can save cookies and localstorage
 
 # Games To Add
 
@@ -21,8 +22,5 @@
 -   Geometry Dash
 -   Funny Shooter
 -   Time shooter
--   Drift Boss
 -   Temple Run 2
--   Funny Shooter
--   Time Shooter
 -   Cut The Rope
