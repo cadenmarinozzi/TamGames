@@ -40,7 +40,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed Ultimate Wheelie',
+	log: 'Fixed Drift Boss not loading',
 	newestGame: 'Drift Boss',
 };
 
