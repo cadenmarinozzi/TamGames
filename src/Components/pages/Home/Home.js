@@ -28,6 +28,7 @@ import LearnToFly from 'assets/images/learnToFly.png';
 import Mario from 'assets/images/mario.png';
 import HappyWheels from 'assets/images/happyWheels.png';
 import AngryBirds from 'assets/images/angryBirds.png';
+import DriftBoss from 'assets/images/driftBoss.png';
 import { Component, createRef } from 'react';
 import { Link } from 'react-router-dom';
 import { faCancel, faPlay, faStar } from '@fortawesome/free-solid-svg-icons';
@@ -40,7 +41,7 @@ import './Home.scss';
 
 const changelog = {
 	log: 'Fixed Ultimate Wheelie',
-	newestGame: 'Clash Royale',
+	newestGame: 'Drift Boss',
 };
 
 const games = [
@@ -72,6 +73,13 @@ const games = [
 			'Launch birds at pigs to destroy their structures and bring them down!',
 		image: AngryBirds,
 		url: '/angryBirds',
+	},
+	{
+		title: 'Drift Boss',
+		description:
+			'How far can you drift? Drift Boss is a fast-paced drifting game where you drift around corners.',
+		image: DriftBoss,
+		url: '/driftBoss',
 	},
 	{
 		title: 'Just Fall',

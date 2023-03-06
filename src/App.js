@@ -12,6 +12,7 @@ import Superhot from 'Components/pages/Games/Superhot';
 import Stack from 'Components/pages/Games/Stack';
 import RollingForests from 'Components/pages/Games/RollingForests';
 import SubwaySurfers from 'Components/pages/Games/SubwaySurfers';
+import DriftBoss from 'Components/pages/Games/DriftBoss';
 import RetroBowl from 'Components/pages/Games/RetroBowl';
 import ScrapMetal from 'Components/pages/Games/ScrapMetal';
 import JustFall from 'Components/pages/Games/JustFall';
@@ -102,7 +103,7 @@ class App extends Component {
 						<Route path='/learnToFly' element={<LearnToFly />} />
 						<Route path='/retroBowl' element={<RetroBowl />} />
 						<Route path='/clashRoyale' element={<ClashRoyale />} />
-
+						<Route path='/driftBoss' element={<DriftBoss />} />
 						<Route
 							path='/rollingForests'
 							element={<RollingForests />}

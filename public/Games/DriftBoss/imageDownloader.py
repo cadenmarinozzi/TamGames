@@ -1,9 +1,8 @@
 import requests, regex, os
 
-codeURL = './game.js';
-baseURL = 'https://gamessumo.com/html5/clash_of_clans/';
-
-fileTypes = ['png', 'jpg', 'jpeg', 'gif', 'ogg'];
+codeURL = './drift-boss-v3/game.js';
+baseURL = 'https://www.mathplayground.com/drift-boss-v3/';
+fileTypes = ['png', 'jpg', 'jpeg', 'gif', 'ogg', 'mp3', 'mp4'];
 
 with open(codeURL, 'r') as f:
     code = f.read();
@@ -31,26 +30,31 @@ def downloadImage(index):
     os.makedirs(os.path.dirname(index), exist_ok=True);
 
     with open(f'./{index}', 'wb') as f:
-        f.write(requestImage(index));
+        img = requestImage(index);
+
+        if (img == None):
+            return;
+
+        f.write(img);
 
         print(f'Downloaded {index}');
 
 def createImageRegex(fileType):
-    # ".+/.+.png" <- This is the regex for a png file. It should include the quotes
-    return regex.compile(f'".+/.+.{fileType}"');
- 
+    # x22media/graphics/sprites/.+?(\.png) <- This is the regex for a png file
+    return regex.compile(f'x22media\/graphics\/sprites\/.+?\.{fileType}');
+
 def getCodeImageURLS(code):
     urls = [];
 
     for fileType in fileTypes:
         r = createImageRegex(fileType);
         matches = r.findall(code);
-
+        print(matches)
         for match in matches:
             if (match == []):
                 continue;
 
-            urls.append(match.replace('"', ''));
+            # urls.append(match.replace('x22', ''));
 
     return urls;
         
