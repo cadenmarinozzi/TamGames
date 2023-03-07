@@ -1,1 +1,1 @@
-SITEMAP: https://tamgames.net/sitemap.txt
+SITEMAP: https://tamgames.net/sitemap.xml
