@@ -37,13 +37,13 @@ https://tamgames.net/#/rollingForests
 sites = sites.split('\n');
 sites = [site for site in sites if site != ''];
 
-siteMap = '''
-<?xml version="1.0" encoding="UTF-8"?>
+siteMap = '''<?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ''';
 
 for i, site in enumerate(sites):
-    siteMap += f'\t<url>\n\t\t<loc>{site}</loc>\n\t</url>\n';
+    siteMap += f'\t<url>\n\n\t\t<loc>{site}</loc>\n\n\t</url>\n\n';
 
 siteMap += '</urlset>';
 
