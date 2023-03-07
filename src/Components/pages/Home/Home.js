@@ -40,7 +40,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed Drift Boss not loading',
+	log: 'Added a search sort to the home page and a game TODO list',
 	newestGame: 'Drift Boss',
 };
 
