@@ -6,6 +6,8 @@ import {
 	faGamepad,
 	faInfo,
 	faInfoCircle,
+	faList,
+	faListCheck,
 } from '@fortawesome/free-solid-svg-icons';
 import Settings from '../Settings';
 import { Component, createRef } from 'react';

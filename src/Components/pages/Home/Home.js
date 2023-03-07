@@ -46,26 +46,11 @@ const changelog = {
 
 const games = [
 	{
-		title: 'GetTam',
+		title: 'Drift Boss',
 		description:
-			'GetTam is a 2048 inspired tile game where you combine tiles to get tam.',
-		image: GetTam,
-		url: 'https://lankmann.github.io/GetTam/',
-		redirect: true,
-	},
-	{
-		title: 'Cluster Rush',
-		description:
-			'Cluster Rush is a fast-paced truck jumping game with loads of levels!',
-		image: ClusterRush,
-		url: '/clusterRush',
-	},
-	{
-		title: 'Jetpack Joyriders',
-		description:
-			'Jetpack Joyriders is a fast-paced jetpack game where you dodge obstacles and collect coins!',
-		image: JetpackJoyriders,
-		url: '/jetpackJoyriders',
+			'How far can you drift? Drift Boss is a fast-paced drifting game where you drift around corners.',
+		image: DriftBoss,
+		url: '/driftBoss',
 	},
 	{
 		title: 'Angry Birds',
@@ -75,11 +60,47 @@ const games = [
 		url: '/angryBirds',
 	},
 	{
-		title: 'Drift Boss',
+		title: 'Learn To Fly',
+		description: `How fast can you teach your penguin to fly?`,
+		image: LearnToFly,
+		url: '/learnToFly',
+	},
+	{
+		title: 'UltimateWheelie',
+		description: `How long can you wheelie for? TamGames is one of the only sites with this game!`,
+		image: UltimateWheelie,
+		url: '/ultimateWheelie',
+	},
+	{
+		title: 'Clash Royale',
+		description: `Not the real Clash Royale, but still a fun clone!`,
+		image: ClashRoyale,
+		url: '/clashRoyale',
+	},
+	{
+		title: 'PaperIO',
+		description: `Eat up the map in this fast paced io game!`,
+		image: PaperIO,
+		url: '/paperIO',
+	},
+	{
+		title: 'Happy Wheels',
+		description: `Gruesome, gorey, and fun! Happy Wheels is a physics based game where you control a character and try to get to the end of the level!`,
+		image: HappyWheels,
+		url: '/happyWheels',
+	},
+	{
+		title: 'SnakeIO',
+		description: `Dominate the map while eating up other snakes!`,
+		image: SnakeIO,
+		url: '/snakeIO',
+	},
+	{
+		title: 'Jetpack Joyriders',
 		description:
-			'How far can you drift? Drift Boss is a fast-paced drifting game where you drift around corners.',
-		image: DriftBoss,
-		url: '/driftBoss',
+			'Jetpack Joyriders is a fast-paced jetpack game where you dodge obstacles and collect coins!',
+		image: JetpackJoyriders,
+		url: '/jetpackJoyriders',
 	},
 	{
 		title: 'Just Fall',
@@ -106,19 +127,6 @@ const games = [
 		url: '/driftHunters',
 	},
 	{
-		title: 'Moto X3M',
-		description: `Play Moto X3M, a level based moto game where
-		you dodge obstacles to get to the end!`,
-		image: MotoX3M,
-		url: '/motoX3M',
-	},
-	{
-		title: 'Clash Royale',
-		description: `Not the real Clash Royale, but still a fun clone!`,
-		image: ClashRoyale,
-		url: '/clashRoyale',
-	},
-	{
 		title: 'Subway Surfers',
 		description: `Subway Surfers is a endless runner game where you dodge trains and collect coins.`,
 		image: SubwaySurfers,
@@ -143,28 +151,10 @@ const games = [
 		url: '/1v1LOL',
 	},
 	{
-		title: 'Learn To Fly',
-		description: `How fast can you teach your penguin to fly?`,
-		image: LearnToFly,
-		url: '/learnToFly',
-	},
-	{
-		title: 'Happy Wheels',
-		description: `Gruesome, gorey, and fun! Happy Wheels is a physics based game where you control a character and try to get to the end of the level!`,
-		image: HappyWheels,
-		url: '/happyWheels',
-	},
-	{
 		title: 'Mario',
 		description: `Play Mario in your browser!`,
 		image: Mario,
 		url: '/mario',
-	},
-	{
-		title: 'UltimateWheelie',
-		description: `How long can you wheelie for? TamGames is one of the only sites with this game!`,
-		image: UltimateWheelie,
-		url: '/ultimateWheelie',
 	},
 	{
 		title: 'Worlds Hardest Game',
@@ -173,28 +163,11 @@ const games = [
 		url: '/worldsHardestGame',
 	},
 	{
-		title: 'PaperIO',
-		description: `Eat up the map in this fast paced io game!`,
-		image: PaperIO,
-		url: '/paperIO',
-	},
-	{
-		title: 'SnakeIO',
-		description: `Dominate the map while eating up other snakes!`,
-		image: SnakeIO,
-		url: '/snakeIO',
-	},
-	{
-		title: 'Slope',
-		description: `Slope is a ball runner game where you roll to the end.`,
-		image: Slope,
-		url: '/slope',
-	},
-	{
-		title: 'Superhot',
-		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
-		image: Superhot,
-		url: '/superhot',
+		title: 'Cluster Rush',
+		description:
+			'Cluster Rush is a fast-paced truck jumping game with loads of levels!',
+		image: ClusterRush,
+		url: '/clusterRush',
 	},
 	{
 		title: 'Grey Box',
@@ -204,10 +177,10 @@ const games = [
 		newest: true,
 	},
 	{
-		title: 'Stack',
-		description: `Stack is a simple stacking game where you stack blocks to get to the top.`,
-		image: Stack,
-		url: '/stack',
+		title: 'Superhot',
+		description: `Dodge bullets and shoot enemies in slow motion in this level based game.`,
+		image: Superhot,
+		url: '/superhot',
 	},
 	{
 		title: 'Helix Jump',
@@ -216,16 +189,43 @@ const games = [
 		url: '/helixJump',
 	},
 	{
-		title: 'Rolling Forests',
-		description: `Rolling Forests is a infinite runner game where you dodge the forest to get a high score.`,
-		image: RollingForests,
-		url: '/rollingForests',
+		title: 'Moto X3M',
+		description: `Play Moto X3M, a level based moto game where
+		you dodge obstacles to get to the end!`,
+		image: MotoX3M,
+		url: '/motoX3M',
 	},
 	{
 		title: 'Scrap Metal',
 		description: `Drive around in a selection of cars in this 3D driving game!`,
 		image: ScrapMetal,
 		url: '/scrapMetal',
+	},
+	{
+		title: 'GetTam',
+		description:
+			'GetTam is a 2048 inspired tile game where you combine tiles to get tam.',
+		image: GetTam,
+		url: 'https://lankmann.github.io/GetTam/',
+		redirect: true,
+	},
+	{
+		title: 'Slope',
+		description: `Slope is a ball runner game where you roll to the end.`,
+		image: Slope,
+		url: '/slope',
+	},
+	{
+		title: 'Stack',
+		description: `Stack is a simple stacking game where you stack blocks to get to the top.`,
+		image: Stack,
+		url: '/stack',
+	},
+	{
+		title: 'Rolling Forests',
+		description: `Rolling Forests is a infinite runner game where you dodge the forest to get a high score.`,
+		image: RollingForests,
+		url: '/rollingForests',
 	},
 ];
 
@@ -235,6 +235,7 @@ class Home extends Component {
 
 		this.state = {
 			search: '',
+			sort: 'Rating',
 		};
 		this.newestGameRef = createRef();
 	}
@@ -251,6 +252,12 @@ class Home extends Component {
 	handleSearchChange(value) {
 		this.setState({
 			search: value,
+		});
+	}
+
+	handleSortChange(value) {
+		this.setState({
+			sort: value,
 		});
 	}
 
@@ -274,37 +281,48 @@ class Home extends Component {
 			const gameTitle = a.title.replace(' ', '');
 			const gameTitle2 = b.title.replace(' ', '');
 
-			const gameRatings = this.state.gameRatings?.[gameTitle] ?? {};
-			let averageRating = 0;
+			if (this.state.sort === 'Rating') {
+				const gameRatings = this.state.gameRatings?.[gameTitle] ?? {};
+				let averageRating = 0;
 
-			const nPeople = Object.values(gameRatings).reduce(
-				(a, b) => a + b,
-				0
-			);
+				const nPeople = Object.values(gameRatings).reduce(
+					(a, b) => a + b,
+					0
+				);
 
-			for (const [rating, n] of Object.entries(gameRatings)) {
-				averageRating += rating * n;
+				for (const [rating, n] of Object.entries(gameRatings)) {
+					averageRating += rating * n;
+				}
+
+				averageRating /= nPeople;
+				averageRating = Math.round(averageRating);
+
+				const gameRatings2 = this.state.gameRatings?.[gameTitle2] ?? {};
+				let averageRating2 = 0;
+
+				const nPeople2 = Object.values(gameRatings2).reduce(
+					(a, b) => a + b,
+					0
+				);
+
+				for (const [rating, n] of Object.entries(gameRatings2)) {
+					averageRating2 += rating * n;
+				}
+
+				averageRating2 /= nPeople2;
+				averageRating2 = Math.round(averageRating2);
+
+				return averageRating2 - averageRating;
+			} else if (this.state.sort === 'Views') {
+				const gamePlays = this.state.gamePlays?.[gameTitle] ?? 0;
+				const gamePlays2 = this.state.gamePlays?.[gameTitle2] ?? 0;
+
+				return gamePlays2 - gamePlays;
+			} else if (this.state.sort === 'Name') {
+				return a.title.localeCompare(b.title);
+			} else if (this.state.sort === 'Newest') {
+				return true;
 			}
-
-			averageRating /= nPeople;
-			averageRating = Math.round(averageRating);
-
-			const gameRatings2 = this.state.gameRatings?.[gameTitle2] ?? {};
-			let averageRating2 = 0;
-
-			const nPeople2 = Object.values(gameRatings2).reduce(
-				(a, b) => a + b,
-				0
-			);
-
-			for (const [rating, n] of Object.entries(gameRatings2)) {
-				averageRating2 += rating * n;
-			}
-
-			averageRating2 /= nPeople2;
-			averageRating2 = Math.round(averageRating2);
-
-			return averageRating2 - averageRating;
 		});
 
 		const newestGame = currentGames.find((value) => value.newest);
@@ -333,6 +351,7 @@ class Home extends Component {
 				</div>
 				<div className='seperator-line' />
 				<Searchbar
+					onSortChange={this.handleSortChange.bind(this)}
 					placeholder='Search for a game'
 					onChange={this.handleSearchChange.bind(this)}
 				/>

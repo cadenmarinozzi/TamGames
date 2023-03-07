@@ -19,13 +19,18 @@
 	animation-duration: 0.5s;
 	animation-fill-mode: forwards;
 
-	.game-request {
+	.game-request-content {
 		position: absolute;
 
 		top: 50%;
 		left: 50%;
 
 		transform: translate(-50%, -50%);
+
+		display: flex;
+		flex-direction: row;
+
+		gap: 20px;
 
 		padding: 20px;
 
@@ -36,10 +41,56 @@
 
 		z-index: 2;
 
-		display: flex;
-		flex-direction: column;
+		.games-todo {
+			display: flex;
+			flex-direction: column;
 
-		gap: 10px;
+			gap: 10px;
+			max-height: 400px;
+
+			.games-todo-list {
+				display: flex;
+				flex-direction: column;
+
+				gap: 10px;
+
+				list-style-type: disc;
+
+				overflow-y: scroll;
+
+				.game-status-in-progress {
+					color: $secondary;
+				}
+
+				.game-status-todo {
+					color: $medium;
+				}
+
+				.game-status-finished {
+					color: $success;
+				}
+
+				li {
+					margin-left: 20px;
+				}
+			}
+		}
+
+		.game-request {
+			display: flex;
+			flex-direction: column;
+
+			justify-content: space-around;
+
+			gap: 10px;
+
+			.game-request-buttons {
+				display: flex;
+				flex-direction: column;
+
+				gap: 10px;
+			}
+		}
 	}
 }
 

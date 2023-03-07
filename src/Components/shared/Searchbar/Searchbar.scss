@@ -24,6 +24,64 @@
 		transition: $transition;
 	}
 
+	.searchbar-sort {
+		position: relative;
+
+		.searchbar-sort-icon {
+			color: $light-background;
+
+			transition: $transition;
+
+			cursor: pointer;
+		}
+
+		.searchbar-sort-icon:hover {
+			color: $light;
+		}
+
+		.searchbar-sort-icon:active {
+			color: $medium;
+		}
+
+		.searchbar-sort-dropdown {
+			position: absolute;
+
+			display: flex;
+			flex-direction: column;
+
+			gap: 15px;
+
+			z-index: 100;
+
+			width: 100px;
+
+			background: $background;
+
+			border: 1px solid $light-background;
+			border-radius: 5px;
+
+			padding: 15px;
+
+			.searchbar-sort-selector {
+				// -webkit-appearance: none;
+				// appearance: none;
+
+				outline: 0;
+
+				border: 1px solid $medium;
+				border-radius: 5px;
+
+				transition: 0.3s;
+
+				background: $background;
+				color: white;
+
+				padding: 10px;
+				padding-block: 5px;
+			}
+		}
+	}
+
 	input {
 		background: transparent;
 
