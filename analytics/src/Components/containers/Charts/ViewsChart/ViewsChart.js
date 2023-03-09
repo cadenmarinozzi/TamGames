@@ -20,11 +20,6 @@ class ViewsChart extends Component {
 	async componentDidMount() {
 		let views = await getSiteViews();
 
-		// views: {
-		//     "2021-05-01": 1,
-		//     "2021-05-02": 1,
-		// }
-
 		const data = [];
 		const labels = [];
 
@@ -52,7 +47,11 @@ class ViewsChart extends Component {
 		return (
 			this.state.data &&
 			this.state.labels && (
-				<Chart data={this.state.data} labels={this.state.labels} />
+				<Chart
+					label='Views'
+					data={this.state.data}
+					labels={this.state.labels}
+				/>
 			)
 		);
 	}
