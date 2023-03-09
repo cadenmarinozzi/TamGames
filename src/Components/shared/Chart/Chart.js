@@ -1,8 +1,10 @@
 import { Component, createRef } from 'react';
 import { Chart, registerables } from 'chart.js';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 import './Chart.scss';
 
 Chart.register(...registerables);
+Chart.register(ChartDataLabels);
 
 class DataChart extends Component {
 	constructor() {
@@ -32,10 +34,10 @@ class DataChart extends Component {
 						const day = date.getDay();
 
 						if (day === 0 || day === 6) {
-							return 'rgb(255, 0, 0)';
+							return 'rgb(214,31,77)';
 						}
 
-						return 'rgb(255, 99, 132, 0.2)';
+						return 'rgb(214,31,77, 0.2)';
 					},
 					segment: {
 						backgroundColor: (ctx) => {
@@ -54,10 +56,10 @@ class DataChart extends Component {
 								(day === 0 && day2 === 6) ||
 								(day === 6 && day2 === 0)
 							) {
-								return 'rgb(255, 0, 0)';
+								return 'rgb(214,31,77)';
 							}
 
-							return 'rgb(255, 99, 132, 0.2)';
+							return 'rgb(214,31,77, 0.2)';
 						},
 					},
 					fill: true,
@@ -78,7 +80,15 @@ class DataChart extends Component {
 			},
 		};
 
+		Chart.defaults.set('plugins.datalabels', {
+			padding: {
+				top: 10,
+			},
+			align: 'end',
+		});
+
 		const chart = new Chart(ctx, config);
+
 		this.setState({
 			chart,
 		});

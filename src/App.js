@@ -35,8 +35,9 @@ import UltimateWheelie from 'Components/pages/Games/UltimateWheelie';
 import PrivacyPolicy from 'Components/pages/PrivacyPolicy';
 import TermsAndConditions from 'Components/pages/TermsAndConditions/TermsAndConditions';
 import LearnToFly from 'Components/pages/Games/LearnToFly';
-import './App.scss';
 import ClashRoyale from 'Components/pages/Games/ClashRoyale';
+import './App.scss';
+import Analytics from 'Components/pages/Analytics';
 
 class App extends Component {
 	constructor() {
@@ -95,6 +96,7 @@ class App extends Component {
 				<div className='content'>
 					<Routes>
 						<Route path='/' element={<Home />} />
+						<Route path='/analytics' element={<Analytics />} />
 						<Route path='/clusterRush' element={<ClusterRush />} />
 						<Route path='/motoX3M' element={<MotoX3M />} />
 						<Route path='/slope' element={<Slope />} />

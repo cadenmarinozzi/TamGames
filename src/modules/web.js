@@ -1,3 +1,4 @@
+import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import { get, getDatabase, ref, set, update } from 'firebase/database';
 
@@ -17,6 +18,13 @@ const gamePlaysRef = ref(database, 'gamePlays');
 const siteViewsRef = ref(database, 'siteViews');
 const gameRequestsRef = ref(database, 'gameRequests');
 const gameRatingsRef = ref(database, 'gameRatings');
+const analytics = getAnalytics(app);
+
+async function getSiteViews() {
+	const siteViews = await get(siteViewsRef);
+
+	return siteViews.val();
+}
 
 // This is so insecure lol
 async function submitGameRequest(gameRequest) {
@@ -132,4 +140,5 @@ export {
 	getGamePlays,
 	rateGame,
 	getGameRatings,
+	getSiteViews,
 };
