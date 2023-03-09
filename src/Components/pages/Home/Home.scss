@@ -78,6 +78,16 @@
 		padding-inline: 10%;
 
 		.empty-games {
+			height: 100%;
+
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+
+			.empty-games-title {
+				color: $medium;
+			}
 		}
 
 		.rate-game {

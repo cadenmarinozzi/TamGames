@@ -14,10 +14,13 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+
 const gamePlaysRef = ref(database, 'gamePlays');
 const siteViewsRef = ref(database, 'siteViews');
 const gameRequestsRef = ref(database, 'gameRequests');
+const brokenGamesRef = ref(database, 'brokenGames');
 const gameRatingsRef = ref(database, 'gameRatings');
+
 const analytics = getAnalytics(app);
 
 async function getSiteViews() {
@@ -42,6 +45,24 @@ async function submitGameRequest(gameRequest) {
 
 	update(ref(database), {
 		gameRequests: [...gameRequests, gameRequest],
+	});
+}
+
+async function submitBrokenGame(brokenGame) {
+	const currentBrokenGames = await get(brokenGamesRef);
+
+	const brokenGames = currentBrokenGames.val();
+
+	if (!brokenGames) {
+		update(ref(database), {
+			brokenGames: [brokenGame],
+		});
+
+		return;
+	}
+
+	update(ref(database), {
+		brokenGames: [...brokenGames, brokenGame],
 	});
 }
 
@@ -141,4 +162,5 @@ export {
 	rateGame,
 	getGameRatings,
 	getSiteViews,
+	submitBrokenGame,
 };

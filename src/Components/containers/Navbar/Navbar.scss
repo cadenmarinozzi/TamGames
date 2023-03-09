@@ -25,6 +25,12 @@
 
 	border-bottom: 1px solid rgba($light-background, 0);
 
+	.broken-game-button {
+		cursor: pointer;
+
+		color: $light-background;
+	}
+
 	.navbar-section {
 		display: flex;
 		flex-direction: row;

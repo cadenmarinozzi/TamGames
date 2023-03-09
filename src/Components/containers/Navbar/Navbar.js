@@ -15,6 +15,7 @@ import Button from 'Components/shared/Button';
 import GameRequest from '../GameRequest';
 import Info from '../Info';
 import './Navbar.scss';
+import SubmitBrokenGame from '../SubmitBrokenGame';
 
 class Navbar extends Component {
 	constructor() {
@@ -42,6 +43,12 @@ class Navbar extends Component {
 		});
 	}
 
+	closeSubmitBrokenGame() {
+		this.setState({
+			submitBrokenGameOpen: false,
+		});
+	}
+
 	openSettings() {
 		this.setState({
 			settingsOpen: true,
@@ -57,6 +64,12 @@ class Navbar extends Component {
 	openGameRequest() {
 		this.setState({
 			gameRequestOpen: true,
+		});
+	}
+
+	openSubmitBrokenGame() {
+		this.setState({
+			submitBrokenGameOpen: true,
 		});
 	}
 
@@ -98,6 +111,11 @@ class Navbar extends Component {
 						/>
 					</div>
 					<div className='navbar-section'>
+						<span
+							className='broken-game-button'
+							onClick={this.openSubmitBrokenGame.bind(this)}>
+							Report Broken Game
+						</span>
 						<FontAwesomeIcon
 							icon={faCog}
 							onClick={this.openSettings.bind(this)}
@@ -120,6 +138,13 @@ class Navbar extends Component {
 				)}
 				{this.state.infoOpen && (
 					<Info closeInfo={this.closeInfo.bind(this)} />
+				)}
+				{this.state.submitBrokenGameOpen && (
+					<SubmitBrokenGame
+						closeSubmitBrokenGame={this.closeSubmitBrokenGame.bind(
+							this
+						)}
+					/>
 				)}
 			</>
 		);

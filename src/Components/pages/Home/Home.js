@@ -40,7 +40,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Added a search sort to the home page and a game TODO list',
+	log: 'Added contacts and analytics link to the info page. Also added broken game reporting.',
 	newestGame: 'Drift Boss',
 };
 
@@ -361,7 +361,9 @@ class Home extends Component {
 					}`}>
 					{currentGames.length === 0 && (
 						<div className='empty-games'>
-							No games found! Try changing your search query.
+							<span className='empty-games-title'>
+								No games found! Try changing your search query.
+							</span>
 						</div>
 					)}
 					{currentGames.map((game, index) => {
@@ -452,6 +454,7 @@ class Home extends Component {
 											className='game-image'
 											src={game.image}
 											alt={game.title}
+											loading='lazy'
 										/>
 										<div className='game-title-container'>
 											<h3>{game.title}</h3>{' '}
