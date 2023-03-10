@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Button from 'Components/shared/Button';
 import { deleteCookie, getCookie, setCookie } from 'modules/cookies';
-import { saveCookies, loadCookies, deleteAccount } from 'modules/web';
+import { saveData, loadData, deleteAccount } from 'modules/web';
 import { Component } from 'react';
 import './Account.scss';
 
@@ -40,19 +40,19 @@ class Account extends Component {
 				<div className='account'>
 					<span>Account</span>
 					<span className='account-email'>{email}</span>
-					<span>Cookies</span>
+					<span>Data</span>
 					<Button
-						label='Save Cookies To Cloud'
-						onClick={() => saveCookies({ email })}
+						label='Save Data To Cloud'
+						onClick={() => saveData({ email })}
 						icon={faDownload}
 					/>
 					<Button
-						label='Load Cookies From Cloud'
+						label='Load Data From Cloud'
 						icon={faUpload}
-						onClick={() => loadCookies({ email })}
+						onClick={() => loadData({ email })}
 					/>
-					<Button
-						label='Export Cookies'
+					{/* <Button
+						label='Export Data'
 						icon={faSave}
 						onClick={() => {
 							const cookies = document.cookie;
@@ -70,7 +70,7 @@ class Account extends Component {
 
 							element.click();
 						}}
-					/>
+					/> */}
 					<span>Account Actions</span>
 					<Button label='Edit Login Info' icon={faUserEdit} cta />
 					<Button

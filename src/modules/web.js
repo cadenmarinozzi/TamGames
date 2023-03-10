@@ -81,18 +81,22 @@ async function login({ email, password }) {
 	return false;
 }
 
-async function saveCookies({ email }) {
+async function saveData({ email }) {
 	const cookies = getCookies(); // Object containing json parsed cookies
+	cookies.password = ''; // Remove password from cookies
+
 	const cookiesJSON = JSON.stringify(cookies); // Stringified cookies
+	const localStorageJSON = JSON.stringify(localStorage); // Stringified localStorage
 
 	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
 
 	await update(userRef, {
 		cookies: cookiesJSON,
+		localStorage: localStorageJSON,
 	});
 }
 
-async function loadCookies({ email }) {
+async function loadData({ email }) {
 	const user = await get(
 		ref(database, `users/${formatFirebaseEmail(email)}`)
 	);
@@ -105,6 +109,14 @@ async function loadCookies({ email }) {
 
 	if (userData.cookies) {
 		setCookies(JSON.parse(userData.cookies));
+	}
+
+	if (userData.localStorage) {
+		const data = JSON.parse(userData.localStorage);
+
+		for (const [key, value] of data) {
+			localStorage.setItem(key, value);
+		}
 	}
 
 	return false;
@@ -246,7 +258,7 @@ export {
 	submitBrokenGame,
 	signUp,
 	login,
-	saveCookies,
-	loadCookies,
+	saveData,
+	loadData,
 	deleteAccount,
 };

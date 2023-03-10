@@ -40,7 +40,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Made tab cloaker only overlay the cloak tab instead of replacing the page',
+	log: 'Allowed accounts to upload and download their data',
 	newestGame: 'Drift Boss',
 };
 
