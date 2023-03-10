@@ -1,0 +1,166 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.input-container {
+	border-radius: 5px;
+	border: 1px solid $light-background;
+
+	position: relative;
+
+	width: 320px;
+	height: 50px;
+
+	display: flex;
+	flex-direction: row;
+
+	align-items: center;
+
+	background: $background;
+
+	transition: $transition;
+
+	.input-label {
+		position: absolute;
+
+		top: 0;
+
+		left: 10px;
+
+		transform: translate(0, -50%);
+
+		transition: $transition;
+
+		color: $light-background;
+
+		font-size: 12pt;
+		font-family: sans-serif;
+
+		.input-label-line-container {
+			position: absolute;
+
+			width: 100%;
+			height: 100%;
+
+			z-index: -1;
+
+			transform: translateY(-50%);
+
+			.input-label-line {
+				background: $background;
+
+				height: 3px;
+				width: calc(100% + 8px);
+
+				transform: translate(-2px, -50%);
+
+				z-index: -1;
+			}
+		}
+
+		.input-required {
+			color: $primary;
+		}
+	}
+
+	.input {
+		padding-inline: 10px;
+
+		margin: 3px;
+
+		outline: 0;
+		border: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background: transparent;
+
+		font-size: 12pt;
+
+		color: $light;
+	}
+
+	.input::placeholder {
+		color: $light-background;
+	}
+
+	.input:-webkit-autofill,
+	.input:-webkit-autofill:hover,
+	.input:-webkit-autofill:focus,
+	.input:-webkit-autofill:active {
+		-webkit-box-shadow: 0 0 0 30px $background inset !important;
+	}
+
+	.input:-webkit-autofill {
+		-webkit-text-fill-color: $light !important;
+	}
+
+	.password-meter {
+		padding-inline: 10px;
+
+		font-size: 12pt;
+		font-family: sans-serif;
+	}
+
+	.meter-weak {
+		color: $primary;
+	}
+
+	.meter-good {
+		color: $medium;
+	}
+
+	.meter-strong {
+		color: $success;
+	}
+}
+
+.input-half {
+	width: 150px;
+}
+
+.input-container:hover:not(.input-error) {
+	border: 1px solid $primary;
+}
+
+.input-container:focus-within:not(.input-error) {
+	border: 1px solid $primary;
+}
+
+.input-error {
+	border-color: $primary;
+
+	.input-label {
+		color: $primary;
+	}
+}
+
+.password-strength {
+	width: calc(100% - 2px * 2);
+
+	margin-top: -10px;
+
+	.password-strength-bar {
+		height: 6px;
+
+		border: 1px solid $light-background;
+		border-radius: 4px;
+
+		transition: $transition;
+	}
+
+	.password-weak {
+		background: $primary;
+		width: 33%;
+	}
+
+	.password-good {
+		background: $gold;
+		width: 66%;
+	}
+
+	.password-strong {
+		background: $success;
+		width: 100%;
+	}
+}

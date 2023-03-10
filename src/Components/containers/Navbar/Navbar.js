@@ -8,6 +8,9 @@ import {
 	faInfoCircle,
 	faList,
 	faListCheck,
+	faSignInAlt,
+	faUser,
+	faUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import Settings from '../Settings';
 import { Component, createRef } from 'react';
@@ -16,6 +19,7 @@ import GameRequest from '../GameRequest';
 import Info from '../Info';
 import './Navbar.scss';
 import SubmitBrokenGame from '../SubmitBrokenGame';
+import { deleteCookie } from 'modules/cookies';
 
 class Navbar extends Component {
 	constructor() {
@@ -85,6 +89,12 @@ class Navbar extends Component {
 		});
 	}
 
+	logout() {
+		deleteCookie('email');
+		deleteCookie('password');
+		window.location = '/';
+	}
+
 	render() {
 		return (
 			<>
@@ -109,6 +119,23 @@ class Navbar extends Component {
 							transparent
 							onClick={this.openGameRequest.bind(this)}
 						/>
+						{this.props.loaded &&
+							(this.props.loggedIn ? (
+								<Button
+									icon={faSignInAlt}
+									label='Logout'
+									transparent
+									onClick={this.logout.bind(this)}
+								/>
+							) : (
+								<Link to='/signUp'>
+									<Button
+										icon={faUserPlus}
+										label='Sign Up'
+										transparent
+									/>
+								</Link>
+							))}
 					</div>
 					<div className='navbar-section'>
 						<span
@@ -126,6 +153,14 @@ class Navbar extends Component {
 							onClick={this.openInfo.bind(this)}
 							className='navbar-button'
 						/>
+						{this.props.loggedIn && (
+							<Link to='/account'>
+								<FontAwesomeIcon
+									icon={faUser}
+									className='navbar-button'
+								/>
+							</Link>
+						)}
 					</div>
 				</div>
 				{this.state.settingsOpen && (

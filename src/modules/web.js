@@ -1,6 +1,9 @@
 import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
-import { get, getDatabase, ref, set, update } from 'firebase/database';
+import { get, getDatabase, ref, set, update, remove } from 'firebase/database';
+import { sha256 } from 'js-sha256';
+import { getCookies, setCookies } from './cookies';
+import { formatFirebaseEmail } from './utils';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyAXKTx9akcSGCYOeVuCBbGH1izF4BKKYW8',
@@ -20,6 +23,7 @@ const siteViewsRef = ref(database, 'siteViews');
 const gameRequestsRef = ref(database, 'gameRequests');
 const brokenGamesRef = ref(database, 'brokenGames');
 const gameRatingsRef = ref(database, 'gameRatings');
+const usersRef = ref(database, 'users');
 
 const analytics = getAnalytics(app);
 
@@ -27,6 +31,83 @@ async function getSiteViews() {
 	const siteViews = await get(siteViewsRef);
 
 	return siteViews.val();
+}
+
+async function deleteAccount({ email }) {
+	const formattedEmail = formatFirebaseEmail(email);
+
+	await remove(ref(database, `users/${formattedEmail}`));
+}
+
+async function signUp({ email, password }) {
+	const hashedPassword = sha256(password);
+	const formattedEmail = formatFirebaseEmail(email);
+
+	const currentUsers = await get(usersRef);
+
+	const user = {
+		email,
+		password: hashedPassword,
+	};
+
+	if (!currentUsers.exists()) {
+		await set(usersRef, {
+			[formattedEmail]: user,
+		});
+
+		return;
+	}
+
+	await update(usersRef, {
+		[formattedEmail]: user,
+	});
+}
+
+async function login({ email, password }) {
+	const user = await get(
+		ref(database, `users/${formatFirebaseEmail(email)}`)
+	);
+
+	if (!user.exists()) {
+		return false;
+	}
+
+	const userData = user.val();
+
+	if (userData.password === sha256(password)) {
+		return true;
+	}
+
+	return false;
+}
+
+async function saveCookies({ email }) {
+	const cookies = getCookies(); // Object containing json parsed cookies
+	const cookiesJSON = JSON.stringify(cookies); // Stringified cookies
+
+	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
+
+	await update(userRef, {
+		cookies: cookiesJSON,
+	});
+}
+
+async function loadCookies({ email }) {
+	const user = await get(
+		ref(database, `users/${formatFirebaseEmail(email)}`)
+	);
+
+	if (!user.exists()) {
+		return false;
+	}
+
+	const userData = user.val();
+
+	if (userData.cookies) {
+		setCookies(JSON.parse(userData.cookies));
+	}
+
+	return false;
 }
 
 // This is so insecure lol
@@ -163,4 +244,9 @@ export {
 	getGameRatings,
 	getSiteViews,
 	submitBrokenGame,
+	signUp,
+	login,
+	saveCookies,
+	loadCookies,
+	deleteAccount,
 };

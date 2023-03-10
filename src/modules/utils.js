@@ -23,4 +23,33 @@ function scrollToComponent(ref) {
 	window.scrollTo({ top: ref.current.offsetTop, behavior: 'smooth' });
 }
 
-export { formatFirebasePath, lerpColor, scrollToComponent };
+function calculatePasswordStrength(password) {
+	if (password.length < 8) {
+		return 'weak';
+	}
+
+	if (password.length < 12) {
+		return 'good';
+	}
+
+	return 'strong';
+}
+
+function verifyEmailFormat(email) {
+	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+	return emailRegex.test(email);
+}
+
+function formatFirebaseEmail(email) {
+	return email.replaceAll('.', ',');
+}
+
+export {
+	formatFirebasePath,
+	lerpColor,
+	scrollToComponent,
+	calculatePasswordStrength,
+	verifyEmailFormat,
+	formatFirebaseEmail,
+};

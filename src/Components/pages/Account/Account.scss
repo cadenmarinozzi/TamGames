@@ -1,0 +1,28 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.account-container {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+
+	.account {
+		display: flex;
+		flex-direction: column;
+
+		gap: 20px;
+
+		align-items: center;
+
+		padding: 20px;
+
+		border: 1px solid $light-background;
+
+		border-radius: 8px;
+
+		.account-email {
+			color: $medium;
+		}
+	}
+}

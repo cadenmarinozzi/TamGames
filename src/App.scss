@@ -9,6 +9,8 @@
 
 	border: none;
 	outline: none;
+
+	z-index: 999999;
 }
 
 .uncloak-button {
@@ -16,6 +18,8 @@
 
 	bottom: 10px;
 	left: 10px;
+
+	z-index: 9999991;
 }
 
 .content {

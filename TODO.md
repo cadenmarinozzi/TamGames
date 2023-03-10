@@ -3,6 +3,7 @@
 -   Game of the day on homepage
 -   Route requests through a backend
 -   Add a dashboard
--   Add an analytics page
--   Require login to rate games (username login)
--   Allow people to create accounts that can save cookies and localstorage
+-   Allow accounts to save cookies and localstorage
+-   Ad Spots and Ad Page
+-   Clean up the code
+-   Reduce download size from hosting

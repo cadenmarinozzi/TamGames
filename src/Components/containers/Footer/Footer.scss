@@ -28,4 +28,10 @@
 	.footer-button {
 		cursor: pointer;
 	}
+
+	.footer-links {
+		* {
+			color: $light-background;
+		}
+	}
 }

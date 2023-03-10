@@ -40,7 +40,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Added contacts and analytics link to the info page. Also added broken game reporting.',
+	log: 'Made tab cloaker only overlay the cloak tab instead of replacing the page',
 	newestGame: 'Drift Boss',
 };
 
@@ -329,6 +329,16 @@ class Home extends Component {
 
 		return (
 			<div className='home'>
+				{/* <div className='ad-spot ad-spot-left'>
+					<span className='ad-spot-label'>
+						Click to put your ad Here!
+					</span>
+				</div>
+				<div className='ad-spot ad-spot-right'>
+					<span className='ad-spot-label'>
+						Click to put your ad Here!
+					</span>
+				</div> */}
 				<div className='title-container'>
 					<div className='title'>
 						<h1>Tam</h1>

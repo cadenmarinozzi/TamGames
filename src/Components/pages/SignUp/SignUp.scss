@@ -1,0 +1,35 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.sign-up {
+	position: absolute;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	border: 1px solid $light-background;
+	background: $background;
+
+	border-radius: 8px;
+
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	gap: 20px;
+
+	.buttons {
+		display: flex;
+		flex-direction: row;
+
+		align-items: center;
+
+		gap: 20px;
+	}
+}
