@@ -4,6 +4,7 @@ import { get, getDatabase, ref, set, update, remove } from 'firebase/database';
 import { sha256 } from 'js-sha256';
 import { getCookies, setCookies } from './cookies';
 import { formatFirebaseEmail } from './utils';
+import axios from 'axios';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyAXKTx9akcSGCYOeVuCBbGH1izF4BKKYW8',
@@ -94,6 +95,36 @@ async function saveData({ email }) {
 		cookies: cookiesJSON,
 		localStorage: localStorageJSON,
 	});
+}
+
+async function addImagePrice({ email }) {
+	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
+
+	const user = await get(userRef);
+
+	const userData = user.val();
+
+	if (!userData.imagePrice) {
+		await update(userRef, {
+			imagePrice: 0.02,
+		});
+
+		return;
+	}
+
+	await update(userRef, {
+		imagePrice: userData.imagePrice + 0.02,
+	});
+}
+
+async function getImagePriceUsage({ email }) {
+	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
+
+	const user = await get(userRef);
+
+	const userData = user.val();
+
+	return userData.imagePrice || 0;
 }
 
 async function loadData({ email }) {
@@ -247,6 +278,29 @@ async function getGameRatings() {
 	return currentGameRatings.val();
 }
 
+async function promptChatGPT(history, message) {
+	const { data } = await axios.post(
+		'https://us-central1-tam-games.cloudfunctions.net/app/chatgpt',
+		{
+			history,
+			message,
+		}
+	);
+
+	return data;
+}
+
+async function generateDalleImage(prompt) {
+	const { data } = await axios.post(
+		'https://us-central1-tam-games.cloudfunctions.net/app/dalle',
+		{
+			prompt,
+		}
+	);
+
+	return data;
+}
+
 export {
 	submitGameRequest,
 	addSiteView,
@@ -259,6 +313,10 @@ export {
 	signUp,
 	login,
 	saveData,
+	addImagePrice,
+	getImagePriceUsage,
 	loadData,
 	deleteAccount,
+	promptChatGPT,
+	generateDalleImage,
 };

@@ -17,10 +17,10 @@ class Input extends Component {
 			<>
 				<div
 					className={`input-container ${
-						this.props.half && 'input-half'
-					} skeuomorphic-small ${this.state.error && 'input-error'} ${
-						this.props.className
-					}`}>
+						this.props.disabled && 'input-disabled'
+					} ${this.props.half && 'input-half'} skeuomorphic-small ${
+						this.state.error && 'input-error'
+					} ${this.props.className}`}>
 					<label className='input-label'>
 						{this.props.label}
 						{this.props.required && (
@@ -35,6 +35,7 @@ class Input extends Component {
 					<input
 						className='input'
 						id={this.id}
+						value={this.props.value}
 						type={this.props.type}
 						placeholder={this.props.placeholder}
 						onChange={(e) => {

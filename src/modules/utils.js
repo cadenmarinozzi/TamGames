@@ -35,6 +35,18 @@ function calculatePasswordStrength(password) {
 	return 'strong';
 }
 
+function downloadImage(base64) {
+	const link = document.createElement('a');
+	link.href = base64;
+	link.download = 'image.png';
+
+	document.body.appendChild(link);
+
+	link.click();
+
+	document.body.removeChild(link);
+}
+
 function verifyEmailFormat(email) {
 	const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
 
@@ -52,4 +64,5 @@ export {
 	calculatePasswordStrength,
 	verifyEmailFormat,
 	formatFirebaseEmail,
+	downloadImage,
 };

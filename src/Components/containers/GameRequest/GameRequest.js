@@ -19,15 +19,15 @@ const todo = [
 		status: 'TODO',
 	},
 	{
-		title: 'Roblox',
+		title: 'Hole.io',
+		status: 'TODO',
+	},
+	{
+		title: 'Funny Shooter',
 		status: 'TODO',
 	},
 	{
 		title: 'Geometry Dash',
-		status: 'In progress',
-	},
-	{
-		title: 'Funny Shooter',
 		status: 'In progress',
 	},
 	{

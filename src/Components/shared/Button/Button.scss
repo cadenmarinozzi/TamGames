@@ -14,6 +14,19 @@
 	transition: $transition;
 }
 
+.button-disabled {
+	pointer-events: none;
+
+	background: transparent;
+	color: $light-background;
+
+	border-color: $light-background;
+}
+
+.button-big {
+	height: 50px;
+}
+
 .button-cta {
 	background: $cta;
 	color: $light;

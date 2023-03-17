@@ -2,6 +2,28 @@
 	"hosting": {
 		"public": "build",
 		"ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
-		"redirects": []
-	}
+		"redirects": [],
+		"rewrites": [
+			{
+				"source": "/chatgpt",
+				"function": "app"
+			},
+			{
+				"source": "/dalle",
+				"function": "app"
+			}
+		]
+	},
+	"functions": [
+		{
+			"source": "backend",
+			"codebase": "default",
+			"ignore": [
+				"node_modules",
+				".git",
+				"firebase-debug.log",
+				"firebase-debug.*.log"
+			]
+		}
+	]
 }

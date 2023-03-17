@@ -12,3 +12,9 @@
 
 *   Allowed accounts to download their localstorage and cookies
 *   Removed password from cookie data
+
+-   3/16/2023 3:00 PM
+
+*   Added ChatGPT and Dalle
+*   Started Backend
+*   Worked on some games

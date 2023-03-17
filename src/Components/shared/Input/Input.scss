@@ -115,6 +115,18 @@
 	}
 }
 
+.input-disabled {
+	pointer-events: none;
+
+	.input {
+		color: $light-background;
+	}
+
+	.input-label {
+		color: $light-background;
+	}
+}
+
 .input-half {
 	width: 150px;
 }

@@ -18,6 +18,7 @@ import DriftHunters from 'assets/images/driftHunters.png';
 import JetpackJoyriders from 'assets/images/jetpackJoyriders.jpg';
 import WorldsHardestGame from 'assets/images/worldsHardestGame.jpg';
 import IvILOL from 'assets/images/1v1LOL.png';
+import ChatGPT from 'assets/images/chatGPT.png';
 import GreyBox from 'assets/images/greyBox.png';
 import AmongUs from 'assets/images/amongUs.png';
 import PaperIO from 'assets/images/paperIO.png';
@@ -41,10 +42,17 @@ import './Home.scss';
 
 const changelog = {
 	log: 'Allowed accounts to upload and download their data',
-	newestGame: 'Drift Boss',
+	newestGame: 'ChatGPT',
 };
 
 const games = [
+	{
+		title: 'ChatGPT',
+		description:
+			"Want answers to your homework? Don't want to write an essay? ChatGPT is a chatbot that can answer your questions and write your essays for you!",
+		image: ChatGPT,
+		url: '/chatGPT',
+	},
 	{
 		title: 'Drift Boss',
 		description:

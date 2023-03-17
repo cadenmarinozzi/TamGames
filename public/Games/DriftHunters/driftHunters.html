@@ -5,8 +5,14 @@
 		<script>
 			var gameInstance = UnityLoader.instantiate(
 				'gameContainer',
-				'./dh.json'
+				'dh.json'
 			);
+
+			function UnityProgress(gameInstance, progress) {
+				if (!gameInstance.Module) {
+					return;
+				}
+			}
 		</script>
 	</head>
 	<body style="margin: 0; overflow: hidden">

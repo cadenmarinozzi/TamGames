@@ -41,6 +41,7 @@ import SignUp from 'Components/pages/SignUp';
 import Login from 'Components/pages/Login';
 import Account from 'Components/pages/Account';
 import './App.scss';
+import ChatGPT from 'Components/pages/Games/ChatGPT';
 
 class App extends Component {
 	constructor() {
@@ -53,55 +54,50 @@ class App extends Component {
 	}
 
 	async componentDidMount() {
-		document.addEventListener('visibilitychange', (event) => {
-			if (document.visibilityState === 'visible') {
-				if (!this.state.tabChanged) {
-					this.setState({
-						tabChanged: false,
-						cloak: true,
-					});
-				}
+		document.addEventListener('visibilitychange', () => {
+			const { tabChanged } = this.state;
+			const cloaking =
+				document.visibilityState === 'visible' && tabChanged;
 
-				return;
-			}
-
-			if (this.state.tabChanged) {
-				this.setState({
-					tabChanged: true,
-				});
-			}
+			this.setState({
+				tabChanged: !cloaking,
+				cloak: cloaking,
+			});
 		});
 
 		const email = getCookie('email');
 		const password = getCookie('password');
 
-		if (email && password) {
-			const loggedIn = await login({
-				email,
-				password,
+		if (!email || !password) {
+			this.setState({
+				loaded: true,
 			});
 
-			if (loggedIn) {
-				this.setState({
-					loggedIn: true,
-					loaded: true,
-				});
-
-				return;
-			}
+			return;
 		}
 
+		const loggedIn = await login({
+			email,
+			password,
+		});
+
 		this.setState({
+			loggedIn,
 			loaded: true,
 		});
 	}
 
 	render() {
+		const { cloak, loggedIn, loaded } = this.state;
+
+		const tabCloaker = getCookie('tabCloaker') === 'true';
+		const cloaking = cloak && tabCloaker;
+
 		addSiteView();
 
 		return (
 			<>
-				{this.state.cloak && getCookie('tabCloaker') === 'true' && (
+				{cloaking && (
 					<>
 						<iframe
 							title='Google Drive'
@@ -120,10 +116,7 @@ class App extends Component {
 					</>
 				)}
 				<HashRouter>
-					<Navbar
-						loggedIn={this.state.loggedIn}
-						loaded={this.state.loaded}
-					/>
+					<Navbar loggedIn={loggedIn} loaded={loaded} />
 					<div className='content'>
 						<Routes>
 							<Route path='/' element={<Home />} />
@@ -199,6 +192,15 @@ class App extends Component {
 							<Route path='/helixJump' element={<HelixJump />} />
 							<Route path='/snakeIO' element={<SnakeIO />} />
 							<Route
+								path='/chatGPT'
+								element={
+									<ChatGPT
+										loggedIn={loggedIn}
+										loaded={loaded}
+									/>
+								}
+							/>
+							<Route
 								path='/happyWheels'
 								element={<HappyWheels />}
 							/>
@@ -208,7 +210,7 @@ class App extends Component {
 							/>
 						</Routes>
 					</div>
-					<Footer loggedIn={this.state.loggedIn} />
+					<Footer loggedIn={loggedIn} />
 				</HashRouter>
 			</>
 		);
