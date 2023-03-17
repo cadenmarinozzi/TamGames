@@ -15,6 +15,8 @@ import {
 	generateDalleImage,
 	addImagePrice,
 	getImagePriceUsage,
+	addChatPrice,
+	getChatPriceUsage,
 } from 'modules/web';
 import { Component, createRef } from 'react';
 import MarkdownIt from 'markdown-it';
@@ -27,6 +29,7 @@ import './ChatGPT.scss';
 import 'highlight.js/styles/atom-one-dark.css';
 import { downloadImage } from 'modules/utils';
 import { getCookie } from 'modules/cookies';
+import { getNTokens } from 'modules/utils';
 import Toggle from 'Components/shared/Toggle';
 
 class ChatGPT extends Component {
@@ -37,25 +40,13 @@ class ChatGPT extends Component {
 			history: [],
 			message: '',
 			imagePriceUsage: 0,
+			chatPriceUsage: 0,
 			loading: false,
 		};
 
 		this.historyRef = createRef();
-		this.usageBarUsedRef = createRef();
-	}
-
-	async componentDidMount() {
-		const imagePriceUsage = await getImagePriceUsage({
-			email: getCookie('email'),
-		});
-
-		this.setState({
-			imagePriceUsage,
-		});
-
-		this.usageBarUsedRef.current.style.width = `${
-			(imagePriceUsage / 0.2) * 100
-		}%`;
+		this.imageUsageBarUsedRef = createRef();
+		this.chatUsageBarUsedRef = createRef();
 	}
 
 	async generateDalleImage() {
@@ -74,6 +65,10 @@ class ChatGPT extends Component {
 			imagePriceUsage: this.state.imagePriceUsage + 0.02,
 		});
 
+		addImagePrice({
+			email: getCookie('email'),
+		});
+
 		this.usageBarUsedRef.current.style.width = `${
 			((this.state.imagePriceUsage + 0.02) / 0.2) * 100
 		}%`;
@@ -85,10 +80,6 @@ class ChatGPT extends Component {
 		this.setState({
 			history: [...this.state.history, [message, imageArray, time, true]],
 			loading: false,
-		});
-
-		addImagePrice({
-			email: getCookie('email'),
 		});
 	}
 
@@ -103,14 +94,36 @@ class ChatGPT extends Component {
 			loading: true,
 		});
 
-		const { completion, history: newHistory } = await promptChatGPT(
+		let response = await promptChatGPT(
 			history
 				.filter((message) => message.length !== 4)
 				.map((message) => [message[0], message[1]]),
 			message
 		);
 
+		if (!response) {
+			const completion =
+				'Whoops! Something went wrong. Please try again.';
+			response = {
+				completion,
+				history: [
+					...history
+						.filter((message) => message.length !== 4)
+						.map((message) => [message[0], message[1]]),
+					[message, completion],
+				],
+			};
+		}
+
+		let { completion, history: newHistory } = response;
+
 		const time = new Date().toLocaleTimeString();
+		const price = (getNTokens(completion) / 1000) * 0.002;
+
+		addChatPrice({
+			email: getCookie('email'),
+			price,
+		});
 
 		this.setState({
 			history: [...history, [...newHistory[newHistory.length - 1], time]],
@@ -118,16 +131,42 @@ class ChatGPT extends Component {
 		});
 	}
 
-	componentDidUpdate() {
+	async componentDidUpdate() {
 		const history = this.historyRef.current;
 
-		if (!history) return;
+		if (
+			!history ||
+			!this.imageUsageBarUsedRef.current ||
+			!this.chatUsageBarUsedRef.current
+		)
+			return;
 
 		history.scrollTop = history.scrollHeight;
 
 		// set ignoreUnescapedHTML to true
 		hljs.configure({ ignoreUnescapedHTML: true });
 		hljs.highlightAll();
+
+		const imagePriceUsage = await getImagePriceUsage({
+			email: getCookie('email'),
+		});
+
+		const chatPriceUsage = await getChatPriceUsage({
+			email: getCookie('email'),
+		});
+
+		this.setState({
+			imagePriceUsage,
+			chatPriceUsage,
+		});
+
+		this.imageUsageBarUsedRef.current.style.width = `${
+			(imagePriceUsage / 0.2) * 100
+		}%`;
+
+		this.chatUsageBarUsedRef.current.style.width = `${
+			(chatPriceUsage / 0.2) * 100
+		}%`;
 	}
 
 	render() {
@@ -309,7 +348,22 @@ class ChatGPT extends Component {
 							<div className='usage-bar'>
 								<div
 									className='usage-bar-used'
-									ref={this.usageBarUsedRef}
+									ref={this.imageUsageBarUsedRef}
+								/>
+							</div>
+						</div>
+						<div className='usage'>
+							<span className='usage-label'>
+								Chat Tokens Used Up (
+								{Math.floor(
+									(0.2 - this.state.chatPriceUsage) / 0.02
+								)}{' '}
+								Chat Tokens Left):{' '}
+							</span>
+							<div className='usage-bar'>
+								<div
+									className='usage-bar-used'
+									ref={this.chatUsageBarUsedRef}
 								/>
 							</div>
 						</div>

@@ -3,7 +3,6 @@
 -   Game of the day on homepage
 -   Route requests through a backend
 -   Add a dashboard
--   Allow accounts to save cookies and localstorage
 -   Ad Spots and Ad Page
 -   Clean up the code
 -   Reduce download size from hosting

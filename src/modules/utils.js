@@ -1,3 +1,7 @@
+const GPT3Tokenizer = require('gpt3-tokenizer');
+console.log(GPT3Tokenizer);
+const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
+
 function formatFirebasePath(path) {
 	return path.replaceAll('.', ',');
 }
@@ -57,6 +61,10 @@ function formatFirebaseEmail(email) {
 	return email.replaceAll('.', ',');
 }
 
+function getNTokens(text) {
+	return tokenizer.encode(text).bpe.length;
+}
+
 export {
 	formatFirebasePath,
 	lerpColor,
@@ -65,4 +73,5 @@ export {
 	verifyEmailFormat,
 	formatFirebaseEmail,
 	downloadImage,
+	getNTokens,
 };

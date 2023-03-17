@@ -18,3 +18,11 @@
 *   Added ChatGPT and Dalle
 *   Started Backend
 *   Worked on some games
+
+-   3/17/2023 7:52 AM
+
+*   Fixed ChatGPT CORS error
+
+-   3/17/2023 4:15 PM
+
+*   Fixed Drift Boss not loading

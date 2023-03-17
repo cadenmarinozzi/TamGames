@@ -127,6 +127,36 @@ async function getImagePriceUsage({ email }) {
 	return userData.imagePrice || 0;
 }
 
+async function addChatPrice({ email, price }) {
+	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
+
+	const user = await get(userRef);
+
+	const userData = user.val();
+
+	if (!userData.chatPrice) {
+		await update(userRef, {
+			chatPrice: price,
+		});
+
+		return;
+	}
+
+	await update(userRef, {
+		chatPrice: userData.chatPrice + price,
+	});
+}
+
+async function getChatPriceUsage({ email }) {
+	const userRef = ref(database, `users/${formatFirebaseEmail(email)}`);
+
+	const user = await get(userRef);
+
+	const userData = user.val();
+
+	return userData.chatPrice || 0;
+}
+
 async function loadData({ email }) {
 	const user = await get(
 		ref(database, `users/${formatFirebaseEmail(email)}`)
@@ -279,15 +309,21 @@ async function getGameRatings() {
 }
 
 async function promptChatGPT(history, message) {
-	const { data } = await axios.post(
-		'https://us-central1-tam-games.cloudfunctions.net/app/chatgpt',
-		{
-			history,
-			message,
-		}
-	);
+	try {
+		const { data } = await axios.post(
+			'https://us-central1-tam-games.cloudfunctions.net/app/chatgpt',
+			{
+				history,
+				message,
+			}
+		);
 
-	return data;
+		return data;
+	} catch (e) {
+		console.error(e);
+
+		return;
+	}
 }
 
 async function generateDalleImage(prompt) {
@@ -319,4 +355,6 @@ export {
 	deleteAccount,
 	promptChatGPT,
 	generateDalleImage,
+	addChatPrice,
+	getChatPriceUsage,
 };

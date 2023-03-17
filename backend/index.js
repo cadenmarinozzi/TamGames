@@ -2,10 +2,12 @@ const functions = require('firebase-functions');
 const { promptChatGPT } = require('./web/chatGPT');
 const { generateDalleImage } = require('./web/dalle');
 const axios = require('axios');
+const cors = require('cors');
 const express = require('express');
 
 const app = express();
 app.use(express.json());
+app.use(cors({ origin: true, credentials: true }));
 
 app.post('/chatgpt', async (req, res) => {
 	const { history, message } = req.body;

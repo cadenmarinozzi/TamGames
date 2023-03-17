@@ -41,7 +41,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Allowed accounts to upload and download their data',
+	log: 'Fixed Drift Boss not loading',
 	newestGame: 'ChatGPT',
 };
 

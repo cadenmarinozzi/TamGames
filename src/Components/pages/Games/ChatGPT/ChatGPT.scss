@@ -190,6 +190,10 @@
 		}
 	}
 
+	.history::-webkit-scrollbar {
+		width: 0px;
+	}
+
 	.chatgpt-controls {
 		display: flex;
 		flex-direction: column;
