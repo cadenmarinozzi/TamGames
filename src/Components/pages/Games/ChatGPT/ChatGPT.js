@@ -80,6 +80,7 @@ class ChatGPT extends Component {
 		this.setState({
 			history: [...this.state.history, [message, imageArray, time, true]],
 			loading: false,
+			needscroll: true,
 		});
 	}
 
@@ -128,6 +129,7 @@ class ChatGPT extends Component {
 		this.setState({
 			history: [...history, [...newHistory[newHistory.length - 1], time]],
 			loading: false,
+			needscroll: true,
 		});
 	}
 
@@ -141,7 +143,13 @@ class ChatGPT extends Component {
 		)
 			return;
 
-		history.scrollTop = history.scrollHeight;
+		if (this.state.needscroll) {
+			history.scrollTop = history.scrollHeight;
+
+			this.setState({
+				needscroll: false,
+			});
+		}
 
 		// set ignoreUnescapedHTML to true
 		hljs.configure({ ignoreUnescapedHTML: true });
@@ -354,11 +362,11 @@ class ChatGPT extends Component {
 						</div>
 						<div className='usage'>
 							<span className='usage-label'>
-								Chat Tokens Used Up (
+								Chat Tokens Used Up (About{' '}
 								{Math.floor(
-									(0.2 - this.state.chatPriceUsage) / 0.02
-								)}{' '}
-								Chat Tokens Left):{' '}
+									(0.2 - this.state.chatPriceUsage) / 0.002
+								)}
+								k Chat Tokens Left):{' '}
 							</span>
 							<div className='usage-bar'>
 								<div

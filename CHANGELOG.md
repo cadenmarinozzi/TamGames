@@ -26,3 +26,7 @@
 -   3/17/2023 4:15 PM
 
 *   Fixed Drift Boss not loading
+
+-   3/18/2023 11:00 PM
+
+*   Fixed Chat GPT auto scroll

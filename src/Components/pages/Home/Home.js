@@ -41,7 +41,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed Drift Boss not loading',
+	log: 'Fixed Chat GPT auto scrolling',
 	newestGame: 'ChatGPT',
 };
 
