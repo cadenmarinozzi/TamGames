@@ -69,9 +69,10 @@ class ChatGPT extends Component {
 			email: getCookie('email'),
 		});
 
-		this.imageUsageBarUsedRef.current.style.width = `${
-			((this.state.imagePriceUsage + 0.02) / 0.2) * 100
-		}%`;
+		this.imageUsageBarUsedRef.current.style.width = `${Math.min(
+			((this.state.imagePriceUsage + 0.02) / 0.2) * 100,
+			100
+		)}%`;
 
 		const imageArray = await generateDalleImage(message);
 
@@ -168,13 +169,15 @@ class ChatGPT extends Component {
 			chatPriceUsage,
 		});
 
-		this.imageUsageBarUsedRef.current.style.width = `${
-			(imagePriceUsage / 0.2) * 100
-		}%`;
+		this.imageUsageBarUsedRef.current.style.width = `${Math.min(
+			(imagePriceUsage / 0.2) * 100,
+			100
+		)}%`;
 
-		this.chatUsageBarUsedRef.current.style.width = `${
-			(chatPriceUsage / 0.2) * 100
-		}%`;
+		this.chatUsageBarUsedRef.current.style.width = `${Math.min(
+			(chatPriceUsage / 0.2) * 100,
+			100
+		)}%`;
 	}
 
 	render() {
@@ -348,8 +351,12 @@ class ChatGPT extends Component {
 						<div className='usage'>
 							<span className='usage-label'>
 								Images Used Up (
-								{Math.floor(
-									(0.2 - this.state.imagePriceUsage) / 0.02
+								{Math.max(
+									Math.floor(
+										(0.2 - this.state.imagePriceUsage) /
+											0.02
+									),
+									0
 								)}{' '}
 								Images Left):{' '}
 							</span>
@@ -363,8 +370,12 @@ class ChatGPT extends Component {
 						<div className='usage'>
 							<span className='usage-label'>
 								Chat Tokens Used Up (About{' '}
-								{Math.floor(
-									(0.2 - this.state.chatPriceUsage) / 0.002
+								{Math.max(
+									Math.floor(
+										(0.2 - this.state.chatPriceUsage) /
+											0.002
+									),
+									0
 								)}
 								k Chat Tokens Left):{' '}
 							</span>

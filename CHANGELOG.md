@@ -30,3 +30,7 @@
 -   3/18/2023 11:00 PM
 
 *   Fixed Chat GPT auto scroll
+
+-   3/19/2023 12:43 PM
+
+*   Fixed Chat GPT and Dalle usage bars overflowing
