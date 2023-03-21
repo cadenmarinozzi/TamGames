@@ -5,6 +5,8 @@ import {
 	faImage,
 	faDownload,
 	faComment,
+	faExclamationCircle,
+	faQuestionCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'Components/shared/Button';
@@ -153,50 +155,67 @@ class ChatGPT extends Component {
 		});
 	}
 
-	async componentDidUpdate() {
+	scrollToBottom() {
 		const history = this.historyRef.current;
 
-		if (
-			!history ||
-			!this.imageUsageBarUsedRef.current ||
-			!this.chatUsageBarUsedRef.current
-		)
-			return;
-
-		if (this.state.needscroll) {
+		if (this.state.needscroll && history) {
 			history.scrollTop = history.scrollHeight;
 
 			this.setState({
 				needscroll: false,
 			});
 		}
+	}
 
-		// set ignoreUnescapedHTML to true
-		hljs.configure({ ignoreUnescapedHTML: true });
-		hljs.highlightAll();
+	async setUsagePrices() {
+		const email = getCookie('email');
 
 		const imagePriceUsage = await getImagePriceUsage({
-			email: getCookie('email'),
+			email,
 		});
+		console.log(imagePriceUsage);
 
 		const chatPriceUsage = await getChatPriceUsage({
-			email: getCookie('email'),
+			email,
 		});
 
 		this.setState({
 			imagePriceUsage,
 			chatPriceUsage,
 		});
+	}
+
+	async update() {
+		this.scrollToBottom();
+
+		// set ignoreUnescapedHTML to true
+		hljs.configure({ ignoreUnescapedHTML: true });
+		hljs.highlightAll();
+
+		if (
+			!this.imageUsageBarUsedRef?.current ||
+			!this.chatUsageBarUsedRef?.current
+		)
+			return;
 
 		this.imageUsageBarUsedRef.current.style.width = `${Math.min(
-			(imagePriceUsage / 0.2) * 100,
+			(this.state.imagePriceUsage / 0.2) * 100,
 			100
 		)}%`;
 
 		this.chatUsageBarUsedRef.current.style.width = `${Math.min(
-			(chatPriceUsage / 0.2) * 100,
+			(this.state.chatPriceUsage / 0.2) * 100,
 			100
 		)}%`;
+	}
+
+	async componentDidMount() {
+		await this.setUsagePrices();
+		this.update();
+	}
+
+	async componentDidUpdate() {
+		this.update();
 	}
 
 	render() {
@@ -207,9 +226,31 @@ class ChatGPT extends Component {
 					<div className='history' ref={this.historyRef}>
 						{this.state.history.length === 0 && (
 							<div className='history-message history-message-bot'>
-								<span>
+								<span className='history-message-info'>
+									<i className='fa-solid fa-hand-wave' />
 									Welcome to ChatGPT! Type a message to get
 									started.
+								</span>
+							</div>
+						)}
+						{this.state.imagePriceUsage >= 0.2 && (
+							<div className='history-message history-message-bot'>
+								<span className='history-message-info'>
+									<FontAwesomeIcon
+										icon={faExclamationCircle}
+									/>
+									You have used up your image generation
+									quota.
+								</span>
+							</div>
+						)}
+						{this.state.chatPriceUsage >= 0.2 && (
+							<div className='history-message history-message-bot'>
+								<span className='history-message-info'>
+									<FontAwesomeIcon
+										icon={faExclamationCircle}
+									/>
+									You have used up your chat generation quota.
 								</span>
 							</div>
 						)}

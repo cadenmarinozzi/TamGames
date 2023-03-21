@@ -65,9 +65,8 @@ class Searchbar extends Component {
 					onChange={this.handleChange.bind(this)}
 				/>
 				<div className='searchbar-sort'>
-					<FontAwesomeIcon
-						className='searchbar-sort-icon'
-						icon={faSort}
+					<i
+						className='searchbar-sort-icon fa-solid fa-arrow-up-wide-short'
 						onClick={this.toggleSortDropdown.bind(this)}
 					/>
 					{this.state.sortOpen && (

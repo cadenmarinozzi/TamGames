@@ -434,7 +434,7 @@ class Home extends Component {
 
 						const gameDiv =
 							this.state.currentlyRating === gameTitle ? (
-								<div className='rate-game'>
+								<div className='rate-game' key={index}>
 									<h3>{game.title}</h3>
 									<StarSelector
 										className='rating-selector'
@@ -465,7 +465,8 @@ class Home extends Component {
 									ref={
 										game.title === changelog.newestGame &&
 										this.newestGameRef
-									}>
+									}
+									key={index}>
 									{top && <div className='top-tag'>#1</div>}
 									<div className='game-info'>
 										<img

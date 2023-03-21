@@ -29,3 +29,7 @@
 
 *   Fixed Chat GPT and Dalle usage bars overflowing
 *   Added button to open and close ChatGPT usage
+*   Fixed home page key error
+*   Added font awesome pro
+*   Changed searchbar sort icon
+*   Added messages to tell you when you have ran out of quota

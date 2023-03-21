@@ -69,6 +69,15 @@
 
 			// width: 100%;
 
+			.history-message-info {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+
+				gap: 20px;
+			}
+
 			.message-time {
 				font-size: 11pt;
 				color: $medium;
