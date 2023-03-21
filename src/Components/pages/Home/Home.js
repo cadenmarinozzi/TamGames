@@ -41,7 +41,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed Chat GPT auto scrolling',
+	log: 'Fixed Chat GPT image generation',
 	newestGame: 'ChatGPT',
 };
 

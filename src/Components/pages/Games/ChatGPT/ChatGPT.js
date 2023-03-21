@@ -69,7 +69,7 @@ class ChatGPT extends Component {
 			email: getCookie('email'),
 		});
 
-		this.usageBarUsedRef.current.style.width = `${
+		this.imageUsageBarUsedRef.current.style.width = `${
 			((this.state.imagePriceUsage + 0.02) / 0.2) * 100
 		}%`;
 
