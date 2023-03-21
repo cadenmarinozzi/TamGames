@@ -42,11 +42,30 @@ class ChatGPT extends Component {
 			imagePriceUsage: 0,
 			chatPriceUsage: 0,
 			loading: false,
+			usageOpen: false,
 		};
 
 		this.historyRef = createRef();
 		this.imageUsageBarUsedRef = createRef();
 		this.chatUsageBarUsedRef = createRef();
+	}
+
+	openUsage() {
+		this.setState({
+			usageOpen: true,
+		});
+	}
+
+	closeUsage() {
+		this.setState({
+			usageOpen: false,
+		});
+	}
+
+	toggleUsage() {
+		this.setState({
+			usageOpen: !this.state.usageOpen,
+		});
 	}
 
 	async generateDalleImage() {
@@ -347,45 +366,60 @@ class ChatGPT extends Component {
 								}}
 								label='Generate Image'
 							/>
-						</div>
-						<div className='usage'>
-							<span className='usage-label'>
-								Images Used Up (
-								{Math.max(
-									Math.floor(
-										(0.2 - this.state.imagePriceUsage) /
-											0.02
-									),
-									0
-								)}{' '}
-								Images Left):{' '}
+							<span
+								className={`open-usage-button ${
+									this.state.usageOpen &&
+									'open-usage-button-open'
+								}`}
+								onClick={this.toggleUsage.bind(this)}>
+								{this.state.usageOpen ? 'Close' : 'Open'} Usage
 							</span>
-							<div className='usage-bar'>
-								<div
-									className='usage-bar-used'
-									ref={this.imageUsageBarUsedRef}
-								/>
-							</div>
 						</div>
-						<div className='usage'>
-							<span className='usage-label'>
-								Chat Tokens Used Up (About{' '}
-								{Math.max(
-									Math.floor(
-										(0.2 - this.state.chatPriceUsage) /
-											0.002
-									),
-									0
-								)}
-								k Chat Tokens Left):{' '}
-							</span>
-							<div className='usage-bar'>
-								<div
-									className='usage-bar-used'
-									ref={this.chatUsageBarUsedRef}
-								/>
+						{this.state.usageOpen && (
+							<div className='usage-container'>
+								<div className='usage'>
+									<span className='usage-label'>
+										Images Used Up (
+										{Math.max(
+											Math.floor(
+												(0.2 -
+													this.state
+														.imagePriceUsage) /
+													0.02
+											),
+											0
+										)}{' '}
+										Images Left):{' '}
+									</span>
+									<div className='usage-bar'>
+										<div
+											className='usage-bar-used'
+											ref={this.imageUsageBarUsedRef}
+										/>
+									</div>
+								</div>
+								<div className='usage'>
+									<span className='usage-label'>
+										Chat Tokens Used Up (About{' '}
+										{Math.max(
+											Math.floor(
+												(0.2 -
+													this.state.chatPriceUsage) /
+													0.002
+											),
+											0
+										)}
+										k Chat Tokens Left):{' '}
+									</span>
+									<div className='usage-bar'>
+										<div
+											className='usage-bar-used'
+											ref={this.chatUsageBarUsedRef}
+										/>
+									</div>
+								</div>
 							</div>
-						</div>
+						)}
 					</div>
 				</div>
 			) : (

@@ -41,7 +41,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Fixed ChatGPT and Dalle usage bars overflowing',
+	log: 'Added button to open and close ChatGPT usage',
 	newestGame: 'ChatGPT',
 };
 
