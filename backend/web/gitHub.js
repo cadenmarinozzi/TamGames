@@ -1,15 +1,4 @@
 const { default: axios } = require('axios');
-const { Octokit } = require('octokit');
-
-const octokit = new Octokit({
-	auth: process.env.GITHUB_TOKEN,
-});
-
-async function getFollowers() {
-	const response = await octokit.request('GET /user/followers');
-
-	return response.data;
-}
 
 async function getUserToken(code) {
 	const { data } = await axios.post(
@@ -27,5 +16,4 @@ async function getUserToken(code) {
 	return accessToken;
 }
 
-exports.getFollowers = getFollowers;
 exports.getUserToken = getUserToken;

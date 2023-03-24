@@ -3,3 +3,4 @@
 **/.firebase
 **/.env
 **/uglifyGamesCache.json
+**/.firebase-debug.log

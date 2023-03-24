@@ -34,14 +34,6 @@ async function getSiteViews() {
 	return siteViews.val();
 }
 
-async function getGitHubFollowers() {
-	const followers = await axios.get(
-		'https://us-central1-tam-games.cloudfunctions.net/app/followers'
-	);
-
-	return followers.data;
-}
-
 async function deleteAccount({ email }) {
 	const formattedEmail = formatFirebaseEmail(email);
 
@@ -406,7 +398,6 @@ async function getGitHubFollowing() {
 
 export {
 	submitGameRequest,
-	getGitHubFollowers,
 	addSiteView,
 	addGamePlay,
 	getGamePlays,

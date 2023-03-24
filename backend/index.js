@@ -23,12 +23,6 @@ app.post('/chatgpt', async (req, res) => {
 	res.send({ completion, history: newHistory });
 });
 
-app.get('/followers', async (req, res) => {
-	const followers = await getFollowers();
-
-	res.send(followers);
-});
-
 app.post('/githubAuth', async (req, res) => {
 	const { code } = req.body;
 
