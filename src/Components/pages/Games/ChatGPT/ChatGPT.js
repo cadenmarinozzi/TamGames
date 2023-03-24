@@ -7,6 +7,8 @@ import {
 	faComment,
 	faExclamationCircle,
 	faQuestionCircle,
+	faInfoCircle,
+	faMultiply,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from 'Components/shared/Button';
@@ -19,6 +21,9 @@ import {
 	getImagePriceUsage,
 	addChatPrice,
 	getChatPriceUsage,
+	getGitHubFollowers,
+	gitHubOAuth,
+	getUserGitHubFollowing,
 } from 'modules/web';
 import { Component, createRef } from 'react';
 import MarkdownIt from 'markdown-it';
@@ -45,6 +50,12 @@ class ChatGPT extends Component {
 			chatPriceUsage: 0,
 			loading: false,
 			usageOpen: false,
+			welcomeMessage: true,
+			chatQuotaMessage: false,
+			imageQuotaMessage: false,
+			githubFollowMessage: true,
+			maxImagePrice: 0.2,
+			maxChatPrice: 0.2,
 		};
 
 		this.historyRef = createRef();
@@ -77,7 +88,7 @@ class ChatGPT extends Component {
 			return;
 		}
 
-		if (this.state.imagePriceUsage >= 0.2) {
+		if (this.state.imagePriceUsage >= this.state.maxImagePrice) {
 			return;
 		}
 
@@ -90,10 +101,14 @@ class ChatGPT extends Component {
 			email: getCookie('email'),
 		});
 
-		this.imageUsageBarUsedRef.current.style.width = `${Math.min(
-			((this.state.imagePriceUsage + 0.02) / 0.2) * 100,
-			100
-		)}%`;
+		if (this.imageUsageBarUsedRef?.current) {
+			this.imageUsageBarUsedRef.current.style.width = `${Math.min(
+				((this.state.imagePriceUsage + 0.02) /
+					this.state.maxImagePrice) *
+					100,
+				100
+			)}%`;
+		}
 
 		const imageArray = await generateDalleImage(message);
 
@@ -173,7 +188,6 @@ class ChatGPT extends Component {
 		const imagePriceUsage = await getImagePriceUsage({
 			email,
 		});
-		console.log(imagePriceUsage);
 
 		const chatPriceUsage = await getChatPriceUsage({
 			email,
@@ -183,6 +197,8 @@ class ChatGPT extends Component {
 			imagePriceUsage,
 			chatPriceUsage,
 		});
+
+		return { imagePriceUsage, chatPriceUsage };
 	}
 
 	async update() {
@@ -199,19 +215,42 @@ class ChatGPT extends Component {
 			return;
 
 		this.imageUsageBarUsedRef.current.style.width = `${Math.min(
-			(this.state.imagePriceUsage / 0.2) * 100,
+			(this.state.imagePriceUsage / this.state.maxImagePrice) * 100,
 			100
 		)}%`;
 
 		this.chatUsageBarUsedRef.current.style.width = `${Math.min(
-			(this.state.chatPriceUsage / 0.2) * 100,
+			(this.state.chatPriceUsage / this.state.maxChatPrice) * 100,
 			100
 		)}%`;
 	}
 
 	async componentDidMount() {
-		await this.setUsagePrices();
+		const { chatPriceUsage, imagePriceUsage } = await this.setUsagePrices();
 		this.update();
+
+		if (imagePriceUsage >= this.state.maxImagePrice) {
+			this.setState({
+				imageQuotaMessage: true,
+			});
+		}
+
+		if (chatPriceUsage >= this.state.maxChatPrice) {
+			this.setState({
+				chatQuotaMessage: true,
+			});
+		}
+
+		const githubFollowing = await getUserGitHubFollowing({
+			email: getCookie('email'),
+		});
+
+		if (githubFollowing) {
+			this.setState({
+				maxImagePrice: 0.4,
+				maxChatPrice: 0.4,
+			});
+		}
 	}
 
 	async componentDidUpdate() {
@@ -224,34 +263,105 @@ class ChatGPT extends Component {
 			(this.props.loggedIn ? (
 				<div className='chatgpt'>
 					<div className='history' ref={this.historyRef}>
-						{this.state.history.length === 0 && (
+						{this.state.history.length === 0 &&
+							this.state.welcomeMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<i className='fa-solid fa-hand-wave history-message-info-icon' />
+											Welcome to ChatGPT! Type a message
+											to get started.
+										</span>
+										<FontAwesomeIcon
+											icon={faMultiply}
+											onClick={() => {
+												this.setState({
+													welcomeMessage: false,
+												});
+											}}
+											className='history-message-close'
+										/>
+									</div>
+								</div>
+							)}
+						{this.state.imagePriceUsage >=
+							this.state.maxImagePrice &&
+							this.state.imageQuotaMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<FontAwesomeIcon
+												className='history-message-info-icon'
+												icon={faExclamationCircle}
+											/>
+											You have used up your image
+											generation quota.
+										</span>
+										<FontAwesomeIcon
+											onClick={() => {
+												this.setState({
+													imageQuotaMessage: false,
+												});
+											}}
+											icon={faMultiply}
+											className='history-message-close'
+										/>
+									</div>
+								</div>
+							)}
+						{this.state.chatPriceUsage >= this.state.maxChatPrice &&
+							this.state.chatQuotaMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<FontAwesomeIcon
+												icon={faExclamationCircle}
+												className='history-message-info-icon'
+											/>
+											You have used up your chat
+											generation quota.
+										</span>
+										<FontAwesomeIcon
+											onClick={() => {
+												this.setState({
+													chatQuotaMessage: false,
+												});
+											}}
+											icon={faMultiply}
+											className='history-message-close'
+										/>
+									</div>
+								</div>
+							)}
+						{this.state.githubFollowMessage && (
 							<div className='history-message history-message-bot'>
-								<span className='history-message-info'>
-									<i className='fa-solid fa-hand-wave' />
-									Welcome to ChatGPT! Type a message to get
-									started.
-								</span>
-							</div>
-						)}
-						{this.state.imagePriceUsage >= 0.2 && (
-							<div className='history-message history-message-bot'>
-								<span className='history-message-info'>
+								<div className='history-message-content'>
+									<span className='history-message-info'>
+										<FontAwesomeIcon
+											icon={faInfoCircle}
+											className='history-message-info-icon'
+										/>
+										<span>
+											You can get more credit by following
+											me on{' '}
+											<Link
+												to='/githubAuth'
+												className='link'>
+												GitHub
+											</Link>
+											!
+										</span>
+									</span>
 									<FontAwesomeIcon
-										icon={faExclamationCircle}
+										icon={faMultiply}
+										className='history-message-close'
+										onClick={() => {
+											this.setState({
+												githubFollowMessage: false,
+											});
+										}}
 									/>
-									You have used up your image generation
-									quota.
-								</span>
-							</div>
-						)}
-						{this.state.chatPriceUsage >= 0.2 && (
-							<div className='history-message history-message-bot'>
-								<span className='history-message-info'>
-									<FontAwesomeIcon
-										icon={faExclamationCircle}
-									/>
-									You have used up your chat generation quota.
-								</span>
+								</div>
 							</div>
 						)}
 						{this.state.history.map((message, index) => {
@@ -423,7 +533,7 @@ class ChatGPT extends Component {
 										Images Used Up (
 										{Math.max(
 											Math.floor(
-												(0.2 -
+												(this.state.maxImagePrice -
 													this.state
 														.imagePriceUsage) /
 													0.02
@@ -444,7 +554,7 @@ class ChatGPT extends Component {
 										Chat Tokens Used Up (About{' '}
 										{Math.max(
 											Math.floor(
-												(0.2 -
+												(this.state.maxChatPrice -
 													this.state.chatPriceUsage) /
 													0.002
 											),

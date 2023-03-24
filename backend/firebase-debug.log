@@ -1,0 +1,212 @@
+[debug] [2023-03-22T17:57:34.288Z] ----------------------------------------------------------------------
+[debug] [2023-03-22T17:57:34.289Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2023-03-22T17:57:34.290Z] CLI Version:   11.24.1
+[debug] [2023-03-22T17:57:34.290Z] Platform:      darwin
+[debug] [2023-03-22T17:57:34.290Z] Node Version:  v18.13.0
+[debug] [2023-03-22T17:57:34.291Z] Time:          Wed Mar 22 2023 10:57:34 GMT-0700 (Pacific Daylight Time)
+[debug] [2023-03-22T17:57:34.292Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-03-22T17:57:34.362Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-03-22T17:57:34.363Z] > authorizing via signed-in user (nekumelon@gmail.com)
+[debug] [2023-03-22T17:57:34.363Z] [iam] checking project tam-games for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2023-03-22T17:57:34.365Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/tam-games:testIamPermissions [none]
+[debug] [2023-03-22T17:57:34.365Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/tam-games:testIamPermissions x-goog-quota-user=projects/tam-games
+[debug] [2023-03-22T17:57:34.365Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/tam-games:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-03-22T17:57:35.701Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/tam-games:testIamPermissions 200
+[debug] [2023-03-22T17:57:35.701Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/tam-games:testIamPermissions {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2023-03-22T17:57:35.702Z] >>> [apiv2][query] POST https://iam.googleapis.com/v1/projects/tam-games/serviceAccounts/tam-games@appspot.gserviceaccount.com:testIamPermissions [none]
+[debug] [2023-03-22T17:57:35.702Z] >>> [apiv2][body] POST https://iam.googleapis.com/v1/projects/tam-games/serviceAccounts/tam-games@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-03-22T17:57:36.188Z] <<< [apiv2][status] POST https://iam.googleapis.com/v1/projects/tam-games/serviceAccounts/tam-games@appspot.gserviceaccount.com:testIamPermissions 200
+[debug] [2023-03-22T17:57:36.188Z] <<< [apiv2][body] POST https://iam.googleapis.com/v1/projects/tam-games/serviceAccounts/tam-games@appspot.gserviceaccount.com:testIamPermissions {"permissions":["iam.serviceAccounts.actAs"]}
+[info] 
+[info] === Deploying to 'tam-games'...
+[info] 
+[info] i  deploying functions 
+[debug] [2023-03-22T17:57:36.192Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tam-games [none]
+[debug] [2023-03-22T17:57:38.739Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tam-games 200
+[debug] [2023-03-22T17:57:38.740Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tam-games {"projectId":"tam-games","projectNumber":"1065857168807","displayName":"TamGames","name":"projects/tam-games","resources":{"hostingSite":"tam-games","realtimeDatabaseInstance":"tam-games-default-rtdb"},"state":"ACTIVE","etag":"1_59fbdacc-e6cd-49a7-9d66-cec61dbd8644"}
+[info] i  functions: preparing codebase default for deployment 
+[info] i  functions: ensuring required API cloudfunctions.googleapis.com is enabled... 
+[info] i  functions: ensuring required API cloudbuild.googleapis.com is enabled... 
+[info] i  artifactregistry: ensuring required API artifactregistry.googleapis.com is enabled... 
+[debug] [2023-03-22T17:57:38.743Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudfunctions.googleapis.com [none]
+[debug] [2023-03-22T17:57:38.743Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudfunctions.googleapis.com x-goog-quota-user=projects/tam-games
+[debug] [2023-03-22T17:57:38.745Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/runtimeconfig.googleapis.com [none]
+[debug] [2023-03-22T17:57:38.745Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/runtimeconfig.googleapis.com x-goog-quota-user=projects/tam-games
+[debug] [2023-03-22T17:57:38.747Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudbuild.googleapis.com [none]
+[debug] [2023-03-22T17:57:38.747Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudbuild.googleapis.com x-goog-quota-user=projects/tam-games
+[debug] [2023-03-22T17:57:38.751Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/artifactregistry.googleapis.com [none]
+[debug] [2023-03-22T17:57:38.751Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/artifactregistry.googleapis.com x-goog-quota-user=projects/tam-games
+[debug] [2023-03-22T17:57:39.798Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudfunctions.googleapis.com 200
+[debug] [2023-03-22T17:57:39.798Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudfunctions.googleapis.com [omitted]
+[info] ✔  functions: required API cloudfunctions.googleapis.com is enabled 
+[debug] [2023-03-22T17:57:40.406Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudbuild.googleapis.com 200
+[debug] [2023-03-22T17:57:40.406Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/cloudbuild.googleapis.com [omitted]
+[info] ✔  functions: required API cloudbuild.googleapis.com is enabled 
+[debug] [2023-03-22T17:57:40.839Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/artifactregistry.googleapis.com 200
+[debug] [2023-03-22T17:57:40.840Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/artifactregistry.googleapis.com [omitted]
+[info] ✔  artifactregistry: required API artifactregistry.googleapis.com is enabled 
+[debug] [2023-03-22T17:57:41.319Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/runtimeconfig.googleapis.com 200
+[debug] [2023-03-22T17:57:41.319Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/tam-games/services/runtimeconfig.googleapis.com [omitted]
+[debug] [2023-03-22T17:57:41.320Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tam-games/adminSdkConfig [none]
+[debug] [2023-03-22T17:57:42.561Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tam-games/adminSdkConfig 200
+[debug] [2023-03-22T17:57:42.561Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tam-games/adminSdkConfig {"projectId":"tam-games","databaseURL":"https://tam-games-default-rtdb.firebaseio.com","storageBucket":"tam-games.appspot.com"}
+[debug] [2023-03-22T17:57:42.562Z] >>> [apiv2][query] GET https://runtimeconfig.googleapis.com/v1beta1/projects/tam-games/configs [none]
+[debug] [2023-03-22T17:57:42.867Z] <<< [apiv2][status] GET https://runtimeconfig.googleapis.com/v1beta1/projects/tam-games/configs 200
+[debug] [2023-03-22T17:57:42.867Z] <<< [apiv2][body] GET https://runtimeconfig.googleapis.com/v1beta1/projects/tam-games/configs {}
+[debug] [2023-03-22T17:57:42.869Z] Validating nodejs source
+[debug] [2023-03-22T17:57:44.089Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "18"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^1.3.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.1",
+    "octokit": "^2.0.14",
+    "openai": "^3.2.1"
+  },
+  "devDependencies": {
+    "firebase-functions-test": "^0.2.0"
+  },
+  "private": true
+}
+[debug] [2023-03-22T17:57:44.089Z] Building nodejs source
+[debug] [2023-03-22T17:57:44.092Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-03-22T17:57:44.107Z] Found firebase-functions binary at '/Users/nekumelon/Desktop/Desktop/Code/TamGames/backend/node_modules/.bin/firebase-functions'
+[debug] [2023-03-22T17:57:44.440Z] Serving at port 8850
+
+[debug] [2023-03-22T17:57:44.997Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-03-22T17:57:45.007Z] shutdown requested via /__/quitquitquit
+
+[info] i  functions: Loaded environment variables from .env. 
+[info] i  functions: preparing backend directory for uploading... 
+[info] i  functions: packaged /Users/nekumelon/Desktop/Desktop/Code/TamGames/backend (75.98 KB) for uploading 
+[debug] [2023-03-22T17:57:45.176Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/-/functions [none]
+[debug] [2023-03-22T17:57:46.018Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/-/functions 200
+[debug] [2023-03-22T17:57:46.018Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/-/functions {"functions":[{"name":"projects/tam-games/locations/us-central1/functions/app","httpsTrigger":{"url":"https://us-central1-tam-games.cloudfunctions.net/app","securityLevel":"SECURE_ALWAYS"},"status":"ACTIVE","entryPoint":"app","timeout":"60s","availableMemoryMb":256,"serviceAccountEmail":"tam-games@appspot.gserviceaccount.com","updateTime":"2023-03-22T17:38:29.315Z","versionId":"6","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"902822ceca72d531fc9a38473695cbd952a583bc"},"sourceUploadUrl":"https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c443a7b8-601b-4c95-b957-190e5137e2a7.zip","environmentVariables":{"OPENAI_API_KEY":"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","GITHUB_TOKEN":"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","GITHUB_CLIENT_ID":"5fdc3b30e49bb004ffc9","GITHUB_CLIENT_SECRET":"cfb67d244287787afb914132e5a30aaa34a01a66","FIREBASE_CONFIG":"{\"projectId\":\"tam-games\",\"databaseURL\":\"https://tam-games-default-rtdb.firebaseio.com\",\"storageBucket\":\"tam-games.appspot.com\"}","GCLOUD_PROJECT":"tam-games","EVENTARC_CLOUD_EVENT_SOURCE":"projects/tam-games/locations/us-central1/functions/app"},"runtime":"nodejs18","ingressSettings":"ALLOW_ALL","buildId":"209d7741-8ab0-46d0-9996-c3c4998bc3b6","buildName":"projects/1065857168807/locations/us-central1/builds/209d7741-8ab0-46d0-9996-c3c4998bc3b6","dockerRegistry":"ARTIFACT_REGISTRY"}]}
+[debug] [2023-03-22T17:57:46.020Z] >>> [apiv2][query] GET https://cloudfunctions.googleapis.com/v2/projects/tam-games/locations/-/functions filter=environment%3D%22GEN_2%22
+[debug] [2023-03-22T17:57:47.129Z] <<< [apiv2][status] GET https://cloudfunctions.googleapis.com/v2/projects/tam-games/locations/-/functions 200
+[debug] [2023-03-22T17:57:47.129Z] <<< [apiv2][body] GET https://cloudfunctions.googleapis.com/v2/projects/tam-games/locations/-/functions {}
+[debug] [2023-03-22T17:57:47.136Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/tam-games [none]
+[debug] [2023-03-22T17:57:48.359Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/tam-games 200
+[debug] [2023-03-22T17:57:48.359Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/tam-games {"projectId":"tam-games","projectNumber":"1065857168807","displayName":"TamGames","name":"projects/tam-games","resources":{"hostingSite":"tam-games","realtimeDatabaseInstance":"tam-games-default-rtdb"},"state":"ACTIVE","etag":"1_59fbdacc-e6cd-49a7-9d66-cec61dbd8644"}
+[debug] [2023-03-22T17:57:48.361Z] >>> [apiv2][query] POST https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions:generateUploadUrl [none]
+[debug] [2023-03-22T17:57:48.361Z] >>> [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions:generateUploadUrl {}
+[debug] [2023-03-22T17:57:48.974Z] <<< [apiv2][status] POST https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions:generateUploadUrl 200
+[debug] [2023-03-22T17:57:48.974Z] <<< [apiv2][body] POST https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions:generateUploadUrl {"uploadUrl":"https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip?GoogleAccessId=service-1065857168807@gcf-admin-robot.iam.gserviceaccount.com&Expires=1679509668&Signature=sCXPDE0F2z4Qs2DExKZwYDtc9kTFDYbQ4bQ%2Ftaja9vn%2F%2FiE9I6kuzCep0C0zMmi30R6zgXCe8RRXt5fHk8mGh5qh4VS7ileK9rsuuNFSfexMZai7FWaLO9%2BoWOUerVb0sE4lfXlX9Jf0cdXip9plbE0ng7wAg3L5ALT8kJSFj9Z5CLUAkEafMfB%2FNzM0iR8n0MeLAvScqTNEpTZEhbgp%2FuKj8PYN%2F1KsRfi5QmhoeBwob%2BRV6FRe8mx0HZqNbkPaoHkN7RkHKPImeHwu8LPHETymXlCkwEHkUEBLwUoK9GXwigJ1k1CHjff33yXOcC5DbC4LrYw5tOn%2BxUypG6QGgQ%3D%3D"}
+[debug] [2023-03-22T17:57:48.976Z] >>> [apiv2][query] PUT https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip GoogleAccessId=service-1065857168807%40gcf-admin-robot.iam.gserviceaccount.com&Expires=1679509668&Signature=sCXPDE0F2z4Qs2DExKZwYDtc9kTFDYbQ4bQ%2Ftaja9vn%2F%2FiE9I6kuzCep0C0zMmi30R6zgXCe8RRXt5fHk8mGh5qh4VS7ileK9rsuuNFSfexMZai7FWaLO9%2BoWOUerVb0sE4lfXlX9Jf0cdXip9plbE0ng7wAg3L5ALT8kJSFj9Z5CLUAkEafMfB%2FNzM0iR8n0MeLAvScqTNEpTZEhbgp%2FuKj8PYN%2F1KsRfi5QmhoeBwob%2BRV6FRe8mx0HZqNbkPaoHkN7RkHKPImeHwu8LPHETymXlCkwEHkUEBLwUoK9GXwigJ1k1CHjff33yXOcC5DbC4LrYw5tOn%2BxUypG6QGgQ%3D%3D
+[debug] [2023-03-22T17:57:48.976Z] >>> [apiv2][body] PUT https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip [stream]
+[debug] [2023-03-22T17:57:49.850Z] <<< [apiv2][status] PUT https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip 200
+[debug] [2023-03-22T17:57:49.851Z] <<< [apiv2][body] PUT https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip [omitted]
+[info] ✔  functions: backend folder uploaded successfully 
+[info] i  functions: updating Node.js 18 function app(us-central1)... 
+[debug] [2023-03-22T17:57:49.855Z] >>> [apiv2][query] PATCH https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions/app updateMask=name%2CsourceUploadUrl%2CentryPoint%2Cruntime%2CdockerRegistry%2Clabels%2ChttpsTrigger.securityLevel%2CminInstances%2CmaxInstances%2CingressSettings%2CenvironmentVariables%2CserviceAccountEmail%2CavailableMemoryMb%2Ctimeout%2CvpcConnector%2CvpcConnectorEgressSettings%2CsourceToken
+[debug] [2023-03-22T17:57:49.855Z] >>> [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions/app {"name":"projects/tam-games/locations/us-central1/functions/app","sourceUploadUrl":"https://storage.googleapis.com/uploads-329401954287.us-central1.cloudfunctions.appspot.com/c321a5e2-4e02-410c-996a-502997cbdde6.zip?GoogleAccessId=service-1065857168807@gcf-admin-robot.iam.gserviceaccount.com&Expires=1679509668&Signature=sCXPDE0F2z4Qs2DExKZwYDtc9kTFDYbQ4bQ%2Ftaja9vn%2F%2FiE9I6kuzCep0C0zMmi30R6zgXCe8RRXt5fHk8mGh5qh4VS7ileK9rsuuNFSfexMZai7FWaLO9%2BoWOUerVb0sE4lfXlX9Jf0cdXip9plbE0ng7wAg3L5ALT8kJSFj9Z5CLUAkEafMfB%2FNzM0iR8n0MeLAvScqTNEpTZEhbgp%2FuKj8PYN%2F1KsRfi5QmhoeBwob%2BRV6FRe8mx0HZqNbkPaoHkN7RkHKPImeHwu8LPHETymXlCkwEHkUEBLwUoK9GXwigJ1k1CHjff33yXOcC5DbC4LrYw5tOn%2BxUypG6QGgQ%3D%3D","entryPoint":"app","runtime":"nodejs18","dockerRegistry":"ARTIFACT_REGISTRY","labels":{"deployment-tool":"cli-firebase","firebase-functions-hash":"5796e119a418137a7756648b622fc9cbff028ae7"},"httpsTrigger":{"securityLevel":"SECURE_ALWAYS"},"minInstances":null,"maxInstances":null,"ingressSettings":null,"environmentVariables":{"OPENAI_API_KEY":"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","GITHUB_TOKEN":"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","GITHUB_CLIENT_ID":"5fdc3b30e49bb004ffc9","GITHUB_CLIENT_SECRET":"cfb67d244287787afb914132e5a30aaa34a01a66","FIREBASE_CONFIG":"{\"projectId\":\"tam-games\",\"databaseURL\":\"https://tam-games-default-rtdb.firebaseio.com\",\"storageBucket\":\"tam-games.appspot.com\"}","GCLOUD_PROJECT":"tam-games","EVENTARC_CLOUD_EVENT_SOURCE":"projects/tam-games/locations/us-central1/functions/app"},"serviceAccountEmail":null,"availableMemoryMb":null,"timeout":null,"vpcConnector":null,"vpcConnectorEgressSettings":null}
+[debug] [2023-03-22T17:57:50.407Z] <<< [apiv2][status] PATCH https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions/app 400
+[debug] [2023-03-22T17:57:50.408Z] <<< [apiv2][body] PATCH https://cloudfunctions.googleapis.com/v1/projects/tam-games/locations/us-central1/functions/app {"error":{"code":400,"message":"An operation on function app in region us-central1 in project tam-games is already in progress. Please try again later.","status":"FAILED_PRECONDITION"}}
+[warn] ⚠  functions: failed to update function projects/tam-games/locations/us-central1/functions/app 
+[error] Failed to update function projects/tam-games/locations/us-central1/functions/app
+[debug] [2023-03-22T17:57:50.412Z] Total Function Deployment time: 558
+[debug] [2023-03-22T17:57:50.412Z] 1 Functions Deployed
+[debug] [2023-03-22T17:57:50.412Z] 1 Functions Errored
+[debug] [2023-03-22T17:57:50.412Z] 0 Function Deployments Aborted
+[debug] [2023-03-22T17:57:50.412Z] Average Function Deployment time: 557
+[info] 
+[info] Functions deploy had errors with the following functions:
+	app(us-central1)
+[debug] [2023-03-22T17:57:50.414Z] Not printing URL for HTTPS function. Typically this means it didn't match a filter or we failed deployment
+[info] i  functions: cleaning up build files... 
+[debug] [2023-03-22T17:57:50.416Z] >>> [apiv2][query] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/tam-games/locations/us-central1/repositories/gcf-artifacts/packages/app [none]
+[debug] [2023-03-22T17:57:50.417Z] >>> [apiv2][query] GET https://us.gcr.io/v2/tam-games/gcf/us-central1/tags/list [none]
+[debug] [2023-03-22T17:57:51.046Z] <<< [apiv2][status] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/tam-games/locations/us-central1/repositories/gcf-artifacts/packages/app 404
+[debug] [2023-03-22T17:57:51.046Z] <<< [apiv2][body] DELETE https://artifactregistry.googleapis.com/v1beta2/projects/tam-games/locations/us-central1/repositories/gcf-artifacts/packages/app {"error":{"code":404,"message":"Package \"projects/tam-games/locations/us-central1/repositories/gcf-artifacts/packages/app\" was not found.","status":"NOT_FOUND"}}
+[debug] [2023-03-22T17:57:51.147Z] <<< [apiv2][status] GET https://us.gcr.io/v2/tam-games/gcf/us-central1/tags/list 200
+[debug] [2023-03-22T17:57:51.147Z] <<< [apiv2][body] GET https://us.gcr.io/v2/tam-games/gcf/us-central1/tags/list {"child":[],"manifest":{},"name":"tam-games/gcf/us-central1","tags":[]}
+[debug] [2023-03-22T17:57:51.148Z] Could not find image for function projects/tam-games/locations/us-central1/functions/app
+[debug] [2023-03-22T17:57:51.148Z] Functions deploy failed.
+[debug] [2023-03-22T17:57:51.148Z] {
+  "endpoint": {
+    "id": "app",
+    "project": "tam-games",
+    "region": "us-central1",
+    "entryPoint": "app",
+    "platform": "gcfv1",
+    "runtime": "nodejs18",
+    "httpsTrigger": {},
+    "serviceAccount": null,
+    "ingressSettings": null,
+    "availableMemoryMb": null,
+    "timeoutSeconds": null,
+    "maxInstances": null,
+    "minInstances": null,
+    "vpc": null,
+    "environmentVariables": {
+      "OPENAI_API_KEY": "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",
+      "GITHUB_TOKEN": "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",
+      "GITHUB_CLIENT_ID": "5fdc3b30e49bb004ffc9",
+      "GITHUB_CLIENT_SECRET": "cfb67d244287787afb914132e5a30aaa34a01a66",
+      "FIREBASE_CONFIG": "{\"projectId\":\"tam-games\",\"databaseURL\":\"https://tam-games-default-rtdb.firebaseio.com\",\"storageBucket\":\"tam-games.appspot.com\"}",
+      "GCLOUD_PROJECT": "tam-games",
+      "EVENTARC_CLOUD_EVENT_SOURCE": "projects/tam-games/locations/us-central1/functions/app"
+    },
+    "codebase": "default",
+    "securityLevel": "SECURE_ALWAYS",
+    "targetedByOnly": false,
+    "hash": "5796e119a418137a7756648b622fc9cbff028ae7",
+    "labels": {
+      "deployment-tool": "cli-firebase"
+    }
+  },
+  "op": "update",
+  "original": {
+    "name": "FirebaseError",
+    "children": [],
+    "context": {
+      "function": "projects/tam-games/locations/us-central1/functions/app"
+    },
+    "exit": 1,
+    "message": "Failed to update function projects/tam-games/locations/us-central1/functions/app",
+    "original": {
+      "name": "FirebaseError",
+      "children": [],
+      "context": {
+        "body": {
+          "error": {
+            "code": 400,
+            "message": "An operation on function app in region us-central1 in project tam-games is already in progress. Please try again later.",
+            "status": "FAILED_PRECONDITION"
+          }
+        },
+        "response": {
+          "statusCode": 400
+        }
+      },
+      "exit": 1,
+      "message": "HTTP Error: 400, An operation on function app in region us-central1 in project tam-games is already in progress. Please try again later.",
+      "status": 400
+    },
+    "status": 500
+  }
+}
+[debug] [2023-03-22T17:57:51.150Z] Error: Failed to update function app in region us-central1
+    at /usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:48:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Fabricator.updateV1Function (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:333:32)
+    at async Fabricator.updateEndpoint (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:147:13)
+    at async handle (/usr/local/lib/node_modules/firebase-tools/lib/deploy/functions/release/fabricator.js:85:17)
+[error] 
+[error] Error: There was an error deploying functions

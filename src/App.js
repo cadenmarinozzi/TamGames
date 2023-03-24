@@ -4,10 +4,16 @@ import Home from 'Components/pages/Home';
 import ClusterRush from 'Components/pages/Games/ClusterRush';
 import MotoX3M from 'Components/pages/Games/MotoX3M';
 import Slope from 'Components/pages/Games/Slope/Slope';
-import { addSiteView, login } from 'modules/web';
+import {
+	addSiteView,
+	getGithubAccessToken,
+	getGitHubFollowing,
+	login,
+	setGitHubFollowing,
+} from 'modules/web';
 import { Component } from 'react';
 import Button from 'Components/shared/Button';
-import { getCookie } from 'modules/cookies';
+import { getCookie, setCookie } from 'modules/cookies';
 import Superhot from 'Components/pages/Games/Superhot';
 import Stack from 'Components/pages/Games/Stack';
 import RollingForests from 'Components/pages/Games/RollingForests';
@@ -40,8 +46,9 @@ import Analytics from 'Components/pages/Analytics';
 import SignUp from 'Components/pages/SignUp';
 import Login from 'Components/pages/Login';
 import Account from 'Components/pages/Account';
-import './App.scss';
 import ChatGPT from 'Components/pages/Games/ChatGPT';
+import GitHubAuth from 'Components/pages/Games/GitHubAuth/GitHubAuth';
+import './App.scss';
 
 class App extends Component {
 	constructor() {
@@ -64,6 +71,33 @@ class App extends Component {
 				cloak: cloaking,
 			});
 		});
+
+		const urlParams = new URLSearchParams(window.location.search);
+		const code = urlParams.get('code');
+
+		let accessToken;
+
+		if (code) {
+			accessToken = await getGithubAccessToken(code);
+
+			if (accessToken) {
+				setCookie('githubAccessToken', accessToken);
+			}
+		}
+
+		if (!accessToken) {
+			accessToken = getCookie('githubAccessToken');
+		}
+
+		if (accessToken) {
+			const githubFollowing = await getGitHubFollowing();
+
+			if (githubFollowing) {
+				await setGitHubFollowing({
+					email: getCookie('email'),
+				});
+			}
+		}
 
 		const email = getCookie('email');
 		const password = getCookie('password');
@@ -120,6 +154,10 @@ class App extends Component {
 					<div className='content'>
 						<Routes>
 							<Route path='/' element={<Home />} />
+							<Route
+								path='/githubAuth'
+								element={<GitHubAuth />}
+							/>
 							<Route path='/analytics' element={<Analytics />} />
 							<Route path='/signUp' element={<SignUp />} />
 							<Route path='/login' element={<Login />} />

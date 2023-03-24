@@ -41,7 +41,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Added button to open and close ChatGPT usage',
+	log: 'Added GitHub following to give more ChatGPT credits',
 	newestGame: 'ChatGPT',
 };
 

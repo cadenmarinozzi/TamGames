@@ -2,7 +2,7 @@ import { getAnalytics } from 'firebase/analytics';
 import { initializeApp } from 'firebase/app';
 import { get, getDatabase, ref, set, update, remove } from 'firebase/database';
 import { sha256 } from 'js-sha256';
-import { getCookies, setCookies } from './cookies';
+import { getCookie, getCookies, setCookies } from './cookies';
 import { formatFirebaseEmail } from './utils';
 import axios from 'axios';
 
@@ -34,10 +34,44 @@ async function getSiteViews() {
 	return siteViews.val();
 }
 
+async function getGitHubFollowers() {
+	const followers = await axios.get(
+		'https://us-central1-tam-games.cloudfunctions.net/app/followers'
+	);
+
+	return followers.data;
+}
+
 async function deleteAccount({ email }) {
 	const formattedEmail = formatFirebaseEmail(email);
 
 	await remove(ref(database, `users/${formattedEmail}`));
+}
+
+async function setGitHubFollowing({ email }) {
+	const formattedEmail = formatFirebaseEmail(email);
+
+	const userRef = ref(database, `users/${formattedEmail}`);
+
+	await update(userRef, {
+		githubFollowing: true,
+	});
+
+	return;
+}
+
+async function getUserGitHubFollowing({ email }) {
+	const formattedEmail = formatFirebaseEmail(email);
+
+	const user = await get(ref(database, `users/${formattedEmail}`));
+
+	if (!user.exists()) {
+		return false;
+	}
+
+	const userData = user.val();
+
+	return userData.githubFollowing;
 }
 
 async function signUp({ email, password }) {
@@ -337,17 +371,54 @@ async function generateDalleImage(prompt) {
 	return data;
 }
 
+function gitHubOAuthURL() {
+	return 'https://github.com/login/oauth/authorize?client_id=5fdc3b30e49bb004ffc9&scope=read:user';
+}
+
+async function getGithubAccessToken(code) {
+	const { data } = await axios.post(
+		'https://us-central1-tam-games.cloudfunctions.net/app/githubAuth',
+		{
+			code,
+		}
+	);
+
+	return data;
+}
+
+async function getGitHubFollowing() {
+	try {
+		const { data } = await axios.get(
+			'https://api.github.com/user/following/github',
+			{
+				headers: {
+					Authorization: `token ${getCookie('githubAccessToken')}`,
+					Accept: 'application/vnd.github.v3+json',
+				},
+			}
+		);
+
+		return true;
+	} catch (e) {
+		return;
+	}
+}
+
 export {
 	submitGameRequest,
+	getGitHubFollowers,
 	addSiteView,
 	addGamePlay,
 	getGamePlays,
 	rateGame,
 	getGameRatings,
+	setGitHubFollowing,
 	getSiteViews,
 	submitBrokenGame,
 	signUp,
+	getGithubAccessToken,
 	login,
+	getUserGitHubFollowing,
 	saveData,
 	addImagePrice,
 	getImagePriceUsage,
@@ -357,4 +428,6 @@ export {
 	generateDalleImage,
 	addChatPrice,
 	getChatPriceUsage,
+	gitHubOAuthURL,
+	getGitHubFollowing,
 };

@@ -69,13 +69,35 @@
 
 			// width: 100%;
 
-			.history-message-info {
+			.history-message-content {
+				width: 100%;
+
 				display: flex;
 				flex-direction: row;
 
 				align-items: center;
 
+				justify-content: space-between;
+
 				gap: 20px;
+
+				.history-message-close {
+					cursor: pointer;
+					color: $medium;
+				}
+
+				.history-message-info-icon {
+					color: $medium;
+				}
+
+				.history-message-info {
+					display: flex;
+					flex-direction: row;
+
+					align-items: center;
+
+					gap: 20px;
+				}
 			}
 
 			.message-time {

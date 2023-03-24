@@ -1,0 +1,16 @@
+@use 'vars.scss' as *;
+@use 'colors.scss' as *;
+
+.github-auth {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+
+	gap: 10px;
+
+	.link {
+		color: $primary;
+		text-decoration: none;
+	}
+}
