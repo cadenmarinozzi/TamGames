@@ -49,6 +49,7 @@ import Account from 'Components/pages/Account';
 import ChatGPT from 'Components/pages/Games/ChatGPT';
 import GitHubAuth from 'Components/pages/Games/GitHubAuth/GitHubAuth';
 import './App.scss';
+import Yohoho from 'Components/pages/Yohoho';
 
 class App extends Component {
 	constructor() {
@@ -162,6 +163,7 @@ class App extends Component {
 							<Route path='/signUp' element={<SignUp />} />
 							<Route path='/login' element={<Login />} />
 							<Route path='/account' element={<Account />} />
+							<Route path='/yohoho' element={<Yohoho />} />
 							<Route
 								path='/clusterRush'
 								element={<ClusterRush />}

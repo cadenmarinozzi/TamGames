@@ -11,6 +11,7 @@ import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
+import Yohoho from 'assets/images/yohoho.avif';
 import ClashRoyale from 'assets/images/clashRoyale.jpg';
 import Minecraft from 'assets/images/minecraft.png';
 import CrossyRoad from 'assets/images/crossyRoad.png';
@@ -42,10 +43,17 @@ import './Home.scss';
 
 const changelog = {
 	log: 'Changed ChatGPT version to GPT-4!',
-	newestGame: 'ChatGPT',
+	newestGame: 'yohoho.io',
 };
 
 const games = [
+	{
+		title: 'yohoho.io',
+		description:
+			'Play as a pirate and fight other pirates in this battle royale game!',
+		image: Yohoho,
+		url: '/yohoho',
+	},
 	{
 		title: 'ChatGPT',
 		description:
@@ -53,13 +61,13 @@ const games = [
 		image: ChatGPT,
 		url: '/chatGPT',
 	},
-	{
-		title: 'Drift Boss',
-		description:
-			'How far can you drift? Drift Boss is a fast-paced drifting game where you drift around corners.',
-		image: DriftBoss,
-		url: '/driftBoss',
-	},
+	// {
+	// 	title: 'Drift Boss',
+	// 	description:
+	// 		'How far can you drift? Drift Boss is a fast-paced drifting game where you drift around corners.',
+	// 	image: DriftBoss,
+	// 	url: '/driftBoss',
+	// },
 	{
 		title: 'Angry Birds',
 		description:

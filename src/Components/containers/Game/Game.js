@@ -45,6 +45,46 @@ class Game extends Component {
 	render() {
 		return (
 			<>
+				<div className='ad-spot ad-spot-left game-ad-spot'>
+					{/* <span className='ad-spot-label'>
+						Click to put your ad Here!
+					</span> */}
+					<script
+						async
+						src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775045064169395'
+						crossorigin='anonymous'></script>
+					<ins
+						className='adsbygoogle'
+						style={{
+							display: 'inline-block',
+							width: '200px',
+							height: '500px',
+						}}
+						data-ad-client='ca-pub-2775045064169395'
+						data-ad-slot='9871010146'></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
+				<div className='ad-spot ad-spot-right'>
+					{/* <span className='ad-spot-label'>
+						Click to put your ad Here!
+					</span> */}
+					<script
+						async
+						src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775045064169395'
+						crossOrigin='anonymous'></script>
+					<ins
+						className='adsbygoogle'
+						style={{ display: 'block' }}
+						data-ad-client='ca-pub-2775045064169395'
+						data-ad-slot='2198735383'
+						data-ad-format='auto'
+						data-full-width-responsive='true'></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
 				<div className='game-container'>
 					<div className='loader' ref={this.loaderRef} />
 					<div className='loader-label' ref={this.loaderLabelRef}>

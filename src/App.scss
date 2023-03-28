@@ -1,3 +1,6 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
 .cloak-screen {
 	position: absolute;
 
@@ -25,4 +28,24 @@
 .content {
 	margin-top: 100px;
 	padding-bottom: 100px;
+}
+
+.ad-spot {
+	position: fixed;
+
+	height: calc(100% - 140px);
+	width: 15%;
+
+	// background: rgba($light-background, 0.2);
+	background: transparent;
+
+	z-index: 2;
+}
+
+.ad-spot-left {
+	left: 0;
+}
+
+.ad-spot-right {
+	right: 0;
 }

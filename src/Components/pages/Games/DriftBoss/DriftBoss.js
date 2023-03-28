@@ -4,7 +4,7 @@ function DriftBoss() {
 	return (
 		<Game
 			title='Drift Boss'
-			url='https://tamgames.net/Games/DriftBoss/driftBoss.html'
+			url='https://tamgames.net/Games/DriftBossFixed/driftBoss.html'
 		/>
 	);
 }

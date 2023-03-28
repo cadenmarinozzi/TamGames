@@ -1,7 +1,11 @@
 @use 'colors.scss' as *;
 
+.game-ad-spot {
+	width: 12.5%;
+}
+
 .game-container {
-	width: 100%;
+	width: calc(100%);
 	height: calc(100vh - 263px);
 
 	margin-bottom: 140px;

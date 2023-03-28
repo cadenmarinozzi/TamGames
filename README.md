@@ -6,10 +6,6 @@ You can view the site [here](https://tamgames.net).
 
 View the [TODO](TODO.md) file for a list of things that are planned to be done.
 
-# CHANGELOG
-
-View the [CHANGELOG](CHANGELOG.md) file for a list of things that have been changed.
-
 # Acknowledgments
 
 I did not create any of the games in this project. I simply ported them to the web. All credit goes to the original creators.
