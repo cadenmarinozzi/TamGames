@@ -337,16 +337,44 @@ class Home extends Component {
 
 		return (
 			<div className='home'>
-				{/* <div className='ad-spot ad-spot-left'>
-					<span className='ad-spot-label'>
+				<div className='ad-spot ad-spot-left'>
+					{/* <span className='ad-spot-label'>
 						Click to put your ad Here!
-					</span>
+					</span> */}
+					<script
+						async
+						src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775045064169395'
+						crossOrigin='anonymous'></script>
+					<ins
+						className='adsbygoogle'
+						style={{ display: 'block' }}
+						data-ad-client='ca-pub-2775045064169395'
+						data-ad-slot='2198735383'
+						data-ad-format='auto'
+						data-full-width-responsive='true'></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
 				</div>
 				<div className='ad-spot ad-spot-right'>
-					<span className='ad-spot-label'>
+					{/* <span className='ad-spot-label'>
 						Click to put your ad Here!
-					</span>
-				</div> */}
+					</span> */}
+					<script
+						async
+						src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2775045064169395'
+						crossOrigin='anonymous'></script>
+					<ins
+						className='adsbygoogle'
+						style={{ display: 'block' }}
+						data-ad-client='ca-pub-2775045064169395'
+						data-ad-slot='2198735383'
+						data-ad-format='auto'
+						data-full-width-responsive='true'></ins>
+					<script>
+						(adsbygoogle = window.adsbygoogle || []).push({});
+					</script>
+				</div>
 				<div className='title-container'>
 					<div className='title'>
 						<h1>Tam</h1>
