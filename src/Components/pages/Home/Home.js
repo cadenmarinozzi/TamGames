@@ -43,12 +43,12 @@ import './Home.scss';
 
 const changelog = {
 	log: 'Changed ChatGPT version to GPT-4!',
-	newestGame: 'yohoho.io',
+	newestGame: 'Yohoho',
 };
 
 const games = [
 	{
-		title: 'yohoho.io',
+		title: 'Yohoho',
 		description:
 			'Play as a pirate and fight other pirates in this battle royale game!',
 		image: Yohoho,
