@@ -8,5 +8,4 @@
 -   Reduce download size from hosting
 -   Allow users to save ChatGPT history
 -   Allow users to buy chatgpt tokens
--   Allow users to get free chatgpt tokens by following and starring on GitHub (Some for each action)
 -   Allow users to only create one account

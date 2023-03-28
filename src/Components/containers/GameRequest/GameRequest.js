@@ -46,6 +46,10 @@ const todo = [
 		title: 'Drift Boss',
 		status: 'Finished',
 	},
+	{
+		title: 'Yohoho.io',
+		status: 'Finished',
+	},
 ];
 
 class GameRequest extends Component {
