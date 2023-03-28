@@ -156,7 +156,9 @@ class ChatGPT extends Component {
 		let { completion, history: newHistory } = response;
 
 		const time = new Date().toLocaleTimeString();
-		const price = (getNTokens(completion) / 1000) * 0.002;
+		const price =
+			(getNTokens(message) / 1000) * 0.03 +
+			(getNTokens(completion) / 1000) * 0.06;
 
 		addChatPrice({
 			email: getCookie('email'),
@@ -270,7 +272,7 @@ class ChatGPT extends Component {
 										<span className='history-message-info'>
 											<i className='fa-solid fa-hand-wave history-message-info-icon' />
 											Welcome to ChatGPT! Type a message
-											to get started.
+											to get started. (Version GPT-4!)
 										</span>
 										<FontAwesomeIcon
 											icon={faMultiply}
