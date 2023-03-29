@@ -3,8 +3,8 @@
 	"name": "TamGames",
 	"start_url": ".",
 	"display": "standalone",
-	"theme_color": "#000000",
-	"background_color": "#ffffff",
+	"theme_color": "#d61f4d",
+	"background_color": "#1f1f26",
 	"icons": [
 		{
 			"src": "./assets/images/logoSmall.png",

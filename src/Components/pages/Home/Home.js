@@ -11,7 +11,7 @@ import SubwaySurfers from 'assets/images/subwaySurfers.jpg';
 import RetroBowl from 'assets/images/retroBowl.jpeg';
 import ScrapMetal from 'assets/images/scrapMetal.png';
 import JustFall from 'assets/images/justFall.png';
-import Yohoho from 'assets/images/yohoho.avif';
+import Yohoho from 'assets/images/yohoho.png';
 import ClashRoyale from 'assets/images/clashRoyale.jpg';
 import Minecraft from 'assets/images/minecraft.png';
 import CrossyRoad from 'assets/images/crossyRoad.png';
