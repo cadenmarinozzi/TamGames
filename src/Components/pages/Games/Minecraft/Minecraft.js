@@ -5,7 +5,7 @@ function Minecraft() {
 	return (
 		<Game
 			title='Minecraft'
-			url='https://tamgames.net/Games/BetterMinecraft/index.html'
+			url='https://tamgames.net/Games/Minecraft/index.html'
 		/>
 	);
 }
