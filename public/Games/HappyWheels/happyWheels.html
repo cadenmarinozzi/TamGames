@@ -107,11 +107,11 @@
 			<div class="progress"><div class="full"></div></div>
 		</div>
 	</body>
-	<script src="Build/UnityLoader.js"></script>
+	<script src="BuildData/UnityLoader.js"></script>
 	<script>
 		var gameInstance = UnityLoader.instantiate(
 			'gameContainer',
-			'Build/HappyWheels.json',
+			'BuildData/HappyWheels.json',
 			{ onProgress: UnityProgress }
 		);
 		function UnityProgress(gameInstance, progress) {

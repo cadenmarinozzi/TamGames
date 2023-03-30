@@ -1,0 +1,9 @@
+.analytics-charts {
+	display: flex;
+	flex-direction: column;
+
+	.chart-section {
+		display: flex;
+		flex-direction: row;
+	}
+}

@@ -28,13 +28,15 @@ class DataChart extends Component {
 					label,
 					pointBackgroundColor: (context) => {
 						// highlight weekends
-						const index = context.dataIndex;
-						const value = context.dataset.data[index];
-						const date = new Date(labels[index]);
-						const day = date.getDay();
+						if (!this.props.dontHighlightWeekends) {
+							const index = context.dataIndex;
+							const value = context.dataset.data[index];
+							const date = new Date(labels[index]);
+							const day = date.getDay();
 
-						if (day === 0 || day === 6) {
-							return 'rgb(214,31,77)';
+							if (day === 0 || day === 6) {
+								return 'rgb(214,31,77)';
+							}
 						}
 
 						return 'rgb(214,31,77, 0.2)';
@@ -45,47 +47,63 @@ class DataChart extends Component {
 							const p1 = ctx.p1;
 
 							// highlight weekends
-							const date = new Date(labels[p0['$context'].index]);
-							const day = date.getDay();
-							const date2 = new Date(
-								labels[p1['$context'].index]
-							);
-							const day2 = date2.getDay();
+							if (!this.props.dontHighlightWeekends) {
+								const date = new Date(
+									labels[p0['$context'].index]
+								);
+								const day = date.getDay();
+								const date2 = new Date(
+									labels[p1['$context'].index]
+								);
+								const day2 = date2.getDay();
 
-							if (
-								(day === 0 && day2 === 6) ||
-								(day === 6 && day2 === 0)
-							) {
-								return 'rgb(214,31,77)';
+								if (
+									(day === 0 && day2 === 6) ||
+									(day === 6 && day2 === 0)
+								) {
+									return 'rgb(214,31,77)';
+								}
 							}
 
 							return 'rgb(214,31,77, 0.2)';
 						},
 					},
 					fill: true,
+					backgroundColor:
+						this.props.type === 'bar' && 'rgb(255, 99, 132, 0.4)',
 					borderColor: 'rgb(255, 99, 132)',
 					lineTension: 0.12,
 					data,
-					barThickness: 7,
+					barThickness: this.props.type === 'bar' ? 20 : 7,
 				},
 			],
 		};
 
 		const config = {
-			type: 'line',
+			type: this.props.type ?? 'line',
 			data: chartData,
 			options: {
 				responsive: true,
 				maintainAspectRatio: true,
+				plugins: {
+					datalabels: {
+						anchor: 'end',
+						align: 'end',
+						color: '#a0a0a0',
+					},
+				},
 			},
 		};
 
-		Chart.defaults.set('plugins.datalabels', {
-			padding: {
-				top: 10,
-			},
-			align: 'end',
-		});
+		if (this.props.type === 'bar') {
+		} else {
+			Chart.defaults.set('plugins.datalabels', {
+				padding: {
+					top: 10,
+				},
+				align: 'end',
+			});
+		}
 
 		const chart = new Chart(ctx, config);
 
@@ -95,7 +113,11 @@ class DataChart extends Component {
 	}
 
 	render() {
-		return <canvas className='chart' ref={this.canvasRef} />;
+		return (
+			<div className='chart-container'>
+				<canvas className='chart' ref={this.canvasRef} />
+			</div>
+		);
 	}
 }
 

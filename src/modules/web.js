@@ -5,6 +5,7 @@ import { sha256 } from 'js-sha256';
 import { getCookie, getCookies, setCookies } from './cookies';
 import { formatFirebaseEmail } from './utils';
 import axios from 'axios';
+import { getPerformance } from 'firebase/performance';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyAXKTx9akcSGCYOeVuCBbGH1izF4BKKYW8',
@@ -27,6 +28,7 @@ const gameRatingsRef = ref(database, 'gameRatings');
 const usersRef = ref(database, 'users');
 
 const analytics = getAnalytics(app);
+const perf = getPerformance(app);
 
 async function getSiteViews() {
 	const siteViews = await get(siteViewsRef);

@@ -1,0 +1,19 @@
+{
+	"companyName": "Kiloo Games",
+	"productName": "Subway Surfers",
+	"productVersion": "1.94.0",
+	"dataUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.data.unityweb",
+	"wasmCodeUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.wasm.code.unityweb",
+	"wasmFrameworkUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.wasm.framework.unityweb",
+	"asmCodeUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.asm.code.unityweb",
+	"asmMemoryUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.asm.memory.unityweb",
+	"asmFrameworkUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/SubwaySurfers/BuildData/SanFrancisco.asm.framework.unityweb",
+	"TOTAL_MEMORY": 369098752,
+	"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+	"webglContextAttributes": { "preserveDrawingBuffer": false },
+	"splashScreenStyle": "Dark",
+	"backgroundColor": "#231F20",
+	"developmentBuild": false,
+	"multithreading": false,
+	"unityVersion": "2019.4.18f1"
+}
