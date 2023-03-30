@@ -11,7 +11,7 @@ async function promptChatGPT(history, message) {
 	messages.push({ role: 'user', content: message });
 
 	const completion = await openai.createChatCompletion({
-		model: 'gpt-4',
+		model: 'gpt-3.5-turbo', // gpt-4
 		messages,
 	});
 

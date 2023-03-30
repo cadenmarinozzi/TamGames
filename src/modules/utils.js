@@ -58,8 +58,8 @@ function formatFirebaseEmail(email) {
 }
 
 function getNTokens(text) {
-	// return tokenizer.encode(text).bpe.length;
-	return text.split(' ').length;
+	// a token is every ~4 characters
+	return Math.ceil(text.length / 3.5);
 }
 
 export {
