@@ -2,257 +2,394 @@
 @use 'vars.scss' as *;
 
 .chatgpt {
+	height: calc(100vh - 200px);
+
 	display: flex;
 	flex-direction: column;
 
-	align-items: center;
-
-	justify-content: space-between;
-
-	height: calc(100vh - 200px);
-
 	gap: 20px;
 
-	.link {
-		color: $primary;
-		text-decoration: none;
+	.open-converstaions-button {
+		padding-inline: 10px;
+		cursor: pointer;
 	}
 
-	.history {
-		display: flex;
-		flex-direction: column;
-
-		overflow-y: scroll;
-
-		width: 100vw;
-
-		.newest-message-line {
-			width: 100%;
-			height: 1px;
-
-			background: $primary;
-
-			position: relative;
-		}
-
-		.newest-message-line-label {
-			padding-inline: 7px;
-			padding-block: 3px;
-
-			font-size: 11pt;
-
-			display: flex;
-
-			align-items: center;
-			text-align: center;
-
-			border-radius: 10px;
-
-			background: $primary;
-
-			transform: translateY(-50%);
-
-			position: absolute;
-
-			left: 10px;
-		}
-
-		.history-message {
-			display: flex;
-			flex-direction: row;
-
-			align-items: center;
-
-			gap: 20px;
-
-			padding: 20px;
-
-			// width: 100%;
-
-			.history-message-content {
-				width: 100%;
-
-				display: flex;
-				flex-direction: row;
-
-				align-items: center;
-
-				justify-content: space-between;
-
-				gap: 20px;
-
-				.history-message-close {
-					cursor: pointer;
-					color: $medium;
-				}
-
-				.history-message-info-icon {
-					color: $medium;
-				}
-
-				.history-message-info {
-					display: flex;
-					flex-direction: row;
-
-					align-items: center;
-
-					gap: 20px;
-				}
-			}
-
-			.message-time {
-				font-size: 11pt;
-				color: $medium;
-			}
-
-			.message-content {
-				display: flex;
-				flex-direction: column;
-
-				align-items: left;
-
-				gap: 10px;
-
-				.dalle-generation {
-					width: 50%;
-					height: 50%;
-
-					object-fit: contain;
-				}
-
-				.chatgpt-completion {
-					display: flex;
-					flex-direction: column;
-
-					gap: 10px;
-
-					pre {
-						background-color: $background;
-						font-size: 11pt;
-
-						padding: 20px;
-
-						border-radius: 5px;
-					}
-
-					.hljs {
-						background-color: transparent;
-					}
-
-					table {
-						background-color: $background;
-
-						border-radius: 5px;
-
-						th,
-						td {
-							padding: 0.6rem 1rem;
-						}
-
-						thead {
-							border-radius: 5px;
-
-							tr {
-								border-radius: 5px;
-
-								background-color: $primary;
-								text-align: left;
-							}
-						}
-
-						tbody {
-							tr:last-of-type {
-								border-bottom: 2px solid #64748b40;
-							}
-
-							tr:nth-of-type(odd) {
-								background-color: #64748b20;
-							}
-
-							tr {
-								color: $medium;
-							}
-						}
-					}
-
-					ul,
-					ol {
-						background-color: $background;
-
-						padding: 20px;
-
-						border-radius: 5px;
-
-						li {
-							margin-left: 20px;
-
-							color: $medium;
-						}
-
-						li::marker {
-							color: $light-background;
-						}
-					}
-				}
-			}
-
-			.message-icon {
-				width: 20px;
-				height: 20px;
-			}
-
-			.user-icon {
-				color: $light-background;
-			}
-		}
-
-		.buttons-message {
-			display: flex;
-			flex-direction: row;
-
-			align-items: center;
-			justify-content: center;
-
-			gap: 20px;
-		}
-
-		.history-message-bot {
-			background: $light-background;
-		}
-	}
-
-	.history::-webkit-scrollbar {
-		width: 0px;
-	}
-
-	.chatgpt-controls {
+	.conversations-container {
 		display: flex;
 		flex-direction: column;
 
 		align-items: center;
 
-		gap: 20px;
+		justify-content: space-between;
 
-		.open-usage-button {
-			cursor: pointer;
-		}
+		position: absolute;
 
-		.open-usage-button-open {
-			color: $medium;
-		}
+		padding-bottom: 20px;
 
-		.chatgpt-input {
+		left: 0;
+
+		z-index: 99999;
+
+		width: 25%;
+		height: 80%;
+
+		background: $light-background;
+
+		border-right: 2px solid $background;
+
+		transition: $transition;
+
+		transform: translateX(-100%);
+		transform-origin: left;
+
+		.conversations-content {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
+
+			gap: 20px;
 
 			align-items: center;
 
-			gap: 10px;
+			padding-top: 20px;
+
+			height: calc(100% - 80px);
+
+			.conversations-header {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+
+				width: calc(100% - 40px);
+
+				padding-inline: 20px;
+
+				justify-content: space-between;
+
+				.header-button {
+					cursor: pointer;
+				}
+			}
+
+			.conversations {
+				display: flex;
+				flex-direction: column;
+
+				overflow-y: scroll;
+
+				height: 100%;
+
+				.conversation {
+					padding: 10px;
+					padding-inline: 20px;
+
+					cursor: pointer;
+
+					border-bottom: 1px solid $background;
+
+					transition: $transition;
+
+					display: flex;
+					flex-direction: row;
+
+					gap: 5px;
+
+					align-items: center;
+
+					justify-content: space-between;
+
+					.conversation-content {
+						display: flex;
+						flex-direction: column;
+
+						gap: 10px;
+
+						.conversation-details {
+							display: flex;
+							flex-direction: row;
+
+							align-items: center;
+
+							gap: 15px;
+						}
+
+						.conversation-info {
+							display: flex;
+							flex-direction: row;
+
+							align-items: center;
+
+							gap: 15px;
+
+							.conversation-edit-icon {
+								color: $medium;
+
+								transition: $transition;
+							}
+
+							.conversation-delete-icon {
+								color: $primary;
+
+								transition: $transition;
+							}
+
+							.conversation-delete-icon:hover {
+								color: rgba($primary, 0.6);
+							}
+
+							.conversation-edit-icon:hover {
+								color: $light-background;
+							}
+						}
+
+						.conversation-date {
+							color: $medium;
+						}
+
+						.conversation-time {
+							color: $medium;
+						}
+					}
+
+					.conversation-buttons {
+						.conversation-button {
+							padding-left: 20px;
+						}
+					}
+				}
+
+				.conversation:hover {
+					background: $background;
+				}
+			}
+		}
+	}
+
+	.chatgpt-content {
+		display: flex;
+		flex-direction: column;
+
+		gap: 20px;
+
+		align-items: center;
+
+		justify-content: space-between;
+
+		height: 100%;
+
+		.link {
+			color: $primary;
+			text-decoration: none;
 		}
 
-		.usage-container {
-			transition: $transition;
+		.history {
+			display: flex;
+			flex-direction: column;
 
+			overflow-y: scroll;
+
+			width: 100vw;
+
+			.newest-message-line {
+				width: 100%;
+				height: 1px;
+
+				background: $primary;
+
+				position: relative;
+			}
+
+			.newest-message-line-label {
+				padding-inline: 7px;
+				padding-block: 3px;
+
+				font-size: 11pt;
+
+				display: flex;
+
+				align-items: center;
+				text-align: center;
+
+				border-radius: 10px;
+
+				background: $primary;
+
+				transform: translateY(-50%);
+
+				position: absolute;
+
+				left: 10px;
+			}
+
+			.history-message {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+
+				gap: 20px;
+
+				padding: 20px;
+
+				// width: 100%;
+
+				.history-message-content {
+					width: 100%;
+
+					display: flex;
+					flex-direction: row;
+
+					align-items: center;
+
+					justify-content: space-between;
+
+					gap: 20px;
+
+					.history-message-close {
+						cursor: pointer;
+						color: $medium;
+					}
+
+					.history-message-info-icon {
+						color: $medium;
+					}
+
+					.history-message-info {
+						display: flex;
+						flex-direction: row;
+
+						align-items: center;
+
+						gap: 20px;
+					}
+				}
+
+				.message-time {
+					font-size: 11pt;
+					color: $medium;
+				}
+
+				.message-content {
+					display: flex;
+					flex-direction: column;
+
+					align-items: left;
+
+					gap: 10px;
+
+					.dalle-generation {
+						width: 50%;
+						height: 50%;
+
+						object-fit: contain;
+					}
+
+					.chatgpt-completion {
+						display: flex;
+						flex-direction: column;
+
+						gap: 10px;
+
+						pre {
+							background-color: $background;
+							font-size: 11pt;
+
+							padding: 20px;
+
+							border-radius: 5px;
+						}
+
+						.hljs {
+							background-color: transparent;
+						}
+
+						table {
+							background-color: $background;
+
+							border-radius: 5px;
+
+							th,
+							td {
+								padding: 0.6rem 1rem;
+							}
+
+							thead {
+								border-radius: 5px;
+
+								tr {
+									border-radius: 5px;
+
+									background-color: $primary;
+									text-align: left;
+								}
+							}
+
+							tbody {
+								tr:last-of-type {
+									border-bottom: 2px solid #64748b40;
+								}
+
+								tr:nth-of-type(odd) {
+									background-color: #64748b20;
+								}
+
+								tr {
+									color: $medium;
+								}
+							}
+						}
+
+						ul,
+						ol {
+							background-color: $background;
+
+							padding: 20px;
+
+							border-radius: 5px;
+
+							li {
+								margin-left: 20px;
+
+								color: $medium;
+							}
+
+							li::marker {
+								color: $light-background;
+							}
+						}
+					}
+				}
+
+				.message-icon {
+					width: 20px;
+					height: 20px;
+				}
+
+				.user-icon {
+					color: $light-background;
+				}
+			}
+
+			.buttons-message {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+				justify-content: center;
+
+				gap: 20px;
+			}
+
+			.history-message-bot {
+				background: $light-background;
+			}
+		}
+
+		.history::-webkit-scrollbar {
+			width: 0px;
+		}
+
+		.chatgpt-controls {
 			display: flex;
 			flex-direction: column;
 
@@ -260,37 +397,65 @@
 
 			gap: 20px;
 
-			.usage {
-				width: 100%;
+			.open-usage-button {
+				cursor: pointer;
+			}
+
+			.open-usage-button-open {
+				color: $medium;
+			}
+
+			.chatgpt-input {
+				display: flex;
+				flex-direction: row;
+
+				align-items: center;
+
+				gap: 10px;
+			}
+
+			.usage-container {
+				transition: $transition;
 
 				display: flex;
 				flex-direction: column;
 
-				gap: 10px;
+				align-items: center;
 
-				.usage-label {
-					color: $medium;
-				}
+				gap: 20px;
 
-				.usage-bar {
+				.usage {
 					width: 100%;
-					height: 15px;
 
-					background-color: $light-background;
+					display: flex;
+					flex-direction: column;
 
-					border-radius: 5px;
+					gap: 10px;
 
-					transition: $transition;
+					.usage-label {
+						color: $medium;
+					}
 
-					.usage-bar-used {
-						height: 100%;
-						width: 0%;
+					.usage-bar {
+						width: 100%;
+						height: 15px;
 
-						background-color: $primary;
+						background-color: $light-background;
 
 						border-radius: 5px;
 
 						transition: $transition;
+
+						.usage-bar-used {
+							height: 100%;
+							width: 0%;
+
+							background-color: $primary;
+
+							border-radius: 5px;
+
+							transition: $transition;
+						}
 					}
 				}
 			}

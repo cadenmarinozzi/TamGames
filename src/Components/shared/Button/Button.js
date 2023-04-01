@@ -10,17 +10,21 @@ function Button({
 	transparent,
 	cta,
 	disabled,
+	iconElement,
 	...rest
 }) {
 	return (
 		<button
 			className={`button ${disabled && 'button-disabled'} ${
 				big && 'button-big'
-			} ${icon && 'button-icon'} ${cta && 'button-cta'} ${className} ${
-				danger && 'button-danger'
-			} ${transparent && 'button-transparent'}`}
+			} ${(icon || iconElement) && 'button-icon'} ${
+				cta && 'button-cta'
+			} ${className} ${danger && 'button-danger'} ${
+				transparent && 'button-transparent'
+			}`}
 			{...rest}>
 			{icon && <FontAwesomeIcon icon={icon} />}
+			{iconElement}
 			{label}
 		</button>
 	);
