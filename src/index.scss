@@ -14,6 +14,17 @@ body {
 	color: $light;
 }
 
+body {
+	#apple-pay-button {
+		height: 48px;
+		width: 100%;
+		display: inline-block;
+		-webkit-appearance: -apple-pay-button;
+		-apple-pay-button-type: plain;
+		-apple-pay-button-style: black;
+	}
+}
+
 a {
 	text-decoration: none;
 	color: $light;

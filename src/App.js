@@ -50,6 +50,7 @@ import ChatGPT from 'Components/pages/Games/ChatGPT';
 import GitHubAuth from 'Components/pages/Games/GitHubAuth/GitHubAuth';
 import './App.scss';
 import Yohoho from 'Components/pages/Yohoho';
+import PaymentRequest from 'Components/pages/PaymentRequest';
 
 class App extends Component {
 	constructor() {
@@ -247,6 +248,10 @@ class App extends Component {
 							<Route
 								path='/angryBirds'
 								element={<AngryBirds />}
+							/>
+							<Route
+								path='/paymentRequest'
+								element={<PaymentRequest />}
 							/>
 						</Routes>
 					</div>

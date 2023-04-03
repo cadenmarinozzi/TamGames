@@ -27,6 +27,7 @@
 		"react-dom": "^18.2.0",
 		"react-router-dom": "^6.6.1",
 		"react-scripts": "5.0.1",
+		"react-square-web-payments-sdk": "^3.2.1",
 		"sass": "^1.58.3",
 		"uglify-js": "^3.17.4",
 		"web-vitals": "^2.1.4"
