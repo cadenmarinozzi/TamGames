@@ -559,7 +559,10 @@ class ChatGPT extends Component {
 																								);
 																							}
 																						),
-																				}
+																				},
+																				this.saveConversations.bind(
+																					this
+																				)
 																			);
 																		}}
 																	/>

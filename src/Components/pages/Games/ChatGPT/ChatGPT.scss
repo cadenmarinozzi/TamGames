@@ -241,7 +241,7 @@
 
 					align-items: center;
 
-					justify-content: space-between;
+					// justify-content: space-between;
 
 					gap: 20px;
 
@@ -382,6 +382,10 @@
 
 			.history-message-bot {
 				background: $light-background;
+
+				.copy-icon {
+					cursor: pointer;
+				}
 			}
 		}
 
