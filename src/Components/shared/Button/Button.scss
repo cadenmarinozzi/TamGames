@@ -23,6 +23,15 @@
 	border-color: $light-background;
 }
 
+.button-disabled-invert {
+	pointer-events: none;
+
+	background: transparent;
+	color: $background;
+
+	border-color: $background;
+}
+
 .button-big {
 	height: 50px;
 }

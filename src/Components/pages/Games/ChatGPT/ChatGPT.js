@@ -15,6 +15,7 @@ import {
 	faArrowRight,
 	faEdit,
 	faTrashCan,
+	faCopy,
 } from '@fortawesome/free-solid-svg-icons';
 import { faMessage as faRegularMessage } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -29,6 +30,8 @@ import {
 	addChatPrice,
 	getChatPriceUsage,
 	getUserGitHubFollowing,
+	getUserUnlimitedChatGPTAccess,
+	addGamePlay,
 } from 'modules/web';
 import { Component, createRef } from 'react';
 import MarkdownIt from 'markdown-it';
@@ -49,6 +52,8 @@ class ChatGPT extends Component {
 	constructor() {
 		super();
 
+		addGamePlay('ChatGPT');
+
 		this.state = {
 			history: [],
 			message: '',
@@ -59,6 +64,7 @@ class ChatGPT extends Component {
 			welcomeMessage: true,
 			chatQuotaMessage: false,
 			imageQuotaMessage: false,
+			unlimitedAccessMessage: true,
 			githubFollowMessage: true,
 			maxImagePrice: 0.2,
 			maxChatPrice: 0.2,
@@ -134,7 +140,9 @@ class ChatGPT extends Component {
 		this.setState(
 			{
 				loading: true,
-				imagePriceUsage: this.state.imagePriceUsage + 0.02,
+				imagePriceUsage: this.state.unlimitedAccess
+					? 0
+					: this.state.imagePriceUsage + 0.02,
 				loadingMessage: [message, sendTime],
 			},
 			() => {
@@ -267,6 +275,8 @@ class ChatGPT extends Component {
 	async setUsagePrices() {
 		const email = getCookie('email');
 
+		if (!email) return;
+
 		const imagePriceUsage = await getImagePriceUsage({
 			email,
 		});
@@ -275,12 +285,14 @@ class ChatGPT extends Component {
 			email,
 		});
 
-		this.setState({
-			imagePriceUsage,
-			chatPriceUsage,
-		});
+		const prices = {
+			imagePriceUsage: this.state.unlimitedAccess ? 0 : imagePriceUsage,
+			chatPriceUsage: this.state.unlimitedAccess ? 0 : chatPriceUsage,
+		};
 
-		return { imagePriceUsage, chatPriceUsage };
+		this.setState(prices);
+
+		return prices;
 	}
 
 	async update() {
@@ -308,6 +320,10 @@ class ChatGPT extends Component {
 	}
 
 	async componentDidMount() {
+		const email = getCookie('email');
+
+		if (!email) return;
+
 		this.loadConversations();
 
 		const { chatPriceUsage, imagePriceUsage } = await this.setUsagePrices();
@@ -326,8 +342,20 @@ class ChatGPT extends Component {
 		}
 
 		const githubFollowing = await getUserGitHubFollowing({
-			email: getCookie('email'),
+			email,
 		});
+
+		const unlimitedAccess = await getUserUnlimitedChatGPTAccess({
+			email,
+		});
+
+		if (unlimitedAccess) {
+			this.setState({
+				unlimitedAccess: true,
+				githubFollowMessage: false,
+				unlimitedAccessMessage: false,
+			});
+		}
 
 		if (githubFollowing) {
 			this.setState({
@@ -382,15 +410,10 @@ class ChatGPT extends Component {
 	}
 
 	saveConversation() {
-		const { history } = this.state;
+		if (!this.state.unlimitedAccess && this.state.conversations.length >= 5)
+			return;
 
-		// this.setState({
-		// 	conversations:({
-		// 	history,
-		// 	title: history[0][0],
-		// 	date: new Date().toLocaleDateString(),
-		// 	time: new Date().toLocaleTimeString(),
-		// });
+		const { history } = this.state;
 
 		this.setState(
 			{
@@ -398,7 +421,7 @@ class ChatGPT extends Component {
 					...this.state.conversations,
 					{
 						history,
-						title: history[0][0],
+						title: history[0][0].split(' ').slice(0, 5).join(' '),
 						date: new Date().toLocaleDateString(),
 						time: new Date().toLocaleTimeString(),
 					},
@@ -416,6 +439,8 @@ class ChatGPT extends Component {
 		const {
 			history,
 			loading,
+			unlimitedAccessMessage,
+			unlimitedAccess,
 			loadingMessage,
 			usageOpen,
 			githubFollowMessage,
@@ -428,6 +453,9 @@ class ChatGPT extends Component {
 			chatPriceUsage,
 			conversations,
 		} = this.state;
+
+		const maxConversationsReached =
+			!unlimitedAccess && conversations.length >= 5;
 
 		return (
 			loaded &&
@@ -550,13 +578,17 @@ class ChatGPT extends Component {
 										}
 									)}
 								</div>
+								{maxConversationsReached && (
+									<span>Max free conversations reached!</span>
+								)}
 							</div>
 							<Button
 								iconElement={
 									<i className='fa-regular fa-message-plus' />
 								}
-								transparent
+								transparent={!maxConversationsReached}
 								label='Save Conversation'
+								disabledInvert={maxConversationsReached}
 								onClick={this.saveConversation.bind(this)}
 							/>
 						</div>
@@ -583,7 +615,7 @@ class ChatGPT extends Component {
 									</div>
 								</div>
 							)}
-							{imagePriceUsage >= maxImagePrice &&
+							{/* {imagePriceUsage >= maxImagePrice &&
 								imageQuotaMessage && (
 									<div className='history-message history-message-bot'>
 										<div className='history-message-content'>
@@ -593,7 +625,13 @@ class ChatGPT extends Component {
 													icon={faExclamationCircle}
 												/>
 												You have used up your image
-												generation quota.
+												generation quota. You can buy
+												unlimited access{' '}
+												<Link
+													to='/paymentRequest'
+													className='link'>
+													Here
+												</Link>
 											</span>
 											<FontAwesomeIcon
 												onClick={() => {
@@ -606,8 +644,8 @@ class ChatGPT extends Component {
 											/>
 										</div>
 									</div>
-								)}
-							{chatPriceUsage >= this.state.maxChatPrice &&
+								)} */}
+							{/* {chatPriceUsage >= this.state.maxChatPrice &&
 								chatQuotaMessage && (
 									<div className='history-message history-message-bot'>
 										<div className='history-message-content'>
@@ -617,7 +655,13 @@ class ChatGPT extends Component {
 													className='history-message-info-icon'
 												/>
 												You have used up your chat
-												generation quota.
+												generation quota. You can buy
+												unlimited access{' '}
+												<Link
+													to='/paymentRequest'
+													className='link'>
+													Here
+												</Link>
 											</span>
 											<FontAwesomeIcon
 												onClick={() => {
@@ -630,7 +674,39 @@ class ChatGPT extends Component {
 											/>
 										</div>
 									</div>
-								)}
+								)} */}
+
+							{/* {unlimitedAccessMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<FontAwesomeIcon
+												icon={faInfoCircle}
+												className='history-message-info-icon'
+											/>
+											<span>
+												Want unlimited access to
+												ChatGPT? Buy it{' '}
+												<Link
+													to='/paymentRequest'
+													className='link'>
+													Here
+												</Link>
+												!
+											</span>
+										</span>
+										<FontAwesomeIcon
+											icon={faMultiply}
+											className='history-message-close'
+											onClick={() => {
+												this.setState({
+													unlimitedAccessMessage: false,
+												});
+											}}
+										/>
+									</div>
+								</div>
+							)} */}
 							{githubFollowMessage && (
 								<div className='history-message history-message-bot'>
 									<div className='history-message-content'>
@@ -704,21 +780,36 @@ class ChatGPT extends Component {
 													</div>
 												</div>
 												<div className='history-message history-message-bot'>
-													<img
-														src={ChatGPTIcon}
-														className='message-icon'
-														alt='ChatGPT'
-													/>
-													<div className='message-content'>
-														<div className='message-time'>
-															{message[2]}
-														</div>
-														<div
-															className='chatgpt-completion'
-															dangerouslySetInnerHTML={{
-																__html: rendered,
-															}}
+													<div className='history-message-content'>
+														<img
+															src={ChatGPTIcon}
+															className='message-icon'
+															alt='ChatGPT'
 														/>
+														<div className='message-content'>
+															<div className='message-time'>
+																{message[2]}
+															</div>
+															<div
+																className='chatgpt-completion'
+																dangerouslySetInnerHTML={{
+																	__html: rendered,
+																}}
+															/>
+														</div>
+													</div>
+													<div className='history-message-bot-options'>
+														<div className='copy'>
+															<FontAwesomeIcon
+																icon={faCopy}
+																className='copy-icon'
+																onClick={() => {
+																	navigator.clipboard.writeText(
+																		message[1]
+																	);
+																}}
+															/>
+														</div>
 													</div>
 												</div>
 											</>
@@ -805,11 +896,12 @@ class ChatGPT extends Component {
 								<Button
 									label={`Enable Unblocked Mode`}
 									icon={faUnlock}
-									transparent
+									transparent={unlimitedAccess}
 									onClick={this.enableUnblockedMode.bind(
 										this
 									)}
 									big
+									disabled={!unlimitedAccess}
 								/>
 								<Input
 									label='Message'
@@ -838,13 +930,16 @@ class ChatGPT extends Component {
 									}}
 									label='Generate Image'
 								/>
-								<span
-									className={`open-usage-button ${
-										usageOpen && 'open-usage-button-open'
-									}`}
-									onClick={this.toggleUsage.bind(this)}>
-									{usageOpen ? 'Close' : 'Open'} Usage
-								</span>
+								{!unlimitedAccess && (
+									<span
+										className={`open-usage-button ${
+											usageOpen &&
+											'open-usage-button-open'
+										}`}
+										onClick={this.toggleUsage.bind(this)}>
+										{usageOpen ? 'Close' : 'Open'} Usage
+									</span>
+								)}
 							</div>
 							{usageOpen && (
 								<div className='usage-container'>
@@ -895,37 +990,46 @@ class ChatGPT extends Component {
 				</div>
 			) : (
 				<div className='chatgpt'>
-					<div className='history' ref={this.historyRef}>
-						<div className='history-message history-message-bot'>
-							<span>
-								Welcome to ChatGPT!{' '}
-								<Link to='/login' className='link'>
-									{' '}
-									Login
-								</Link>{' '}
-								or{' '}
-								<Link to='/signUp' className='link'>
-									Sign Up
-								</Link>{' '}
-								to TamGames to get started.
-							</span>
+					<div className='chatgpt-content'>
+						<div className='history' ref={this.historyRef}>
+							<div className='history-message history-message-bot'>
+								<span>
+									Welcome to ChatGPT!{' '}
+									<Link to='/login' className='link'>
+										{' '}
+										Login
+									</Link>{' '}
+									or{' '}
+									<Link to='/signUp' className='link'>
+										Sign Up
+									</Link>{' '}
+									to TamGames to get started.
+								</span>
+							</div>
+							<div className='history-message buttons-message'>
+								<Link to='/login'>
+									<Button icon={faUser} cta label='Login' />
+								</Link>
+								<Link to='/signUp'>
+									<Button icon={faUserPlus} label='Sign Up' />
+								</Link>
+							</div>
 						</div>
-						<div className='history-message buttons-message'>
-							<Link to='/login'>
-								<Button icon={faUser} cta label='Login' />
-							</Link>
-							<Link to='/signUp'>
-								<Button icon={faUserPlus} label='Sign Up' />
-							</Link>
+						<div className='chatgpt-controls'>
+							<div className='chatgpt-input'>
+								<Input
+									label='Message'
+									placeholder='Type a message...'
+									disabled
+								/>
+								<Button
+									icon={faPaperPlane}
+									big
+									disabled
+									label='Send'
+								/>
+							</div>
 						</div>
-					</div>
-					<div className='chatgpt-input'>
-						<Input
-							label='Message'
-							placeholder='Type a message...'
-							disabled
-						/>
-						<Button icon={faPaperPlane} big disabled label='Send' />
 					</div>
 				</div>
 			))

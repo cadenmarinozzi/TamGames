@@ -30,6 +30,41 @@ const usersRef = ref(database, 'users');
 const analytics = getAnalytics(app);
 const perf = getPerformance(app);
 
+async function setUserUnlimitedChatGPTAccess({ email }) {
+	const formattedEmail = formatFirebaseEmail(email);
+
+	const userRef = ref(database, `users/${formattedEmail}`);
+
+	await update(userRef, {
+		unlimitedChatGPTAccess: true,
+	});
+}
+
+async function getUserUnlimitedChatGPTAccess({ email }) {
+	const formattedEmail = formatFirebaseEmail(email);
+
+	const user = await get(ref(database, `users/${formattedEmail}`));
+
+	if (!user.exists()) {
+		return false;
+	}
+
+	const userData = user.val();
+
+	return userData.unlimitedChatGPTAccess;
+}
+
+async function requestChatGPTPaymentResponse({ sourceId }) {
+	const { data } = await axios.post(
+		'https://us-central1-tam-games.cloudfunctions.net/app/payment/chatGPT',
+		{
+			sourceId,
+		}
+	);
+
+	return data;
+}
+
 async function getSiteViews() {
 	const siteViews = await get(siteViewsRef);
 
@@ -423,4 +458,7 @@ export {
 	getChatPriceUsage,
 	gitHubOAuthURL,
 	getGitHubFollowing,
+	requestChatGPTPaymentResponse,
+	setUserUnlimitedChatGPTAccess,
+	getUserUnlimitedChatGPTAccess,
 };

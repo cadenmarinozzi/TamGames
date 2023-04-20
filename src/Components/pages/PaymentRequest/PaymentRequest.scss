@@ -1,0 +1,65 @@
+@use 'colors.scss' as *;
+@use 'vars.scss' as *;
+
+.payment-status {
+	display: flex;
+	flex-direction: column;
+
+	gap: 20px;
+
+	align-items: center;
+	justify-content: center;
+
+	height: calc(100vh - 140px);
+
+	.fail-status-icon {
+		color: $primary;
+	}
+
+	.success-status-icon {
+		color: $success;
+	}
+}
+
+.payment-request {
+	display: flex;
+	flex-direction: column;
+
+	align-items: center;
+	justify-content: center;
+
+	height: calc(100vh - 140px);
+
+	.payment-container {
+		display: flex;
+		flex-direction: column;
+
+		align-items: center;
+
+		gap: 20px;
+
+		border: 1px solid $medium;
+		background: $light-background;
+		border-radius: 10px;
+
+		padding: 20px;
+
+		.digital-payments-container {
+			display: flex;
+			flex-direction: column;
+
+			width: 100%;
+
+			gap: 10px;
+		}
+
+		.payment-methods {
+			display: flex;
+			flex-direction: column;
+
+			align-items: center;
+
+			gap: 20px;
+		}
+	}
+}

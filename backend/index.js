@@ -2,16 +2,41 @@ const functions = require('firebase-functions');
 const { promptChatGPT } = require('./web/chatGPT');
 const { generateDalleImage } = require('./web/dalle');
 const { getFollowers, getUserToken } = require('./web/gitHub');
+const { paymentRequestHandler } = require('./web/squarePay');
 const axios = require('axios');
 const cors = require('cors');
 const express = require('express');
+const JSONBig = require('json-bigint');
 
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: true, credentials: true }));
 
+app.post('/payment/chatGPT', async (req, res) => {
+	const { sourceId } = req.body;
+
+	if (!sourceId) {
+		res.status(400).send('Missing sourceId');
+
+		return;
+	}
+
+	const payment = await paymentRequestHandler(sourceId);
+
+	res.json(
+		JSON.parse(
+			JSON.stringify(
+				payment,
+				(key, value) =>
+					typeof value === 'bigint' ? value.toString() : value // return everything else unchanged
+			)
+		)
+	);
+});
+
 app.post('/chatgpt', async (req, res) => {
 	const { history, message } = req.body;
+
 	if (!history || !message) {
 		res.status(400).send('Missing history or message');
 		return;

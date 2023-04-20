@@ -92,12 +92,16 @@ class App extends Component {
 		}
 
 		if (accessToken) {
-			const githubFollowing = await getGitHubFollowing();
+			const email = getCookie('email');
 
-			if (githubFollowing) {
-				await setGitHubFollowing({
-					email: getCookie('email'),
-				});
+			if (email) {
+				const githubFollowing = await getGitHubFollowing();
+
+				if (githubFollowing) {
+					await setGitHubFollowing({
+						email,
+					});
+				}
 			}
 		}
 

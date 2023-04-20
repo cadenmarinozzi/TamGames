@@ -42,7 +42,7 @@ import { scrollToComponent } from 'modules/utils';
 import './Home.scss';
 
 const changelog = {
-	log: 'Changed ChatGPT version to GPT-4!',
+	log: 'Lots of fixes!',
 	newestGame: 'Yohoho',
 };
 
