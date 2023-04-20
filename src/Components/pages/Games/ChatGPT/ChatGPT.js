@@ -606,6 +606,8 @@ class ChatGPT extends Component {
 											Welcome to ChatGPT! Type a message
 											to get started. (Version GPT-4!)
 										</span>
+									</div>
+									<div>
 										<FontAwesomeIcon
 											icon={faMultiply}
 											onClick={() => {
@@ -636,6 +638,8 @@ class ChatGPT extends Component {
 													Here
 												</Link>
 											</span>
+											</div>
+											<div>
 											<FontAwesomeIcon
 												onClick={() => {
 													this.setState({
@@ -666,6 +670,8 @@ class ChatGPT extends Component {
 													Here
 												</Link>
 											</span>
+											</div>
+											<div>
 											<FontAwesomeIcon
 												onClick={() => {
 													this.setState({
@@ -698,6 +704,8 @@ class ChatGPT extends Component {
 												!
 											</span>
 										</span>
+										</div>
+										<div>
 										<FontAwesomeIcon
 											icon={faMultiply}
 											className='history-message-close'
@@ -729,6 +737,8 @@ class ChatGPT extends Component {
 												!
 											</span>
 										</span>
+									</div>
+									<div>
 										<FontAwesomeIcon
 											icon={faMultiply}
 											className='history-message-close'
