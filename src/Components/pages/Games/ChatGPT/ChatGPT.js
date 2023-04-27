@@ -66,8 +66,8 @@ class ChatGPT extends Component {
 			imageQuotaMessage: false,
 			unlimitedAccessMessage: true,
 			githubFollowMessage: true,
-			maxImagePrice: 0.2,
-			maxChatPrice: 0.2,
+			maxImagePrice: 0.05,
+			maxChatPrice: 0.05,
 			conversationsOpen: false,
 			conversations: [
 				{
