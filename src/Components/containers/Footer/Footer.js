@@ -47,7 +47,7 @@ class Footer extends Component {
 					Privacy Policy
 				</Link>
 				<span className='footer-text'>
-					@2023 Caden Marinozzi, TamGames
+					©TamGames 2023, Caden Marinozzi
 				</span>
 				<div className='footer-links'>
 					<FontAwesomeIcon

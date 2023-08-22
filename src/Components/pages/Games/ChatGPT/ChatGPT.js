@@ -598,7 +598,7 @@ class ChatGPT extends Component {
 					)}
 					<div className='chatgpt-content'>
 						<div className='history' ref={this.historyRef}>
-							{history.length === 0 && welcomeMessage && (
+							{/* {history.length === 0 && welcomeMessage && (
 								<div className='history-message history-message-bot'>
 									<div className='history-message-content'>
 										<span className='history-message-info'>
@@ -617,6 +617,48 @@ class ChatGPT extends Component {
 											}}
 											className='history-message-close'
 										/>
+									</div>
+								</div>
+							)}
+							 */}
+							{history.length === 0 && welcomeMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<FontAwesomeIcon
+												icon={faExclamationCircle}
+												className='history-message-danger-icon'
+											/>
+											<b>
+												ChatGPT has been disabled for
+												the time being due to a lack of
+												funding. :{'('}
+											</b>
+											Please check back later.
+										</span>
+									</div>
+								</div>
+							)}
+							{history.length === 0 && welcomeMessage && (
+								<div className='history-message history-message-bot'>
+									<div className='history-message-content'>
+										<span className='history-message-info'>
+											<FontAwesomeIcon
+												icon={faExclamationCircle}
+												className='history-message-danger-icon'
+											/>
+											<b>
+												If you would like to use
+												ChatGPT, check out my other
+												ChatGPT project,{' '}
+												<a
+													className='a-link'
+													href='https://thoughtlink.ai'>
+													here
+												</a>
+												.
+											</b>
+										</span>
 									</div>
 								</div>
 							)}
@@ -718,7 +760,7 @@ class ChatGPT extends Component {
 									</div>
 								</div>
 							)} */}
-							{githubFollowMessage && (
+							{/* {githubFollowMessage && (
 								<div className='history-message history-message-bot'>
 									<div className='history-message-content'>
 										<span className='history-message-info'>
@@ -750,7 +792,7 @@ class ChatGPT extends Component {
 										/>
 									</div>
 								</div>
-							)}
+							)} */}
 							{history.map((message, index) => {
 								const md = MarkdownIt({
 									linkify: true,
@@ -923,20 +965,23 @@ class ChatGPT extends Component {
 									onChange={(message = '') =>
 										this.setState({ message })
 									}
+									disabled
 								/>
 								<Button
 									icon={faPaperPlane}
 									big
-									cta
+									// cta
 									onClick={() => {
 										this.promptChatGPT();
 										this.setState({ message: '' });
 									}}
 									label='Send'
+									disabled
 								/>
 								<Button
 									icon={faImage}
 									big
+									disabled
 									onClick={() => {
 										this.generateDalleImage();
 										this.setState({ message: '' });

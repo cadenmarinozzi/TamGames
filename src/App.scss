@@ -1,6 +1,27 @@
 @use 'colors.scss' as *;
 @use 'vars.scss' as *;
 
+.takedown {
+	position: fixed;
+
+	top: 50%;
+	left: 50%;
+
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+
+	gap: 20px;
+
+	.qa {
+		display: flex;
+		flex-direction: column;
+
+		gap: 20px;
+	}
+}
+
 .cloak-screen {
 	position: absolute;
 

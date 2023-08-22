@@ -1,5 +1,11 @@
 import Navbar from './Components/containers/Navbar';
-import { BrowserRouter, HashRouter, Route, Routes } from 'react-router-dom';
+import {
+	BrowserRouter,
+	HashRouter,
+	Link,
+	Route,
+	Routes,
+} from 'react-router-dom';
 import Home from 'Components/pages/Home';
 import ClusterRush from 'Components/pages/Games/ClusterRush';
 import MotoX3M from 'Components/pages/Games/MotoX3M';
@@ -51,6 +57,8 @@ import GitHubAuth from 'Components/pages/Games/GitHubAuth/GitHubAuth';
 import './App.scss';
 import Yohoho from 'Components/pages/Yohoho';
 import PaymentRequest from 'Components/pages/PaymentRequest';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class App extends Component {
 	constructor() {
@@ -136,6 +144,73 @@ class App extends Component {
 		addSiteView();
 
 		return (
+			// <>
+			// 	<HashRouter>
+			// 		<Routes>
+			// 			<Route
+			// 				path='*'
+			// 				element={
+			// 					<div className='takedown'>
+			// 						<h1>
+			// 							TamGames has been temporarily taken down
+			// 							as the cost to keep it up is too high.{' '}
+			// 						</h1>
+			// 						<div className='qa'>
+			// 							<li>
+			// 								Q: Is this permanent? A: No. But,
+			// 								until I can find a cheaper way to
+			// 								host TamGames, it will be
+			// 								unavailable
+			// 							</li>
+			// 							<li>
+			// 								Q: What can I do to help? A: Nothing
+			// 								besides wait until I find a cheaper
+			// 								way to host TamGames.
+			// 							</li>
+			// 						</div>
+			// 					</div>
+			// 				}
+			// 			/>
+			// 			<Route
+			// 				path='/privacyPolicy'
+			// 				element={<PrivacyPolicy />}
+			// 			/>
+			// 			<Route
+			// 				path='/termsOfService'
+			// 				element={<TermsAndConditions />}
+			// 			/>
+			// 		</Routes>
+			// 		<div className='footer'>
+			// 			<span className='footer-text'>
+			// 				Brought to you by Caden Marinozzi
+			// 			</span>
+			// 			<Link
+			// 				to='termsOfService'
+			// 				className='footer-text footer-button'>
+			// 				Terms of Service
+			// 			</Link>
+			// 			<Link
+			// 				to='privacyPolicy'
+			// 				className='footer-text footer-button'>
+			// 				Privacy Policy
+			// 			</Link>
+			// 			<span className='footer-text'>
+			// 				@2023 Caden Marinozzi, TamGames
+			// 			</span>
+			// 			<div className='footer-links'>
+			// 				<FontAwesomeIcon
+			// 					className='footer-button'
+			// 					icon={faGithub}
+			// 					onClick={() => {
+			// 						window.location.replace(
+			// 							'https://github.com/nekumelon/TamGames'
+			// 						);
+			// 					}}
+			// 				/>
+			// 			</div>
+			// 		</div>
+			// 	</HashRouter>
+			// </>
 			<>
 				{cloaking && (
 					<>

@@ -9,6 +9,13 @@
 
 	gap: 20px;
 
+	.a-link {
+		color: $primary;
+		text-decoration: none;
+
+		cursor: pointer;
+	}
+
 	.open-converstaions-button {
 		padding-inline: 10px;
 		cursor: pointer;
@@ -252,6 +259,10 @@
 
 					.history-message-info-icon {
 						color: $medium;
+					}
+
+					.history-message-danger-icon {
+						color: $primary;
 					}
 
 					.history-message-info {
