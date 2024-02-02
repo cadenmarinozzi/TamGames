@@ -6,7 +6,7 @@ function Minecraft() {
 		<Game
 			title='Minecraft'
 			// url='https://tamgames.net/Games/Minecraft/index.html'
-			url='https://github.com/nekumelon/TamGames/tree/master/Games/Minecraft'
+			url='https://cdn.jsdelivr.net/gh/nekumelon/TamGames/Games/Minecraft/index.html'
 		/>
 	);
 }
