@@ -1,9 +1,9 @@
 {
 	"companyName": "tamgames",
 	"productName": "ScrapMetal 3",
-	"dataUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.data.unityweb",
-	"wasmCodeUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.wasm.code.unityweb",
-	"wasmFrameworkUrl": "https://github.com/nekumelon/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.wasm.framework.unityweb",
+	"dataUrl": "https://github.com/cadenmarinozzi/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.data.unityweb",
+	"wasmCodeUrl": "https://github.com/cadenmarinozzi/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.wasm.code.unityweb",
+	"wasmFrameworkUrl": "https://github.com/cadenmarinozzi/TamGames/raw/main/public/Games/ScrapMetal/ScrapMetal3.wasm.framework.unityweb",
 	"TOTAL_MEMORY": 486539264,
 	"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
 	"webglContextAttributes": { "preserveDrawingBuffer": false },
