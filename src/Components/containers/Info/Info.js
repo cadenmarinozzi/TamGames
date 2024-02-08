@@ -33,7 +33,7 @@ class Info extends Component {
 							<span
 								onClick={() => {
 									window.location.replace(
-										'https://github.com/nekumelon'
+										'https://github.com/cadenmarinozzi'
 									);
 								}}>
 								{' '}
