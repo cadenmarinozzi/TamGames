@@ -13,7 +13,7 @@ function GitHubAuth() {
 						<Link
 							className='link'
 							onClick={() =>
-								window.open('https://github.com/nekumelon')
+								window.open('https://github.com/cadenmarinozzi')
 							}>
 							GitHub
 						</Link>
