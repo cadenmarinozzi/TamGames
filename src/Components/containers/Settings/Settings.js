@@ -36,7 +36,7 @@ class Settings extends Component {
 		}
 
 		document.querySelector('link[rel=icon]').href =
-			'https://github.com/nekumelon/TamGames/blob/main/src/assets/images/logoSmall.png?raw=true';
+			'https://github.com/cadenmarinozzi/TamGames/blob/main/src/assets/images/logoSmall.png?raw=true';
 	}
 
 	toggleTabCloaker() {
