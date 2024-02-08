@@ -55,7 +55,7 @@ class Footer extends Component {
 						icon={faGithub}
 						onClick={() => {
 							window.location.replace(
-								'https://github.com/nekumelon/TamGames'
+								'https://github.com/cadenmarinozzi/TamGames'
 							);
 						}}
 					/>
